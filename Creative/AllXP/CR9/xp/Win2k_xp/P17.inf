@@ -1,0 +1,398 @@
+; P17 INF file
+;
+;
+; Language : English (WINXP, WIN2K and 64bit)
+;
+;
+; Copyright 1995-2007, Creative Technology Ltd.
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%CREAF%
+CatalogFile.NTX86=p17.cat
+CatalogFile.NTAMD64=p1764.cat
+DriverVer=03/03/2008,5.12.01.621
+
+[Manufacturer]
+%MfgName%=CREATIVE, NTAMD64
+
+;; Mechanism for excluding drivers from the "Add New Hardware" list.
+[ControlFlags]
+ExcludeFromSelect = pci\ven_1102&dev_0007
+
+;; *EXCLUDE is a made up ID to prevent rank 1 drivers from showing in list.
+ExcludeFromSelect = *
+
+[CREATIVE]
+;; Mezzo
+%CTAudio_Device1.Dev.ntx86%=CTAudio_Device1,PCI\VEN_1102&DEV_0007&SUBSYS_10121102
+%CTAudio_Device1.Dev.ntx86%=CTAudio_Device1,PCI\VEN_1102&DEV_0007&SUBSYS_10131102
+
+[CREATIVE.NTAMD64]
+;; Mezzo
+%CTAudio_Device1.Dev.amd64%=CTAudio_Device1,PCI\VEN_1102&DEV_0007&SUBSYS_10121102
+%CTAudio_Device1.Dev.amd64%=CTAudio_Device1,PCI\VEN_1102&DEV_0007&SUBSYS_10131102
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;   Device Install Section   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;**************** NT Install ****************
+[CTAudio_Device1.NTX86.CoInstallers]
+CopyFiles=CoInst.CopyList.ntx86
+AddReg=CoInst.AddReg.ntx86
+
+[CTAudio_Device1.NTAMD64.CoInstallers]
+CopyFiles=CoInst.CopyList.amd64
+AddReg=CoInst.AddReg.amd64
+
+[CTAudio_Device1.NTX86]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=CoInst.CopyList.ntx86,P17RES.CopyList.ntx86,P17DLL.CopyList.ntx86,SysFiles.CopyList.ntx86,FilterSys.CopyList.ntx86,A3d.CopyList.ntx86,CPI.CopyList.ntx86
+AddReg=CoInst.AddReg.ntx86,Resource.AddReg.ntx86,SB41x.AddReg.ntx86,CTAudio_Device1.AddReg.ntx86,Filter.AddReg.ntx86,A3d.AddReg.ntx86
+
+[CTAudio_Device1.NTAMD64]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=CoInst.CopyList.amd64,P17RES.CopyList.amd64,P17DLL.CopyList.amd64,SysFiles.CopyList.amd64,FilterSys.CopyList.amd64,A3d.CopyList.amd64,CPI.CopyList.amd64
+AddReg=CoInst.AddReg.amd64,Resource.AddReg.amd64,SB41x.AddReg.amd64,CTAudio_Device1.AddReg.amd64,Filter.AddReg.amd64,A3d.AddReg.amd64
+
+[CTAudio_Device1.NTX86.HW]
+AddReg=FilterHW.AddReg.ntx86
+
+[CTAudio_Device1.NTAMD64.HW]
+AddReg=FilterHW.AddReg.amd64
+
+[CTAudio_Device1.NTX86.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave.ntx86%,       	WDM_Audio1.Wav.ntx86
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave.ntx86%,      	WDM_Audio1.Wav.ntx86
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave.ntx86%,     	WDM_Audio1.Wav.ntx86
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology.ntx86%,   	WDM_Audio1.Top.ntx86
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology.ntx86%,	WDM_Audio1.Top.ntx86
+
+[CTAudio_Device1.NTAMD64.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave.amd64%,       	WDM_Audio1.Wav.amd64
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave.amd64%,      	WDM_Audio1.Wav.amd64
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave.amd64%,     	WDM_Audio1.Wav.amd64
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology.amd64%,   	WDM_Audio1.Top.amd64
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology.amd64%,	WDM_Audio1.Top.amd64
+
+[WDM_Audio1.Wav.ntx86]
+AddReg=WDM_Audio1.Wav.AddReg.ntx86
+;; warning!! max 31 characters for section name
+[WDM_Audio1.Wav.AddReg.ntx86]
+HKR,,FriendlyName,,%WDM_Audio1.Wav.name.ntx86%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[WDM_Audio1.Wav.amd64]
+AddReg=WDM_Audio1.Wav.AddReg.amd64
+;; warning!! max 31 characters for section name
+[WDM_Audio1.Wav.AddReg.amd64]
+HKR,,FriendlyName,,%WDM_Audio1.Wav.name.amd64%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[WDM_Audio1.Top.ntx86]
+AddReg=WDM_Audio1.Top.AddReg.ntx86
+;; warning!! max 31 characters for section name
+[WDM_Audio1.Top.AddReg.ntx86]
+HKR,,FriendlyName,,%WDM_Audio1.Top.name.ntx86%
+
+[WDM_Audio1.Top.amd64]
+AddReg=WDM_Audio1.Top.AddReg.amd64
+;; warning!! max 31 characters for section name
+[WDM_Audio1.Top.AddReg.amd64]
+HKR,,FriendlyName,,%WDM_Audio1.Top.name.amd64%
+
+[CTAudio_Device1.NTX86.Services]
+AddService = P17xfi, 0x00000002, CTAud_Dev1_Ser_Inst.ntx86
+AddService = p17xfilt, 0x00000000, Filter_Service_Inst.ntx86
+
+[CTAudio_Device1.NTAMD64.Services]
+AddService = P17xfi, 0x00000002, CTAud_Dev1_Ser_Inst.amd64
+AddService = p17xfilt, 0x00000000, Filter_Service_Inst.amd64
+
+[CTAud_Dev1_Ser_Inst.ntx86]
+DisplayName    = %CTAudio_Device1.Dev.ntx86%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\P17xfi.sys
+
+[CTAud_Dev1_Ser_Inst.amd64]
+DisplayName    = %CTAudio_Device1.Dev.amd64%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\P17xfi.sys
+
+[Filter_Service_Inst.ntx86]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\p17xfilt.sys
+
+[Filter_Service_Inst.amd64]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\p17xfilt.sys
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;   Device Specific Section   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[CTAudio_Device1.AddReg.ntx86]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,P17xfi.sys
+HKR,,NTMPDriver,,"P17xfi.sys,sbemul.sys"
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv, Description,,%CTAudio_Device1.Dev.ntx86%
+HKR,Drivers\midi\wdmaud.drv, Description,,%CTAudio_Device1.Dev.ntx86%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%CTAudio_Device1.Dev.ntx86%
+HKR,,SetupPreferredAudioDevices,3,01,00,00,00
+;; Copy friendly names to a location the driver knows
+HKLM,%InfoWdm_Audio_01.ntx86%,%WaveOutDevName.ntx86%,,    %WDM_Audio1.Wav.name.ntx86%
+HKLM,%InfoWdm_Audio_01.ntx86%,%WaveInDevName.ntx86%,,     %WDM_Audio1.Wav.name.ntx86%
+HKLM,%InfoWdm_Audio_01.ntx86%,%MixerDevName.ntx86%,,      %WDM_Audio1.Top.name.ntx86%
+HKLM,%InfoWdm_Audio_01.ntx86%,%MIDIWTSynthDevName.ntx86%,,%WDM_Audio.SF.name.ntx86%
+HKLM,%InfoWdm_Audio_02.ntx86%,%WaveOutDevName.ntx86%,,    %WDM_Audio1.Wav.name.ntx86%
+HKLM,%InfoWdm_Audio_02.ntx86%,%WaveInDevName.ntx86%,,     %WDM_Audio1.Wav.name.ntx86%
+HKLM,%InfoWdm_Audio_02.ntx86%,%MixerDevName.ntx86%,,      %WDM_Audio1.Top.name.ntx86%
+HKLM,%InfoWdm_Audio_02.ntx86%,%MIDIWTSynthDevName.ntx86%,,%WDM_Audio.SF.name.ntx86%
+;; Other Patches
+HKLM,%RegCreaf.ntx86%,"DEFAULTMIDI",,%WDM_Audio.SF.name.ntx86%
+
+[CTAudio_Device1.AddReg.amd64]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,P17xfi.sys
+HKR,,NTMPDriver,,"P17xfi.sys,sbemul.sys"
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv, Description,,%CTAudio_Device1.Dev.amd64%
+HKR,Drivers\midi\wdmaud.drv, Description,,%CTAudio_Device1.Dev.amd64%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%CTAudio_Device1.Dev.amd64%
+HKR,,SetupPreferredAudioDevices,3,01,00,00,00
+;; Copy friendly names to a location the driver knows
+HKLM,%InfoWdm_Audio_01.amd64%,%WaveOutDevName.amd64%,,    %WDM_Audio1.Wav.name.amd64%
+HKLM,%InfoWdm_Audio_01.amd64%,%WaveInDevName.amd64%,,     %WDM_Audio1.Wav.name.amd64%
+HKLM,%InfoWdm_Audio_01.amd64%,%MixerDevName.amd64%,,      %WDM_Audio1.Top.name.amd64%
+HKLM,%InfoWdm_Audio_01.amd64%,%MIDIWTSynthDevName.amd64%,,%WDM_Audio.SF.name.amd64%
+HKLM,%InfoWdm_Audio_02.amd64%,%WaveOutDevName.amd64%,,    %WDM_Audio1.Wav.name.amd64%
+HKLM,%InfoWdm_Audio_02.amd64%,%WaveInDevName.amd64%,,     %WDM_Audio1.Wav.name.amd64%
+HKLM,%InfoWdm_Audio_02.amd64%,%MixerDevName.amd64%,,      %WDM_Audio1.Top.name.amd64%
+HKLM,%InfoWdm_Audio_02.amd64%,%MIDIWTSynthDevName.amd64%,,%WDM_Audio.SF.name.amd64%
+;; Other Patches
+HKLM,%RegCreaf.amd64%,"DEFAULTMIDI",,%WDM_Audio.SF.name.amd64%
+
+[Filter.AddReg.ntx86]
+HKR,,NTMPDriver,,"P17xfi.sys,sbemul.sys,p17xfilt.sys"
+HKR,Sensaura\Configuration,RenderFactory,0,%KSNAME_Wave.ntx86%
+HKR,Sensaura\Configuration,TopologyFactory,0,%KSNAME_Topology.ntx86%
+HKR,Sensaura\Configuration,IgnoreDSSpeakerConfiguration, 1, 00, 00, 00, 00
+HKR,Sensaura\Configuration,ForwardSpeakerConfiguration, 1, 01, 00, 00, 00
+HKR,Sensaura\Configuration,DynamicMix, 1, 00, 00, 00, 00
+HKR,Sensaura\Configuration,CrystalizerCap,0x00010001,100
+HKR,Config,SRC Enhancement, 1, 00, 00, 00, 00
+
+[Filter.AddReg.amd64]
+HKR,,NTMPDriver,,"P17xfi.sys,sbemul.sys,p17xfilt.sys"
+HKR,Sensaura\Configuration,RenderFactory,0,%KSNAME_Wave.amd64%
+HKR,Sensaura\Configuration,TopologyFactory,0,%KSNAME_Topology.amd64%
+HKR,Sensaura\Configuration,IgnoreDSSpeakerConfiguration, 1, 00, 00, 00, 00
+HKR,Sensaura\Configuration,ForwardSpeakerConfiguration, 1, 01, 00, 00, 00
+HKR,Sensaura\Configuration,DynamicMix, 1, 00, 00, 00, 00
+HKR,Sensaura\Configuration,CrystalizerCap,0x00010001,100
+HKR,Config,SRC Enhancement, 1, 00, 00, 00, 00
+
+[FilterHW.AddReg.ntx86]
+HKR,,"UpperFilters",0x00010000,"p17xfilt"
+
+[FilterHW.AddReg.amd64]
+HKR,,"UpperFilters",0x00010000,"p17xfilt"
+
+[Resource.AddReg.ntx86]
+HKR,"Product","Resource",,"\DosDevices\%11%\P17Res.Dll"
+HKR,"Config","Refresh",1,1,0,0,0
+
+[Resource.AddReg.amd64]
+HKR,"Product","Resource",,"\DosDevices\%11%\P17Res.Dll"
+HKR,"Config","Refresh",1,1,0,0,0
+
+[SB41x.AddReg.ntx86]
+HKR,"Config","PTimeout",0x00010001,500
+HKR,"Config","RTimeout",0x00010001,100
+
+[SB41x.AddReg.amd64]
+HKR,"Config","PTimeout",0x00010001,500
+HKR,"Config","RTimeout",0x00010001,100
+
+[A3D.AddReg.ntx86]
+HKCR,A3D,,,"A3d Object"
+HKCR,A3D\CLSID,,,"{D8F1EEE0-F634-11CF-8700-00A0245D918B}"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B},,,"A3D Object"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B}\InprocServer32,,,"A3D.DLL"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B}\InprocServer32,"ThreadingModel", ,"Apartment"
+
+[A3D.AddReg.amd64]
+HKCR,A3D,,,"A3d Object"
+HKCR,A3D\CLSID,,,"{D8F1EEE0-F634-11CF-8700-00A0245D918B}"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B},,,"A3D Object"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B}\InprocServer32,,,"A3D.DLL"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B}\InprocServer32,"ThreadingModel", ,"Apartment"
+
+[CoInst.AddReg.ntx86]
+HKR,,CoInstallers32,0x00010000,"CtDvIns1.dll,CtDevCoInstProc"
+HKR,,OriginalSourcePath,,%01%
+
+[CoInst.AddReg.amd64]
+HKR,,CoInstallers32,0x00010000,"CtDvIns1.dll,CtDevCoInstProc"
+HKR,,OriginalSourcePath,,%01%
+
+[SysFiles.CopyList.ntx86]
+P17xfi.sys
+Pfmodnt.sys
+
+[SysFiles.CopyList.amd64]
+P17xfi.sys
+Pfmodnt.sys
+
+[FilterSys.CopyList.ntx86]
+p17xfilt.sys
+
+[FilterSys.CopyList.amd64]
+p17xfilt.sys
+
+[P17RES.CopyList.ntx86]
+P17res.dll
+
+[P17RES.CopyList.amd64]
+P17res.dll
+
+[P17DLL.CopyList.ntx86]
+OemSpi.dll
+SPIRun.dll
+
+[P17DLL.CopyList.amd64]
+OemSpi.dll
+SPIRun.dll
+
+[A3d.CopyList.ntx86]
+A3d.dll
+
+[A3d.CopyList.amd64]
+A3d.dll
+
+[CPI.CopyList.ntx86]
+P17CPI.dll
+
+[CPI.CopyList.amd64]
+P17CPI.dll
+
+[CoInst.CopyList.ntx86]
+CtDvIns1.dll
+
+[CoInst.CopyList.amd64]
+CtDvIns1.dll
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;   Common Section   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+[DestinationDirs]
+DefaultDestDir		= 10,system32\drivers
+SysFiles.CopyList.ntx86	= 10,system32\drivers		; %SystemRoot%\system32\drivers
+SysFiles.CopyList.amd64	= 10,system32\drivers		; %SystemRoot%\system32\drivers
+FilterSys.CopyList.ntx86= 10,system32\drivers		; %SystemRoot%\system32\drivers
+FilterSys.CopyList.amd64= 10,system32\drivers		; %SystemRoot%\system32\drivers
+P17RES.CopyList.ntx86	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+P17RES.CopyList.amd64	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+P17DLL.CopyList.ntx86	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+P17DLL.CopyList.amd64	= 10,SysWOW64			; %SystemRoot%\SysWOW64
+A3d.CopyList.ntx86	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+A3d.CopyList.amd64	= 10,SysWOW64			; %SystemRoot%\SysWOW64
+CPI.CopyList.ntx86	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+CPI.CopyList.amd64	= 10,SysWOW64			; %SystemRoot%\SysWOW64
+CoInst.CopyList.ntx86	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+CoInst.CopyList.amd64	= 11				; %SystemRoot%\SysWOW64
+
+[SourceDisksNames]
+101 = %DriverDisk%,,
+
+[SourceDisksFiles]
+P17xfi.sys      = 101,I386
+Pfmodnt.sys  = 101,I386
+CtDvIns1.dll  = 101,I386
+A3d.dll      = 101
+OemSpi.dll  = 101
+SPIRun.dll   = 101
+P17CPI.dll   = 101
+P17res.dll   = 101
+P17xfilt.sys  = 101,I386
+
+[SourceDisksFiles.amd64]
+P17xfi.sys      = 101,AMD64
+Pfmodnt.sys   = 101,AMD64
+CtDvIns1.dll  = 101,AMD64
+A3d.dll      = 101
+OemSpi.dll  = 101
+SPIRun.dll   = 101
+P17CPI.dll   = 101
+P17res.dll   = 101
+P17xfilt.sys  = 101,AMD64
+
+[Strings]
+CREAF			    ="CREATIVE"
+MfgName                     ="Creative Technology Ltd."
+DriverDisk                  ="Creative Installer CD-ROM"
+
+
+CTAudio_Device1.Dev.ntx86   ="Sound Blaster X-Fi Xtreme Audio"
+CTAudio_Device1.Dev.amd64   ="Sound Blaster X-Fi Xtreme Audio"
+
+WDM_Audio.SF.name.ntx86     ="Creative SoundFont Synthesizer"
+WDM_Audio.SF.name.amd64     ="Creative SoundFont Synthesizer"
+
+WDM_Audio1.Wav.name.ntx86   ="Sound Blaster X-Fi Xtreme Audio"
+WDM_Audio1.Wav.name.amd64   ="Sound Blaster X-Fi Xtreme Audio"
+WDM_Audio1.Top.name.ntx86   ="Sound Blaster X-Fi Xtreme Audio"
+WDM_Audio1.Top.name.amd64   ="Sound Blaster X-Fi Xtreme Audio"
+
+InfoWdm_Audio_01.ntx86       ="SOFTWARE\Creative Tech\Device\VEN_1102&DEV_0007&SUBSYS_10121102"
+InfoWdm_Audio_01.amd64       ="SOFTWARE\Wow6432Node\Creative Tech\Device\VEN_1102&DEV_0007&SUBSYS_10121102"
+InfoWdm_Audio_02.ntx86       ="SOFTWARE\Creative Tech\Device\VEN_1102&DEV_0007&SUBSYS_10131102"
+InfoWdm_Audio_02.amd64       ="SOFTWARE\Wow6432Node\Creative Tech\Device\VEN_1102&DEV_0007&SUBSYS_10131102"
+
+RegCreaf.ntx86               ="SOFTWARE\Creative Tech"
+RegCreaf.amd64               ="SOFTWARE\Wow6432Node\Creative Tech"
+StrCTKey.ntx86               ="SYSTEM\CurrentControlSet\Control\Creative Tech"
+StrCTKey.amd64		     ="SYSTEM\CurrentControlSet\Control\Creative Tech"
+
+WaveOutDevName.ntx86         ="WaveOutName"
+WaveOutDevName.amd64         ="WaveOutName"
+WaveInDevName.ntx86          ="WaveInName"
+WaveInDevName.amd64          ="WaveInName"
+MixerDevName.ntx86           ="MixerName"
+MixerDevName.amd64           ="MixerName"
+MIDIWTSynthDevName.ntx86     ="MIDISynthName"
+MIDIWTSynthDevName.amd64     ="MIDISynthName"
+KSNAME_Wave.ntx86            ="Wave"
+KSNAME_Wave.amd64            ="Wave"
+KSNAME_Topology.ntx86        ="Topology"
+KSNAME_Topology.amd64        ="Topology"
+KSNAME_SFSynth.ntx86         ="CTSynth"
+KSNAME_SFSynth.amd64         ="CTSynth"
+
+Proxy.CLSID               ="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO          ="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER         ="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE        ="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_TOPOLOGY       ="{DDA54A40-1E4C-11D1-A050-405705C10000}"
+KSCATEGORY_SYNTHESIZER    ="{DFF220F3-F70F-11D0-B917-00A0C9223196}"
+SFM_BINARY_CLSID	  ="{945DD118-E139-41c4-A916-FA65053774C2}"

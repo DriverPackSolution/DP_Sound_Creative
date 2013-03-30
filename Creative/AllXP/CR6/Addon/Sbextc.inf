@@ -1,0 +1,75 @@
+; Creative KS1000 Composite Device INF file
+;
+; Feature  : Composite Device INF (WDM)
+; Language : English
+;
+; Date     : 19 NOV 2001
+; Revision : 1.00.002
+;
+; Copyright 2001, Creative Technology Ltd.
+
+[Version]
+Signature="$CHICAGO$"
+CatalogFile=usb.cat
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+provider=%MfgName%
+DriverVer =11/19/2001
+
+; =================== Class Sections ===========================
+
+[ClassInstall]
+Addreg=USBClassReg
+
+[USBClassReg]
+HKR,,,,%USBClassName%
+HKR,,Icon,,-20
+
+;=================================================================
+
+[Manufacturer]
+%MfgName%=CREATIVE
+
+[ControlFlags]
+;;ExcludeFromSelect = *
+
+[DestinationDirs]
+DefaultDestDir=10,system32\drivers
+
+[CREATIVE]
+%USB\VID_041E&PID_3000.DeviceDesc%=KS1000_Composite, USB\VID_041E&PID_3000
+
+[KS1000_Composite]
+AddReg=KS1000_Composite.AddReg
+DelReg=KS1000_Composite.DelReg
+
+[KS1000_Composite.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,usbhub.sys
+
+[KS1000_Composite.DelReg]
+HKR,,EnumPropPages
+
+;;**************** NT Install ****************
+
+[KS1000_Composite.NT.Services]
+AddService = usbhub, 0x00000002, KS1000_Composite_Service_Inst
+
+[KS1000_Composite_Service_Inst]
+DisplayName    = %KS1000.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 2                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\usbhub.sys
+LoadOrderGroup = Base
+
+
+;;***************** Strings ********************************
+[Strings]
+MfgName                   ="Creative Technology Ltd."
+USBClassName              ="Universal Serial Bus controllers"
+USB\VID_041E&PID_3000.DeviceDesc = "Creative SB Extigy USB Composite Device"
+
+KS1000.SvcDesc            = "Creative SB Extigy USB Composite Device"
+

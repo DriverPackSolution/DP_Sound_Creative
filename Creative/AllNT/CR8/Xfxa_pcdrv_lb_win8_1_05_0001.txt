@@ -1,0 +1,25 @@
+
+XFXA_PCDRV_LB_WIN8_1_05_0001
+
+Ğàçìåğ ôàéëà : 85,99 MB
+
+Äàòà âûïóñêà : 2 íîÿ 12
+
+Èìÿ ôàéëà : XFXA_PCDRV_LB_WIN8_1_05_0001.exe
+
+This suite of driver and application has been updated and combined for your convenience. It installs Creative® Audio Console to control your audio device's settings. For more details, read the rest of this web release note. 
+
+This download contains the following driver and application: 
+PCI Express® Sound Blaster® X-Fi™ Xtreme Audio device driver 
+Creative Audio Console 
+
+Requirements:
+Microsoft® Windows® 8 64-bit or 32-bit, Windows 7 64-bit or 32-bit, Windows Vista® 64-bit with Service Pack 1 (SP1), Windows Vista 32-bit with SP1, Windows XP Professional x64 Edition, Windows XP Service Pack 2, Windows Media Center Edition (MCE) 2005 or Windows XP MCE 2004
+
+Notes: 
+DO NOT install this pack for other Sound Blaster audio devices. 
+To install this pack  
+Download the file onto your local hard disk. 
+Double-click the downloaded file. 
+Follow the instructions on the screen. 
+

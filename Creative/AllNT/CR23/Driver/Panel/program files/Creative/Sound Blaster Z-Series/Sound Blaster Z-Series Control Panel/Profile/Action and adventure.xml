@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+  <info>
+    <avatar>9e91e49f2a8b46a68b1e3b1509740369.jpg</avatar>
+    <profile_name>Action and Adventure</profile_name>
+    <profile_id>4</profile_id>
+    <version>1.0</version>
+  </info>
+  <settings>
+    <thx_surround enable="true" level="0.55" />
+    <thx_crystalizer enable="true" level="0.4" />
+    <thx_bass />
+    <thx_svm enable="false" level="0.8" mode="0" />
+    <thx_dlgplus enable="false" level="0.5" />
+    <voicefx enable="false" preset="1" />
+    <vip_svm enable="true" level="0.74" />
+    <noise_reduction enable="true" />
+    <aec enable="false" />
+    <voice_fcs enable="false" level="30" />
+    <swf_mgt enable="false" cross_freq="80" gain="false" />
+    <graphic_eq enable="true" preset="0" preamp="0" band0="4" band1="4" band2="0" band3="-2" band4="2" band5="2" band6="1" band7="2" band8="4" band9="2" />
+  </settings>
+</profile>

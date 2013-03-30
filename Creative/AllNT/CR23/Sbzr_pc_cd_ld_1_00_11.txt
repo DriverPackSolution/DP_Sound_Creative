@@ -1,0 +1,29 @@
+
+SBZR_PC_CD_LD_1_00_11
+
+Release date : 4 Mar 13
+
+File Name : SBZR_PC_CD_LD_1_00_11.exe
+
+This download contains the software(s) and application(s) for Sound Blaster® Z-Series. For more details, read the rest of this Web release note.
+
+This download supports and is applicable for the following models:
+Sound Blaster Z (SB1500, SB1502)
+Sound Blaster Zx (SB1506)
+Sound Blaster ZxR (SB1510)
+Added Enhancement / Features:
+Multiple fixes that improve the driver's overall stability and performance
+Added support for ASIO playback in SB Z and SB Zx. (SB ZxR already supports ASIO playback via its bundled driver. )
+
+Requirements:
+Microsoft® Windows® 8 32-bit or 64-bit, Windows 7 32-bit or 64-bit
+Sound Blaster Z or Sound Blaster Zx or Sound Blaster ZxR
+
+Notes:
+
+To install this pack, do the following:
+Download the file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on screen.
+Re-start your computer when prompted.
+

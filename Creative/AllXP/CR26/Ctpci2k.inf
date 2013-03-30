@@ -1,0 +1,426 @@
+; SB PCI Family Inf file
+;
+; Feature  : Enhanced (WDM)
+; Language : English
+;
+; Date     : 03 Jan 2002
+; Revision : 1.10.001
+;
+; Copyright 1995-2002, Creative Technology Ltd.
+
+[Version]
+Signature     ="$CHICAGO$"
+Class         =MEDIA
+ClassGUID     ={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider      =%MfgName%
+DriverVer     =06/11/2002,5.12.01.5017
+CatalogFile   =ctpci2k.cat
+
+[SourceDisksNames]
+101 = %DriverDisk1%,,
+102 = %DriverDisk2%,,
+103 = %DriverDisk3%,,
+
+[SourceDisksFiles]
+sbpci.sys     = 101
+eapci2m.ecw   = 101
+
+;===Disk 2===
+sbres32.dll   = 102
+sbres16.dll   = 102
+ctpcir32.dll  = 102
+CTSETRes.dll  = 102
+a3d.dll       = 102
+sbioctl.exe   = 102
+SBPCI.ico     = 102
+SBPCI.bmp     = 102
+
+[Manufacturer]
+%MfgName%=CREATIVE
+
+;; Mechanism for excluding drivers from the "Add New Hardware" list.
+[ControlFlags]
+ExcludeFromSelect = pci\ven_1274&dev_1371
+
+;; *EXCLUDE is a made up ID to prevent rank 1 drivers from showing in list.
+ExcludeFromSelect = *
+
+[CREATIVE]
+;Creative 
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_13711274   ; 
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20001274   ; Creative CT4750 board
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80011274   ; Creative CT4751 board
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80011274   ; Creative CT4751 board
+
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20021274   ; Creative CT4740 board (EEPROM)
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20031274   ; Creative CT4815 board (EEPROM)
+
+%SBPCI+M.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_58801274 ; Audio portion of Audio/Modem Combo
+
+;Creative Generic
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371                   ; generic Concert AC97 PCI board
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880                   ; generic 5880
+
+
+;Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_803A1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_803E1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D01043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D11043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D21043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D31043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D41043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D51043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D61043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D71043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D81043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80D91043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80DA1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80DB1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80DC1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80DD1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80DE1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_80DF1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_803A1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_803E1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D01043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D11043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D21043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D31043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D41043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D51043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D61043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D71043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D81043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80D91043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80DA1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80DB1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80DC1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80DD1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80DE1043   ; Asus
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_80DF1043   ; Asus
+
+;Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20601458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20611458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20621458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20631458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20641458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20651458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20661458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20671458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20681458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_20691458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_206A1458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_206B1458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_206C1458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_206D1458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_206E1458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_206F1458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0001458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0011458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0021458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0031458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0041458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0051458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0061458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0071458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0081458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A0091458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A00A1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A00B1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A00C1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A00D1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A00E1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_A00F1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20601458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20611458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20621458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20631458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20641458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20651458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20661458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20671458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20681458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_20691458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_206A1458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_206B1458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_206C1458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_206D1458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_206E1458   ; Gigabyte 6VX7-4
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_206F1458   ; Gigabyte 6VM7-4X
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0001458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0011458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0021458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0031458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0041458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0051458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0061458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0071458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0081458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A0091458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A00A1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A00B1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A00C1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A00D1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A00E1458   ; Gigabyte
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_A00F1458   ; Gigabyte
+
+;MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00011462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00021462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00031462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00041462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00051462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00061462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00071462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00081462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00091462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_000A1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_000B1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_000C1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_000D1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_000E1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_000F1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_00101462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_64701462   ; MS-6147 1.1A
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_65601462   ; MS-6156 1.10
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_66301462   ; MS-6163BX 1.0A
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_66311462   ; MS-6163VIA 1.0A
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_66321462   ; MS-6163BX 2.0A
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_66331462   ; MS-6163VIA 2.0A
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_68201462   ; MS-6182 1.00
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_68221462   ; MS-6182 1.00A
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_68301462   ; MS-6183 1.00
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_68801462   ; MS-6188 1.00 / 137x
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_69001462   ; MS-6190 1.00
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_69101462   ; MS-6191
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_69301462   ; MS-6193
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_69501462   ; MSI MS-6195
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_69901462   ; MS-6199BX 2.0A
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_69911462   ; MS-6199VIA 2.0A
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_68801462   ; MS-6188 1.00 / 5880
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_30801462   ; MSI MS-6308   
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_30901462   ; MSI MS-6309   
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_1371&SUBSYS_31801462   ; MSI MS-6318   
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00011462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00021462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00031462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00041462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00051462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00061462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00071462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00081462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00091462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_000A1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_000B1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_000C1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_000D1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_000E1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_000F1462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_00101462   ; MSI
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_68801462   ; MS-6188 1.00
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_68801462   ; MS-6188 1.00 / 5880
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_30801462   ; MSI MS-6308
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_30901462   ; MSI MS-6309
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_31801462   ; MSI MS-6318
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_69501462   ; MSI MS-6195
+
+;AOpen
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_006BA0A0   ; AOpen
+%SBPCI.DeviceDesc%=SBPCI_Device,PCI\VEN_1274&DEV_5880&SUBSYS_006CA0A0   ; AOpen   
+
+
+[SBPCI_Device]
+AlsoInstall=ks.registration(ks.inf),wdmaudio.registration(wdmaudio.inf)
+CopyFiles=SBPCI.CopyList,Waveset.CopyList,A3D.CopyList,Proppage16.CopyList,Resource.CopyList
+AddReg=SBPCI.AddReg,SBPCI_NAMES.AddReg,Waveset.AddReg,A3D.AddReg,PropPages16.AddReg
+DelReg=SBPCI.DelReg
+
+[SBPCI_Device.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DMus%,       WDM_SBPCI.Interface.DMus
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DMus%,      WDM_SBPCI.Interface.DMus
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_DMus%, WDM_SBPCI.Interface.DMus
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,       WDM_SBPCI.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,      WDM_SBPCI.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,     WDM_SBPCI.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,   WDM_SBPCI.Interface.Topology
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,WDM_SBPCI.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART%,       WDM.Interface.UART
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART%,      WDM.Interface.UART
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART%,     WDM.Interface.UART
+
+[WDM_SBPCI.Interface.DMus]
+AddReg=WDM_SBPCI.Interface.DMus.AddReg
+[WDM_SBPCI.Interface.DMus.AddReg]
+HKR,,FriendlyName,,%WDM_SBPCI.DMus.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[WDM_SBPCI.Interface.Wave]
+AddReg=WDM_SBPCI.Interface.Wave.AddReg
+[WDM_SBPCI.Interface.Wave.AddReg]
+HKR,,FriendlyName,,%WDM_SBPCI.Wave.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[WDM_SBPCI.Interface.Topology]
+AddReg=WDM_SBPCI.Interface.Topo.AddReg
+;; warning!! must be "Topo" because "Topology" is too long
+[WDM_SBPCI.Interface.Topo.AddReg]
+HKR,,FriendlyName,,%WDM_SBPCI.Topology.szPname%
+
+[WDM.Interface.UART]
+AddReg=WDM.Interface.UART.AddReg
+[WDM.Interface.UART.AddReg]
+HKR,,FriendlyName,,%WDM_SBPCI.UART.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SBPCI.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,sbpci.sys
+HKR,,NTMPDriver,,"sbpci.sys,sbemul.sys"
+
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv, Description,,%SBPCI.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%SBPCI.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%SBPCI.DeviceDesc%
+
+; Digital support
+; Analog     = 0x00000000
+; Digital    = 0x00000001
+; Autosense  = 0x00000002
+; No Digital = 0x0000ffff
+
+HKR,Config,Refresh,1,1,0,0,0
+
+[Waveset.AddReg]
+HKR,Waveset,Current,1,00,00,00,00
+HKR,Waveset\0000,Filename,,"\DosDevices\%10%\system32\drivers\eapci2m.ecw"
+HKR,Waveset\0000,Title,,"2 Megabyte General MIDI"
+
+[A3D.AddReg]
+HKCR,A3D,,,"A3d Object"
+HKCR,A3D\CLSID,,,"{D8F1EEE0-F634-11CF-8700-00A0245D918B}"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B},,,"A3D Object"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B}\InprocServer32,,,"A3D.DLL"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B}\InprocServer32,"ThreadingModel", ,"Apartment"
+
+[SBPCI_NAMES.AddReg]
+HKR,"Product",Name,,%SBPCI.Product%
+HKR,"Product",Resource,,%SBPCI.Resource%
+HKLM,"Software\Creative Tech\SBPCI",ProductInf,,"%InfFileName%"
+HKLM,"Software\Creative Tech\Installation\CardInfo",,,
+
+[PropPages32.AddReg]
+HKR,,EnumPropPages32,,"sbres32.dll,EnumPropPages"
+
+[PropPages16.AddReg]
+HKR,,EnumPropPages,,"sbres16.dll,EnumPropPages"
+
+[Branding.AddReg]
+HKR,Branding,icon,,"%10%\SBPCI.ico"
+HKR,Branding,bitmap,,"%10%\SBPCI.bmp"
+HKR,Branding,url,,"http://www.soundblaster.com"
+
+[DestinationDirs]
+SBPCI.CopyList         = 10,system32\drivers ; %SystemRoot%\system32\drivers
+Waveset.CopyList       = 10,system32\drivers ; %SystemRoot%\system32\drivers
+DefaultDestDir         = 10,system32\drivers
+A3D.CopyList           = 10,system
+Proppage.CopyList      = 10,system32
+Proppage16.CopyList    = 10,system
+Resource.CopyList      = 10,system32
+Branding.CopyList      = 10
+
+[SBPCI.CopyList]
+sbpci.sys
+
+[Waveset.CopyList]
+eapci2m.ecw
+
+[A3D.CopyList]
+a3d.dll
+
+[Resource.CopyList]
+ctpcir32.dll
+CTSETRes.dll
+
+[Proppage.CopyList]
+sbres32.dll
+
+[Proppage16.CopyList]
+sbres16.dll
+sbioctl.exe
+
+[Branding.CopyList]
+SBPCI.ico
+SBPCI.bmp
+
+[SBPCI.DelReg]
+HKR,"Config",RealFirstBoot,,
+HKR,"Config",RealDriverVersion,,
+
+;;**************** NT Install ****************
+
+[SBPCI_Device.NT]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=SBPCI.CopyList,A3D.CopyList,Waveset.CopyList,Proppage.CopyList,Resource.CopyList,Branding.CopyList
+AddReg=SBPCI.AddReg,SBPCI_NAMES.AddReg,Waveset.AddReg,A3D.AddReg,PropPages32.AddReg,Branding.AddReg
+DelReg=SBPCI.DelReg
+
+[SBPCI_Device.NT.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DMus%,WDM_SBPCI.Interface.DMus
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DMus%,WDM_SBPCI.Interface.DMus
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_DMus%,WDM_SBPCI.Interface.DMus
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,       WDM_SBPCI.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,      WDM_SBPCI.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,     WDM_SBPCI.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,   WDM_SBPCI.Interface.Topology
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,WDM_SBPCI.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART%,       WDM.Interface.UART
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART%,      WDM.Interface.UART
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART%,     WDM.Interface.UART
+
+[SBPCI_Device.NT.Services]
+AddService = sbpci, 0x00000002, sbpci_Service_Inst
+
+[sbpci_Service_Inst]
+DisplayName    = %sbpci.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\sbpci.sys
+
+[Strings]
+MfgName                   ="Creative Technology Ltd."
+SBPCI.DeviceDesc          ="SB PCI(WDM)"
+SBPCI.Product             ="SBPCI"
+SBPCI.Resource            ="\systemroot\system32\ctsetres.dll"
+SBPCI+M.DeviceDesc        ="SB PCI(WDM)"
+WDM_SBPCI.Wave.szPname    ="SB PCI"
+WDM_SBPCI.Topology.szPname="SB PCI"
+WDM_SBPCI.UART.szPname    ="SB PCI External MIDI"
+WDM_SBPCI.DMus.szPname    ="SB PCI Synthesizer"
+DriverDisk1               ="SB PCI WDM Audio Driver Disk 1 or CD"
+DriverDisk2               ="SB PCI WDM Audio Driver Disk 2"
+DriverDisk3               ="SB PCI WDM Audio Driver Disk 3"
+InfFileName               ="ctpci2k.Inf"
+DriverOEMVersion="Enhanced WDM"
+
+Proxy.CLSID               ="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO          ="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER         ="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE        ="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_TOPOLOGY       ="{DDA54A40-1E4C-11D1-A050-405705C10000}"
+KSCATEGORY_SYNTHESIZER    ="{DFF220F3-F70F-11D0-B917-00A0C9223196}"
+KSNAME_Wave               ="Wave"
+KSNAME_UART               ="UART"
+KSNAME_Topology           ="Topology"
+KSNAME_DMus               ="FMSynth"
+
+sbpci.SvcDesc             = "SB PCI Family Audio Driver (WDM)"

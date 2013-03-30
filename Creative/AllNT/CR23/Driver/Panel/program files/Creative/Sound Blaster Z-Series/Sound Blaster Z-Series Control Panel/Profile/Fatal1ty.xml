@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+  <info>
+    <avatar>4af172880eb24836a77b8882e00d6900.jpg</avatar>
+    <profile_name>Fatal1ty</profile_name>
+    <profile_id>6</profile_id>
+    <version>1.0</version>
+  </info>
+  <settings>
+    <thx_surround enable="true" level="0.1" />
+    <thx_crystalizer enable="true" level="0.38" />
+    <thx_bass />
+    <thx_svm enable="true" level="0.8" mode="0" />
+    <thx_dlgplus enable="false" level="0.5" />
+    <voicefx enable="false" preset="1" />
+    <vip_svm enable="true" level="0.74" />
+    <noise_reduction enable="true" />
+    <aec enable="false" />
+    <voice_fcs enable="false" level="30" />
+    <swf_mgt enable="false" cross_freq="80" gain="false" />
+    <graphic_eq enable="true" preset="0" preamp="0" band0="4" band1="4" band2="-2" band3="0" band4="0" band5="0" band6="2" band7="2" band8="4" band9="2" />
+  </settings>
+</profile>

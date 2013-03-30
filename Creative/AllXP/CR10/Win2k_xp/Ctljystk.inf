@@ -1,0 +1,90 @@
+;-------------------------------------------------------------------------
+; Creative Technology Ltd.
+;     Copyright (c) Creative Technology Ltd, 1994-2001.
+;
+; Description
+;     This inf file contains the following device for Creative's gameport.
+;
+;  Gameport Device - PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+;                    PCI\VEN_1102&DEV_7002&SUBSYS_00211102
+;                    PCI\VEN_1102&DEV_7002&SUBSYS_002F1102
+;                    PCI\VEN_1102&DEV_7002&SUBSYS_40011102
+;                    PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+;                    PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+;
+; Modified Date: 18 March 2002
+; Version: 3.0.0.5
+;-------------------------------------------------------------------------
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%CREAF%
+DriverVer=03/18/2002
+CatalogFile=ctljystk.cat
+
+[Manufacturer]
+%CREAF%=Creative
+
+;;
+;; Mechanism for excluding drivers from the "Add New Hardware" list.
+;;
+[ControlFlags]
+ExcludeFromSelect = PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7002&SUBSYS_00211102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7002&SUBSYS_002F1102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7002&SUBSYS_40011102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+
+
+[Creative]
+;; Gameport
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00211102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_002F1102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_40011102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+
+
+[SourceDisksNames]
+55=%StrDisk%,"",
+
+[SourceDisksFiles]
+
+[DestinationDirs]
+DefaultDestDir=10,system32\drivers
+
+;---------------------------------------------------------------;
+
+[CtlGamePort_Device]
+AlsoInstall=MSJSTICK(joystick.inf)
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+;---------------------------------------------------------------;
+
+[CtlGamePort_Device.NT]
+Include=gameport.inf
+Needs=CreativeLabs_Port.NT
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+[CtlGamePort_Device.NT.Services]
+Include=gameport.inf
+Needs=CreativeLabs_Port.NT.Services
+
+;---------------------------------------------------------------;
+
+[AddRegEmpty]
+[CopyFilesEmpty]
+
+;---------------------------------------------------------------;
+
+[Strings]
+CREAF="Creative"
+SPSVCINST_ASSOCSERVICE=0x00000002
+*CtlGamePort.DeviceDesc="Creative Game Port"
+StrDisk="Creative Installer CD-ROM"

@@ -1,0 +1,43 @@
+
+SBXF_PCDRVBETA_US_2_18_0018
+
+Filesize : 47.5 MB
+
+Release date : 7 Jan 13
+
+File Name : SBXF_PCDRVBETA_US_2_18_0018.exe
+
+This download is a driver providing Microsoft® Windows® 8 support for Creative Sound Blaster® X-Fi™ series of audio devices. For more details, read the rest of this web release note.
+
+This download supports the following audio devices only:
+Sound Blaster X-Fi XtremeGamer Fatal1ty® Professional Series
+Sound Blaster X-Fi Platinum Fatal1ty Champion Series
+Sound Blaster X-Fi XtremeMusic
+Sound Blaster X-Fi XtremeGamer
+Sound Blaster X-Fi Platinum
+Sound Blaster X-Fi Fatal1ty
+Sound Blaster X-Fi Elite Pro 
+
+Fixes:
+Resolves the following issues:
+System taking more than two minutes to shut down.
+PowerDVD® DX 8.3 (Dell® version) not working properly.
+Passthrough of Dolby®/DTS® audio to an external decoder not working with Windows Media Player 12.
+
+No sound issue
+ - after system Reboot
+ - intermitent sound loss
+Settings not saved (speaker settings, mode settings)
+Distorted sound when recording in certain frequencies
+
+Requirements:
+Microsoft Windows 8 32-bit or 64-bit, Windows 7 32-bit or 64-bit, Windows Vista® 32-bit or 64-bit with Service Pack 1 or higher, Windows XP Professional x64 Edition or Windows XP with Service Pack 2 or higher, Windows XP Media Center Edition (MCE) 2004 or later
+Sound Blaster X-Fi audio devices listed above
+
+Notes:
+Do not install this driver for Sound Blaster X-Fi Xtreme Audio.
+To install this driver 
+Download the SBXF_PCDRVBETA_US_2_18_0018.exe file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+

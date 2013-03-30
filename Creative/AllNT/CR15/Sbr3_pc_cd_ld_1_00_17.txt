@@ -1,0 +1,25 @@
+
+SBR3_PC_CD_LD_1_00_17
+
+Filesize : 165.33 MB
+
+Release date : 4 Feb 13
+
+File Name : SBR3_PC_CD_LD_1_00_17.exe
+
+This download contains the software(s) and application(s) for Sound Blaster® Recon3D. For more details, read the rest of this Web release note. 
+This download supports and is applicable for the following bundle:
+Sound Blaster Recon3D
+Sound Blaster Recon3D Omega Wireless
+
+Requirements:
+Microsoft Windows®8 32-bit or 64-bit, Windows 7 32-bit or 64-bit, Windows Vista® 32-bit or 64-bit
+Sound Blaster Recon3D
+
+Notes:
+To install this pack, do the following: 
+Download the file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+Re-start your computer when prompted.
+

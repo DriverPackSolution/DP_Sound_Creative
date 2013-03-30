@@ -1,0 +1,39 @@
+
+20K2_Auzentech_HTHD_RefCD3
+
+X-Fi HomeTheater HD 7.1 Drivers
+ 
+X-Fi HomeTheater HD (Win 8, 32-bit / 64-bit)
+	
+Register to receive a Warranty Extension (restrictions apply). 
+
+Subscribe  for email updates, News, and specials as soon as they are available.
+
+Driver release Information:
+
+This driver supports the following operating systems:
+Microsoft Windows® 8 
+ 32-bit and 64-bit 
+
+For a full list, see Minimum System Requirements under the Features Tab of the product page. 
+
+Release information: 
+Release Version: Win8 B1 
+File Name: 20K2_Auzentech_HTHD_RefCD3.zip 
+Download Size: 136 Mb Zipped file 
+Release Date: 01/2013
+
+download
+
+Changes in this Driver
+First driver for Windows 8.
+
+Instructions
+Uninstall the current driver.
+Download driver, browse to the driver folder > Audio folder > Setup folder.
+In the Setup folder, double-click the "Setup.exe" file to iInstall the driver.
+Reboot PC.
+
+* Notes: 
+First driver for Windows 8.
+

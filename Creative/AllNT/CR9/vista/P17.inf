@@ -1,0 +1,436 @@
+; P17 INF file
+;
+;
+; Language : English (32bit & 64bit Vista)
+;
+;
+; Copyright 1995-2009, Creative Technology Ltd.
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%CREAF%
+CatalogFile.NTX86=p17v.cat
+CatalogFile.NTAMD64=p1764v.cat
+DriverVer=05/27/2009,5.12.1.2016
+
+[Manufacturer]
+%MfgName%=CREATIVE,NTAMD64
+
+;; Mechanism for excluding drivers from the "Add New Hardware" list.
+[ControlFlags]
+;; *EXCLUDE is a made up ID to prevent rank 1 drivers from showing in list.
+ExcludeFromSelect = *
+
+[CREATIVE]
+;; SB X-Fi Extreme Audio
+%CTAudio_Device.Dev3.ntx86%=CTAudio_Device,PCI\VEN_1102&DEV_0007&SUBSYS_10121102
+%CTAudio_Device.Dev3.ntx86%=CTAudio_Device,PCI\VEN_1102&DEV_0007&SUBSYS_10131102
+
+[CREATIVE.NTAMD64]
+;; SB X-Fi Extreme Audio
+%CTAudio_Device.Dev3.amd64%=CTAudio_Device,PCI\VEN_1102&DEV_0007&SUBSYS_10121102
+%CTAudio_Device.Dev3.amd64%=CTAudio_Device,PCI\VEN_1102&DEV_0007&SUBSYS_10131102
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;   Device Install Section   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;**************** NT Install ****************
+;;
+[CTAudio_Device.NTX86.CoInstallers]
+CopyFiles=CoInst.CopyList.ntx86
+AddReg=COINST.AddReg
+
+[CTAudio_Device.NTAMD64.CoInstallers]
+CopyFiles=CoInst.CopyList.ntamd64
+AddReg=COINST.AddReg
+
+[CTAudio_Device.NTX86]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=SysFiles.CopyList.ntx86,P17RES.CopyList.ntx86,APO.CopyList.ntx86,APOINI.CopyList.ntx86,others.CopyList.ntx86,coinst.CopyList.ntx86
+AddReg=CTAudio_Device.AddReg.ntx86,Resource.AddReg.ntx86,CoInst.AddReg
+RegisterDlls=APO.RegisterDlls.ntx86
+AddProperty=CTDev.AddProperty
+
+[CTAudio_Device.NTAMD64]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=SysFiles.CopyList.amd64,P17RES.CopyList.amd64,APO.CopyList.amd64,APOINI.CopyList.amd64,SysWow64.CopyList.amd64,others.CopyList.ntamd64,coinst.CopyList.ntamd64
+AddReg=CTAudio_Device.AddReg.amd64,Resource.AddReg.amd64,CoInst.AddReg
+RegisterDlls=APO.RegisterDlls.amd64
+AddProperty=CTDev.AddProperty
+
+[CTAudio_Device.NTX86.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave.ntx86%,       	WDM_Audio.Wav.ntx86
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave.ntx86%,      	WDM_Audio.Wav.ntx86
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave.ntx86%,     	WDM_Audio.Wav.ntx86
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology.ntx86%,   	WDM_Audio.Top.ntx86
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology.ntx86%,	WDM_Audio.Top.ntx86
+
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave1.ntx86%,       	WDM_Audio.Wav.ntx86
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave1.ntx86%,      	WDM_Audio.Wav.ntx86
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave1.ntx86%,     	WDM_Audio.Wav.ntx86
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology1.ntx86%,   	WDM_Audio.Top.ntx86
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology1.ntx86%,	WDM_Audio.Top.ntx86
+
+[CTAudio_Device.NTAMD64.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave.amd64%,       	WDM_Audio.Wav.amd64
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave.amd64%,      	WDM_Audio.Wav.amd64
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave.amd64%,     	WDM_Audio.Wav.amd64
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology.amd64%,   	WDM_Audio.Top.amd64
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology.amd64%,	WDM_Audio.Top.amd64
+
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave1.amd64%,       	WDM_Audio.Wav.amd64
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave1.amd64%,      	WDM_Audio.Wav.amd64
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave1.amd64%,     	WDM_Audio.Wav.amd64
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology1.amd64%,   	WDM_Audio.Top.amd64
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology1.amd64%,	WDM_Audio.Top.amd64
+
+[WDM_Audio.Wav.ntx86]
+AddReg=WDM_Audio.Wav.AddReg.ntx86
+;; warning!! max 31 characters for section name
+[WDM_Audio.Wav.AddReg.ntx86]
+HKR,,FriendlyName,,%WDM_Audio.Wav.name.ntx86%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[WDM_Audio.Wav.amd64]
+AddReg=WDM_Audio.Wav.AddReg.amd64
+;; warning!! max 31 characters for section name
+[WDM_Audio.Wav.AddReg.amd64]
+HKR,,FriendlyName,,%WDM_Audio.Wav.name.amd64%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[WDM_Audio.Top.ntx86]
+AddReg=WDM_Audio.Top.AddReg.ntx86,APO.AddReg.ntx86,CustomSetting.AddReg.ntx86
+;; warning!! max 31 characters for section name
+[WDM_Audio.Top.AddReg.ntx86]
+HKR,,FriendlyName,,%WDM_Audio.Top.name.ntx86%
+
+[WDM_Audio.Top.amd64]
+AddReg=WDM_Audio.Top.AddReg.amd64,APO.AddReg.amd64,CustomSetting.AddReg.amd64
+;; warning!! max 31 characters for section name
+[WDM_Audio.Top.AddReg.amd64]
+HKR,,FriendlyName,,%WDM_Audio.Top.name.amd64%
+
+[CTAudio_Device.NTX86.Services]
+AddService = P17, 0x00000002, CTAud_Dev_Ser_Inst.ntx86
+
+[CTAud_Dev_Ser_Inst.ntx86]
+DisplayName    = %CTAudio_Device.Dev.ntx86%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\P17.sys
+
+[CTAudio_Device.NTAMD64.Services]
+AddService = P17, 0x00000002, CTAud_Dev_Ser_Inst.amd64
+
+[CTAud_Dev_Ser_Inst.amd64]
+DisplayName    = %CTAudio_Device.Dev.amd64%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\P17.sys
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;   Device Specific Section   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[CTAudio_Device.AddReg.ntx86]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,P17.sys
+HKR,,NTMPDriver,,"P17.sys,sbemul.sys"
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv, Description,,%CTAudio_Device.Dev.ntx86%
+HKR,Drivers\midi\wdmaud.drv, Description,,%CTAudio_Device.Dev.ntx86%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%CTAudio_Device.Dev.ntx86%
+HKR,,SetupPreferredAudioDevices,3,01,00,00,00
+;for coinstaller
+HKLM,%StrCTKey%\coinstaller,norunexe,0x00010001,1
+HKLM,%StrRunKey%,P17RunE,,"RunDll32 P17RunE.dll,RunDLLEntry"
+
+[CTAudio_Device.AddReg.amd64]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,P17.sys
+HKR,,NTMPDriver,,"P17.sys,sbemul.sys"
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv, Description,,%CTAudio_Device.Dev.amd64%
+HKR,Drivers\midi\wdmaud.drv, Description,,%CTAudio_Device.Dev.amd64%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%CTAudio_Device.Dev.amd64%
+HKR,,SetupPreferredAudioDevices,3,01,00,00,00
+;for coinstaller
+HKLM,%StrCTKey%\coinstaller,norunexe,0x00010001,1
+HKLM,%StrRunKeyWOW%,P17RunE,,"RunDll32 P17RunE.dll,RunDLLEntry"
+
+[Resource.AddReg.ntx86]
+HKR,"Product","Resource",,"\DosDevices\%11%\P17Res.Dll"
+HKR,"Config","Refresh",1,1,0,0,0
+
+[Resource.AddReg.amd64]
+HKR,"Product","Resource",,"\DosDevices\%11%\P17Res.Dll"
+HKR,"Config","Refresh",1,1,0,0,0
+
+[SysFiles.CopyList.ntx86]
+P17.sys
+
+[SysFiles.CopyList.amd64]
+P17.sys
+
+[P17RES.CopyList.ntx86]
+P17res.dll
+
+[P17RES.CopyList.amd64]
+P17res.dll
+
+;;;=======
+;;;= APO =
+;;;=======
+
+[APO.AddReg.ntx86]
+HKR,"FX\\0",%PKEY_DisplayName%,,%SYSFX_FriendlyName%
+HKR,"FX\\0",%PKEY_SYSFX_PreMixClsid%,,%SYSFX_PREMIX_CLSID%
+HKR,"FX\\0",%PKEY_SYSFX_PostMixClsid%,,%SYSFX_POSTMIX_CLSID%
+HKR,"FX\\0",%PKEY_SYSFX_UiClsid%,,%SYSFX_UI_CLSID%
+HKR,"FX\\0",%PKEY_SYSFX_Association%,,%KSNODETYPE_ANY%  ; GUID NULL means install on all endpoints
+
+[APO.AddReg.amd64]
+HKR,"FX\\0",%PKEY_DisplayName%,,%SYSFX_FriendlyName%
+HKR,"FX\\0",%PKEY_SYSFX_PreMixClsid%,,%SYSFX_PREMIX_CLSID%
+HKR,"FX\\0",%PKEY_SYSFX_PostMixClsid%,,%SYSFX_POSTMIX_CLSID%
+HKR,"FX\\0",%PKEY_SYSFX_UiClsid%,,%SYSFX_UI_CLSID%
+HKR,"FX\\0",%PKEY_SYSFX_Association%,,%KSNODETYPE_ANY%  ; GUID NULL means install on all endpoints
+
+[CustomSetting.AddReg.ntx86]
+HKR,"EP\\0", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\0", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,8C,70,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\0",%PKEY_EFFECTNODEINFO_RENDER%,,%EFFECTNODEINFO_RENDER_CLSID%
+HKR,"EP\\0", %PKEY_AudioEndpoint_Ext_UiClsid%,,%AUDIOENDPOINT_EXT_UI_CLSID%
+HKR,"EP\\0",%CTPKEY_CommandRouter_SettingsOverride%,,%10%\P17EP.ini
+HKR,"EP\\0",%CTPKEY_Endpoint_SettingsOverride%,,%10%\P17EP.ini
+
+[CustomSetting.AddReg.amd64]
+HKR,"EP\\0", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\0", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,8C,70,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\0",%PKEY_EFFECTNODEINFO_RENDER%,,%EFFECTNODEINFO_RENDER_CLSID%
+HKR,"EP\\0", %PKEY_AudioEndpoint_Ext_UiClsid%,,%AUDIOENDPOINT_EXT_UI_CLSID%
+HKR,"EP\\0",%CTPKEY_CommandRouter_SettingsOverride%,,%10%\P17EP.ini
+HKR,"EP\\0",%CTPKEY_Endpoint_SettingsOverride%,,%10%\P17EP.ini
+
+[Coinst.AddReg]
+HKR,,CoInstallers32,0x00010000,"CtDvIns1.dll,CtDevCoInstProc"
+HKLM,System\CurrentControlSet\Control\CoDeviceInstallers,{4d36e96c-e325-11ce-bfc1-08002be10318},0x00010008,"CtCoIns1.dll,CtCoInstProc"
+HKR,,OriginalSourcePath,,%01%
+
+
+[APO.CopyList.ntx86]
+P17APO32.dll
+P17pld32.dll
+OemSpiE.dll
+P17RunE.dll
+
+[APO.CopyList.amd64]
+P17APO64.dll
+P17pld64.dll
+
+[SysWow64.CopyList.amd64]
+P17APO32.dll
+OemSpiE.dll
+P17RunE.dll
+
+[APO.RegisterDlls.ntx86]
+11,,P17APO32.dll,1
+11,,P17pld32.dll,1
+
+[APO.RegisterDlls.amd64]
+11,,P17APO64.dll,1
+11,,P17pld64.dll,1
+
+[APOINI.CopyList.ntx86]
+P17EP.ini
+ResDefE.exe
+
+[APOINI.CopyList.amd64]
+P17EP.ini
+ResDefE.exe
+
+[others.CopyList.ntx86]
+AddCat.exe
+P17APO32.p17
+APOIM32.exe
+AppSetup.exe
+
+[others.CopyList.ntamd64]
+AddCat.exe
+P17APO64.p17
+APOIM64.exe
+AppSetup.exe
+
+[coinst.CopyList.ntx86]
+ctzapxx.ini
+ludap17.ini
+ctcoins1.dll
+ctdvins1.dll
+
+[coinst.CopyList.ntamd64]
+ctzapxx.ini
+ludap17.ini
+ctcoins1.dll
+ctdvins1.dll
+
+
+[CTDev.AddProperty]
+DeviceVendorWebSite,,,,"http://www.creative.com"
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;   Common Section   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+[DestinationDirs]
+DefaultDestDir		= 10,system32\drivers
+SysFiles.CopyList.ntx86	= 10,system32\drivers		; %SystemRoot%\system32\drivers
+SysFiles.CopyList.amd64	= 10,system32\drivers		; %SystemRoot%\system32\drivers
+P17RES.CopyList.ntx86	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+P17RES.CopyList.amd64	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+APO.CopyList.ntx86	= 11				; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+APO.CopyList.amd64	= 11				; %SystemRoot%\system32
+APOINI.CopyList.ntx86   = 10				; %SystemRoot%
+APOINI.CopyList.amd64   = 10				; %SystemRoot%
+SysWow64.CopyList.amd64 = 10,SysWow64    		; %SystemRoot%\SysWow64                 
+
+others.CopyList.ntx86	= 11
+others.CopyList.ntamd64	= 10,SysWow64
+coinst.CopyList.ntx86	= 11
+coinst.CopyList.ntamd64	= 11
+
+
+[SourceDisksNames]
+101 = %DriverDisk%,,
+
+[SourceDisksFiles]
+P17res.dll      = 101,Win2k_xp
+P17.sys         = 101,Win2k_xp\I386
+P17EP.ini       = 101,Win2k_xp
+P17APO32.dll    = 101,Win2k_xp\I386
+P17pld32.dll    = 101,Win2k_xp\I386
+OemSpiE.dll     = 101,Win2k_xp
+P17RunE.dll     = 101,Win2k_xp
+ResDefE.exe	= 101,Win2k_xp
+
+ctzapxx.ini	= 101
+ludap17.ini	= 101
+AddCat.exe	= 101,Win2k_xp
+P17APO32.p17	= 101,Win2k_xp\I386
+APOIM32.exe	= 101,Win2k_xp\I386
+AppSetup.exe    = 101,Win2k_xp 
+
+ctcoins1.dll	= 101,Win2k_xp\I386
+ctdvins1.dll	= 101,Win2k_xp\I386
+
+[SourceDisksFiles.amd64]
+P17res.dll   = 101,Win2k_xp
+P17.sys      = 101,Win2k_xp\AMD64
+P17EP.ini    = 101,Win2k_xp
+P17APO64.dll  = 101,Win2k_xp\AMD64
+P17pld64.dll  = 101,Win2k_xp\AMD64
+P17APO32.dll  = 101,Win2k_xp\I386
+OemSpiE.dll   = 101,Win2k_xp
+P17RunE.dll   = 101,Win2k_xp
+ResDefE.exe	=101,Win2k_xp
+
+ctzapxx.ini	= 101
+ludap17.ini	= 101
+AddCat.exe	= 101,Win2k_xp
+AppSetup.exe    = 101,Win2k_xp
+P17APO64.p17	= 101,Win2k_xp\AMD64
+APOIM64.exe	= 101,Win2k_xp\AMD64
+
+ctcoins1.dll	= 101,Win2k_xp\AMD64
+ctdvins1.dll	= 101,Win2k_xp\AMD64
+
+[Strings]
+CREAF			    	="CREATIVE"
+MfgName                     	="Creative Technology Ltd."
+DriverDisk           		="Creative Installer CD-ROM"
+
+CTAudio_Device.Dev.ntx86    	="SB Live! 24-bit"
+CTAudio_Device.Dev1.ntx86    	="SB Audigy"
+CTAudio_Device.Dev2.ntx86    	="SB Audigy LS"
+CTAudio_Device.Dev3.ntx86    	="SB X-Fi Xtreme Audio"
+CTAudio_Device.Dev4.ntx86    	="Sound Blaster Live! 24-bit"
+WDM_Audio.Wav.name.ntx86    	="SB Live! 24-bit"
+WDM_Audio.Top.name.ntx86    	="SB Live! 24-bit"
+WDM_Audio.SF.name.ntx86    	="SB Live! 24-bit"
+WDM_Audio1.Wav.name.ntx86    	="SB Live! 24-bit"
+WDM_Audio1.Top.name.ntx86    	="SB Live! 24-bit"
+KSNAME_Wave.ntx86            	="Wave"
+KSNAME_Topology.ntx86        	="Topology"
+KSNAME_Wave1.ntx86            	="SpdifWave"
+KSNAME_Topology1.ntx86        	="SpdifTopo"
+
+CTAudio_Device.Dev.amd64    	="SB Live! 24-bit"
+CTAudio_Device.Dev1.amd64    	="SB Audigy"
+CTAudio_Device.Dev2.amd64    	="SB Audigy LS"
+CTAudio_Device.Dev3.amd64    	="SB X-Fi Xtreme Audio"
+CTAudio_Device.Dev4.amd64    	="Sound Blaster Live! 24-bit"
+WDM_Audio.Wav.name.amd64    	="SB Live! 24-bit"
+WDM_Audio.Top.name.amd64    	="SB Live! 24-bit"
+WDM_Audio.SF.name.amd64    	="SB Live! 24-bit"
+WDM_Audio1.Wav.name.amd64    	="SB Live! 24-bit"
+WDM_Audio1.Top.name.amd64    	="SB Live! 24-bit"
+KSNAME_Wave.amd64            	="Wave"
+KSNAME_Topology.amd64        	="Topology"
+KSNAME_Wave1.amd64            	="SpdifWave"
+KSNAME_Topology1.amd64        	="SpdifTopo"
+
+Proxy.CLSID               	="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO          	="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER         	="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE        	="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_TOPOLOGY       	="{DDA54A40-1E4C-11D1-A050-405705C10000}"
+KSCATEGORY_SYNTHESIZER    	="{DFF220F3-F70F-11D0-B917-00A0C9223196}"
+
+CTPKEY_CommandRouter_SettingsOverride   = "{BB282A80-2A05-4c17-AA45-9910F8F7D30D},0"
+CTPKEY_Endpoint_SettingsOverride        = "{872572B3-2F9B-4fd1-83C7-4E3039AEFBF1},0"
+
+PKEY_SYSFX_Association          = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0"
+PKEY_SYSFX_PreMixClsid          = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},1"
+PKEY_SYSFX_PostMixClsid         = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},2"
+PKEY_SYSFX_UiClsid              = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},3"
+PKEY_DisplayName                = "{B725F130-47EF-101A-A5F1-02608C9EEBAC},10"
+PKEY_AudioEndpoint_Ext_UiClsid  = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},1"
+PKEY_AudioEndpoint_Association  = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+PKEY_AudioEndpoint_ControlPanelPageProvider = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E}"
+PKEY_AudioEngine_OEMFormat = "{E4870E26-3CC5-4CD2-BA46-CA0A9A70ED04},3"
+
+PKEY_EFFECTNODEINFO_RENDER = "{F1056047-B091-4d85-A5C0-B13D4D8BAC57},0"
+
+;;CONTROLLER_EXT_UI_CLSID    = "{FDCBD94E-5BD4-4988-8DFD-AF786FD5B246}"
+;;AUDIOENDPOINT_EXT_UI_CLSID = "{83B29510-BA86-4e06-9FBA-80461EEF8CB3}"
+;;SYSFX_UI_CLSID      = "{3144C0BA-8563-445e-8A87-27ED9FE65954}"
+;;SYSFX_PREMIX_CLSID  = "{68D109F6-5FA5-4322-9A06-26A3CF7E3800}"
+;;SYSFX_POSTMIX_CLSID = "{F8A192FC-A0A8-4ae5-B7A8-6543D2EEC143}"
+SYSFX_FriendlyName  = "Creative System Effect"
+
+CONTROLLER_EXT_UI_CLSID     = "{0E47DCBB-F40F-449e-8636-79CE8CC94F89}"
+AUDIOENDPOINT_EXT_UI_CLSID  = "{D51B784C-7FEE-42f1-8ECA-41E096734061}"
+SYSFX_UI_CLSID              = "{1388C17D-061C-4bd6-85EF-843EDD652763}"
+SYSFX_PREMIX_CLSID          = "{965CDABF-45B4-4692-8C7A-17C4A1035DC5}"
+SYSFX_POSTMIX_CLSID         = "{B87C4270-7B74-44d0-9CCC-E1350F501C16}"
+EFFECTNODEINFO_RENDER_CLSID = "{1758F73D-797D-4396-9169-0F94909DCE1B}"
+
+KSNODETYPE_ANY      = "{00000000-0000-0000-0000-000000000000}"
+KSNODETYPE_SPEAKER  = "{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
+
+REG_BINARY          = 0x00000001
+
+StrCTKey="SYSTEM\CurrentControlSet\Control\Creative Tech"
+StrRunKey="SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+StrRunKeyWOW="SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run"

@@ -1,0 +1,23 @@
+
+SBPCI_WebDrvsV5_12_01
+
+Sound Blaster PCI cards
+ 
+Размер файла : 4,62 MB
+
+Дата выпуска : 19 дек 02
+ 
+Имя файла : SBPCI_WebDrvsV5_12_01.exe
+
+Overview
+This package is meant for Sound Blaster® Vibra128, Sound Blaster 16 PCI, Sound Blaster PCI 128, Sound Blaster 4.1 Digital, and Sound Blaster Ensoniq AudioPCI users running Windows 98SE, Windows ME, Windows 2000 and Windows XP, who experienced distortion problem when playing a wave or MP3 file in 4 speaker mode. For PRODIKEYS™ users who are running on Windows 98SE, this Web Update will enable them to record and playback under IMPRESS mode within the PRODIKEYS application. The package will contain the following: 
+
+Sound Blaster PCI (WDM) Drivers V 5.12.01.5017 
+Requirements 
+An existing Sound Blaster Vibra128, Sound Blaster 16 PCI, Sound Blaster PCI 128, Sound Blaster Ensoniq AudioPCI, or Sound Blaster PCI4.1 Digital software package must be installed before installing this update. 
+
+Notes 
+Creative Configurator works with VXD drivers only. The Creative Configurator program link in the Start Menu will be removed after users install the Web Update. 
+For users who are running Windows 98SE, this Web Update will upgrade VXD drivers to WDM drivers. 
+This release works with the CT4816, CT4751, CT5808, CT4740 and the CT4815. 
+This package is not applicable to model CT4730 2-channel audio card. Installation WILL NOT proceed.

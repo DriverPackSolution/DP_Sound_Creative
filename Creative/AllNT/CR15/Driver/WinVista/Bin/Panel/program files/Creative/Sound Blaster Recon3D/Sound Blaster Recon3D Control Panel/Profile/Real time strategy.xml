@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+  <info>
+    <avatar>5b4f4db221674b93abd95182e2b9c6f2.jpg</avatar>
+    <profile_name>Real Time Strategy</profile_name>
+    <profile_id>8</profile_id>
+    <version>1.0</version>
+  </info>
+  <settings>
+    <thx_surround enable="true" level="0.32" />
+    <thx_crystalizer enable="true" level="0.5" />
+    <thx_bass enable="false" level="0.5" cross_freq="80" />
+    <thx_svm enable="false" level="0.6" mode="0" />
+    <thx_dlgplus enable="true" level="0.35" />
+    <voicefx enable="false" preset="1" />
+    <vip_svm enable="true" level="0.74" />
+    <noise_reduction enable="true" />
+    <aec enable="false" />
+    <dolby_drc mode="2" />
+    <graphic_eq enable="true" preset="0" preamp="0" band0="0" band1="2" band2="-3" band3="-3" band4="-2" band5="-2" band6="-2" band7="2" band8="3" band9="0" />
+  </settings>
+</profile>

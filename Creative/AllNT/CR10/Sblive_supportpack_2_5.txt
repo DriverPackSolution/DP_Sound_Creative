@@ -1,0 +1,171 @@
+ 
+SB Live! series Support Pack 2.5 (11/07/2012)
+
+This software/driver pack is unofficial, not supported by Creative Labs.
+
+Use it at your own risk.
+
+Supports any model of the following Sound Blaster cards (based on Emu10kx DSP):
+
+- Live! (4.1) - all models
+- Live! 5.1 - all models
+- PCI 512
+
+Host-based Live! 24-bit card is not supported.
+
+
+Operating systems supported:
+
+- 32-bit and 64-bit editions of Windows 8, 7, Vista SP2 and XP SP3
+
+WARNING: The included driver supports up to 2Gb of RAM on Windows 8 / 7 / Vista
+
+Applies to both 32-bit and 64-bit editions of Windows 8 / 7 / Vista.
+
+In case more memory is installed, you will experience sound issues and your system will crash randomly.
+
+32-bit and 64-bit editions of Windows XP are not affected.
+
+
+Included in the pack: 
+
+- Live! series driver 2.18.0017.9 for Windows 8 / 7 / Vista
+- Live! series driver 2.09.0016.3 for Windows XP
+- Audio Console 1.21.00 (Windows 8 / 7 / Vista only)
+- SoundFont Bank Manager 3.21.02
+- Surround Mixer 2.00.55 (Windows XP only)
+
+
+WINDOWS 8 INSTALLATION STEPS
+
+ - Open the Charms bar (press the Windows logo key + C).
+
+ - Select Settings -> Change PC Settings -> General
+
+ - Scroll down and click on Restart Now (under Advanced startup) and wait.
+
+ - Now choose Troubleshoot -> Advanced options -> Startup settings -> Restart.
+
+ - When prompted, press the 7 or F7 key to Disable driver signature enforcement.
+
+ - Now you can finally proceed with the Support Pack installation.
+
+What's new:
+
+- Directsound and WaveOut interfaces now work properly on Windows 8 / 7 / Vista, no more sound cutouts
+ during heavy I/O operations.
+
+- Updated workarounds for low volume on Windows 8 / 7 / Vista (for 2/2.1 Speakers mode ONLY).
+
+- Volume seems to be higher even without workarounds.
+
+- Fixed system crashes when the driver is disabled or uninstalled on Windows 8 / 7 / Vista.
+
+
+Release Notes:
+
+Ignore any Found New Hardware dialog on Windows XP
+
+To ensure a proper installation of "Creative SoundFont Synthesizer", ignore this dialog. It will close automatically as soon as you click on the "Install this driver software anyway" button to install the driver.
+
+
+Windows Security warning during driver installation
+
+When prompted with: "Windows can't verify the publisher of this driver software", choose "Install this driver software anyway".
+
+
+Hardware Synthesizer doesn't work on Windows XP x64 with 4GB or more RAM
+
+This occurs due to a memory addressing issue that cannot be fixed.
+
+Simply use the "Creative SoundFont Synthesizer", that has the same functionality but uses software processing.
+
+
+Creative Software Synthesizer is mute on Windows XP with more than 2GB of RAM
+
+For both 32-bit and 64-bit editions of Windows XP, simply change the cache mode or change the maximum amount of memory for Soundfonts.
+
+
+Fix for low volume on Windows 8 / 7 / Vista (only for 2/2. Speakers or Headphones)
+
+(*) If the current speaker configuration is 4.1 or 5.1 Speakers, first change it to 2/2.1 mode, then finally change it to Headphones, otherwise the effects won't work.
+
+Facts about the methods:
+
+- "Music - Normalizer" gives the highest volume.
+- "Flat" gives an average volume increase and you can tweak the EQ if you want to.
+- Both methods use the Emu0k DSP's hardware engine, not relying on your CPU.
+
+1) Selecting an Special FX preset named "Music - Normalizer"
+
+- Open "Audio Console".
+- In the EAX tab, select "Special FX" then choose "Music - Normalizer"
+
+2) Creating an EQ preset named "Flat"
+
+- Open "Creative EAX Settings".
+- Select EQ and choose "(No effect)"
+- Type in a new name "Flat" (or whatever you like)
+- Add a "Parametric Equalizer" effect by clicking the "Add..." button.
+- Set the "Type" to "Creative Equalizer 4".
+- Make sure the Parametric Equalizer amount is set to its maximum (0.0 dB).
+- Click on the "Save environment" button.
+
+
+Built-in Decoder and SPDIF Out on Windows 8 / 7 / Vista
+
+The built-in decoder is not supported. Use a third-party software.
+SPDIF Out is not available on Windows 8 / 7 / Vista.
+
+
+EAX effects, Advanced EQ and Special FX on Windows 8 / 7 / Vista
+
+For applications supporting OpenAL, the effects work in any speaker configuration.
+
+For applications supporting WaveOut or Directsound, the effects only work when the speaker configuration is 2/2.1 Speakers or Headphones (*).
+
+(*) If the current speaker configuration is 4.1 or 5.1 Speakers, first change it to 2/2.1 mode, then finally change it to Headphones, otherwise the effects won't work.
+
+
+There is echo when playing audio on Windows 8 / 7 / Vista
+
+Choose "EAX Games - Disable Effects" in the Special FX tab of Audio Console.
+
+
+There is no sound on Windows 8 / 7 / Vista in 4.1/5.1 Speakers mode
+
+Disable Advanced EQ or Special FX selecting "No effects" in the EAX tab of Audio Console.
+
+
+After changing speaker mode there is no sound on Windows 8 / 7 / Vista
+
+Mute and unmute the main volume control.
+
+
+Mixer levels are reset when the speaker configuration is changed on Windows 8 / 7 / Vista
+
+The volume levels of playback and record devices are reset everytime the speaker configuration is changed. You need to readjust them manually.
+
+
+Sound enhancements on Windows 8 / 7 / Vista
+
+The following sound effects are available:
+
+- Bass Management (Bass redirection and Bass Boost)
+
+- Swap LFE/Center
+
+- Environmental Effects
+
+- Loudness Equalization
+
+- Virtual Surround
+
+- Equalizer (10 band)
+
+- Room Correction
+
+
+Windows MIDI Device Configuration Utility
+
+Use this utility to change the MIDI playback device for 32-bit and 64-bit applications on Windows 8 / 7 / Vista.

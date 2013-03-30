@@ -1,0 +1,41 @@
+
+USBD_WEB64_W1_LB_1_00_0020
+
+Filesize : 19.73 MB
+
+Release date : 16 Aug 05
+
+File Name : USBD_WEB64_W1_LB_1_00_0020.exe
+
+This standalone driver provides Microsoft® Windows® XP Professional x64 Edition support for the following Creative USB Sound Blaster® audio devices only:
+Sound Blaster Live!® 24-bit External
+Sound Blaster MP3+
+Sound Blaster Digital Music
+Sound Blaster Digital Music LX
+Sound Blaster Audigy 2 NX
+
+Requirements:
+Windows XP Professional x64 Edition operating system
+Sound Blaster Live! 24-bit External, Sound Blaster MP3+, Sound Blaster Digital Music, Sound Blaster Digital Music LX, or Sound Blaster Audigy 2 NX
+Creative USB Sound Blaster Installation CD
+
+Notes:
+This standalone driver supports the Windows XP Professional x64 Edition operating system only.
+Make sure that your USB Sound Blaster audio device is properly connected to your computer before launching the driver.
+To install this driver:
+If you have not installed the applications on your Creative USB Sound Blaster Installation CD:
+Uninstall any existing audio device drivers.
+Close all other Windows applications.
+Insert the USB Sound Blaster installation CD and install all the applications.
+Follow the instructions on the screen.
+Restart your computer to complete the driver installation.
+If you have installed the applications on your Creative Sound Blaster Installation CD:
+Launch the Creative USB Sound Blaster series x64 driver. 
+Follow the instructions on the screen.
+Restart your computer to complete the driver installation.
+After installing the Creative USB Sound Blaster x64 driver,
+Download and install the Creative Basic Audio Suite for Creative Sound Blaster audio devices.
+Launch the Creative Basic Audio Suite installation.
+Follow the instructions on the screen.
+Restart your computer to complete the installation.
+Your Sound Blaster Audigy 2 NX audio device does not support DVD-Audio on Windows XP Professional x64 Edition.

@@ -1,0 +1,29 @@
+
+XFXA_PCDRV_LB_WIN8_1_04_0090
+
+Ğàçìåğ ôàéëà : 39,15 MB
+
+Äàòà âûïóñêà : 10 äåê 12 
+
+Èìÿ ôàéëà : XFXA_PCDRV_LB_WIN8_1_04_0090.exe 
+
+This suite of driver and application has been updated and combined for your convenience. It installs Creative Audio Console to control your audio device's settings. For more details, read the rest of this web release note.
+
+Game Fixes:
+
+For BioShock™
+Resolves OpenAL issues when you turn on Creative EAX® Audio in the game's Audio Options page.
+
+Requirements: 
+Microsoft® Windows® 8 32-bit or 64-bit, Windows 7 32-bit or 64-bit, Windows Vista™ 32-bit or 64-bit, Windows XP Professional x64 Edition, Windows XP Service Pack 2, Windows XP Media Center Edition 2005 or Windows XP Media Center Edition 2004
+PCI Sound Blaster® X-Fi™ Xtreme Audio
+
+Notes: 
+This pack is only for the Creative Sound Blaster audio device listed above.
+ DO NOT install this pack for other Sound Blaster audio devices.
+To install this pack 
+Download the file onto your local hard disk.
+Close all other Windows applications.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+

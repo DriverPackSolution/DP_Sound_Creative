@@ -1,0 +1,25 @@
+
+XUHD_PCDRV_WIN8_1_02_0021
+
+Ğàçìåğ ôàéëà : 116,37 MB
+
+Äàòà âûïóñêà : 19 îêò 12
+
+Èìÿ ôàéëà : XUHD_PCDRV_WIN8_1_02_0021.exe
+
+This download contains the latest CD installer for Sound Blaster® X-Fi™ HD / Digital Music Premium HD. For more details, please read the rest of this web release note.
+
+Fixes:
+Resolved the issue where no audio is produced for certain files played via S/PDIF Out in Windows XP.
+
+Requirements:
+Microsoft® Windows® 8 32-bit or 64-bit, Windows 7 32-bit or 64-bit, Windows Vista® 32-bit or 64-bit (SP1, SP2), Windows XP 32-bit or 64-bit (SP2, SP3)
+Sound Blaster X-Fi HD or Sound Blaster Digital Music Premium HD sound card
+
+Notes: 
+To install, do the following: 
+Download the file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+Restart your computer when prompted. 
+

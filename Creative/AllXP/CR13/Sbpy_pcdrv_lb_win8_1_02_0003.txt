@@ -1,0 +1,24 @@
+
+SBPY_PCDRV_LB_WIN8_1_02_0003
+
+Размер файла : 91,11 MB
+
+Дата выпуска : 19 окт 12
+
+Имя файла : SBPY_PCDRV_LB_WIN8_1_02_0003.exe
+
+This download is a driver providing Microsoft® Windows® support for Creative Sound Blaster Play!. For more details, read the rest of this web release note.
+
+Requirements:
+Microsoft Windows 8 64-bit or 32-bit, Windows 7 64-bit or 32-bit, Windows Vista 64-bit with Service Pack 1 (SP1) or Windows Vista 32-bit with SP1, Windows XP Professional x64 Edition or Windows XP Service Pack 2 (SP2)
+Sound Blaster Play!
+
+Notes:
+This driver is only for the Creative Sound Blaster audio device listed above.
+ DO NOT install this driver for other Sound Blaster audio devices.
+To install this driver 
+Download the file onto your local hard disk.
+Close all other Windows applications.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+

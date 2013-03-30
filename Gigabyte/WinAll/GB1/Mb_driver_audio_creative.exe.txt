@@ -1,0 +1,15 @@
+
+mb_driver_audio_creative.exe
+
+версия драйвера: 6.0.01.1327
+
+Размер файла : 203.9 Mb
+
+Дата выпуска : 15/02/2011
+
+Имя файла : mb_driver_audio_creative.exe
+
+
+Device:
+
+- G1.Assassin, G1.Sniper

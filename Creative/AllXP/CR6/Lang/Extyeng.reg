@@ -1,0 +1,80 @@
+REGEDIT4
+
+; Version 1.01
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{D00A9702-63D0-11d5-95E0-00A0C9817442}]
+"Name"="Play Control"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C64a-9DF6-11d5-A383-009027449656}]
+"Name"="Record Control"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C647-9DF6-11d5-A383-009027449656}]
+"Name"="Front Rear Balance"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C645-9DF6-11d5-A383-009027449656}]
+"Name"="Bass"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C646-9DF6-11d5-A383-009027449656}]
+"Name"="Treble"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C649-9DF6-11d5-A383-009027449656}]
+"Name"="MIDI Chorus"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C642-9DF6-11d5-A383-009027449656}]
+"Name"="Wave"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C648-9DF6-11d5-A383-009027449656}]
+"Name"="MIDI"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{D00A9707-63D0-11d5-95E0-00A0C9817442}]
+"Name"="Line-In"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C644-9DF6-11d5-A383-009027449656}]
+"Name"="Microphone"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C643-9DF6-11d5-A383-009027449656}]
+"Name"="CD Audio"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{D00A9709-63D0-11d5-95E0-00A0C9817442}]
+"Name"="SPDIF-In"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C641-9DF6-11d5-A383-009027449656}]
+"Name"="What U Hear"
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\MediaCategories\{E615C640-9DF6-11d5-A383-009027449656}]
+"Name"="Wave/MIDI/CD"
+
+[HKEY_LOCAL_MACHINE\Software\Creative Tech\MixerName]
+"Play Control"="Play"
+"Record Control"="Rec"
+"Front Rear Balance"="FrontRear"
+"Bass"="Bass"
+"Treble"="Treble"
+"MIDI Chorus"="Chorus"
+"Wave"="Wave"
+"MIDI"="MIDI"
+"Line-In"="Line"
+"Microphone"="Mic"
+"CD Audio"="CD"
+"SPDIF-In"="GPSPDIF"
+"What U Hear"="UHear"
+"Wave/MIDI/CD"="HMix"
+; Audigy Wave String for Co-existance issues
+"Wave/MP3"="Wave"
+
+[HKEY_LOCAL_MACHINE\Software\Creative Tech\SBExtigy\MixerName]
+"Play"="Play Control"
+"Rec"="Record Control"
+"FrontRear"="Front Rear Balance"
+"Bass"="Bass"
+"Treble"="Treble"
+"Chorus"="MIDI Chorus"
+"Wave"="Wave"
+"MIDI"="MIDI"
+"Line"="Line-In"
+"Mic"="Microphone"
+"CD"="CD Audio"
+"GPSPDIF"="SPDIF-In"
+"UHear"="What U Hear"
+"HMix"="Wave/MIDI/CD"
+

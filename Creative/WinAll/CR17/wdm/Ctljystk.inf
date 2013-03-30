@@ -1,0 +1,160 @@
+;-------------------------------------------------------------------------
+; Creative Technology Ltd.
+;     Copyright (c) Creative Technology Ltd, 1994-2004.
+;
+; Description
+;     This inf file contains the following device for Creative's gameport.
+;
+;  Gameport Device - PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+;                    PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+;
+;  Modified Date: 19 November 2004
+;  Version: 2.0.0.6
+;
+;
+;-------------------------------------------------------------------------
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%CREAF%
+DriverVer=08/25/2006
+CatalogFile=ctljystk.cat
+
+[Manufacturer]
+%CREAF%=Creative, NTX86.6, NTAMD64, NTIA64
+
+[ControlFlags]
+ExcludeFromSelect = PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7002&SUBSYS_00211102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7002&SUBSYS_002F1102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7002&SUBSYS_40011102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+ExcludeFromSelect = PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+;ExcludeFromSelect = PCI\VEN_1102&DEV_7003&SUBSYS_00601102
+
+[Creative]
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00211102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_002F1102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_40011102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+;%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00601102
+
+[Creative.NTX86.6]
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00211102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_002F1102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_40011102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+;%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00601102
+
+[Creative.NTAMD64]
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00211102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_002F1102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_40011102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+;%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00601102
+
+[Creative.NTIA64]
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00211102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_002F1102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7002&SUBSYS_40011102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00201102
+%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00401102
+;%*CtlGamePort.DeviceDesc%=CtlGamePort_Device,PCI\VEN_1102&DEV_7003&SUBSYS_00601102
+
+[SourceDisksNames]
+55=%StrDisk%,"",
+
+[SourceDisksFiles]
+
+[DestinationDirs]
+DefaultDestDir=10,system32\drivers
+
+;---------------------------------------------------------------;
+
+[CtlGamePort_Device]
+AlsoInstall=MSJSTICK(joystick.inf)
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+;---------------------------------------------------------------;
+
+[CtlGamePort_NULL]
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+[CtlGamePort_NULL.Services]
+AddService = , 0x00000002;NULL service install
+
+[CtlGamePort_Device.NTX86]
+Include=gameport.inf
+Needs=CreativeLabs_Port.NT
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+[CtlGamePort_Device.NTX86.Services]
+Include=gameport.inf
+Needs=CreativeLabs_Port.NT.Services
+
+[CtlGamePort_Device.NTX86.6]
+Include=ctgame2k.inf
+;;Uncomment the following when Microsoft provide support for game enum.
+;;Include=gameport.inf
+Needs=CreativeLabs_Port.NT
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+[CtlGamePort_Device.NTX86.6.Services]
+Include=ctgame2k.inf
+;;Uncomment the following when Microsoft provide support for game enum.
+;;Include=gameport.inf
+Needs=CreativeLabs_Port.NT.Services
+
+[CtlGamePort_Device.NTAMD64]
+Include=ctgame2k.inf
+;;Uncomment the following when Microsoft provide support for game enum.
+;;Include=gameport.inf
+Needs=CreativeLabs_Port.NT
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+[CtlGamePort_Device.NTAMD64.Services]
+Include=ctgame2k.inf
+;;Uncomment the following when Microsoft provide support for game enum.
+;;Include=gameport.inf
+Needs=CreativeLabs_Port.NT.Services
+
+[CtlGamePort_Device.NTIA64]
+Include=ctgame2k.inf
+;;Uncomment the following when Microsoft provide support for game enum.
+;;Include=gameport.inf
+Needs=CreativeLabs_Port.NT
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+[CtlGamePort_Device.NTIA64.Services]
+Include=ctgame2k.inf
+;;Uncomment the following when Microsoft provide support for game enum.
+;;Include=gameport.inf
+Needs=CreativeLabs_Port.NT.Services
+
+;---------------------------------------------------------------;
+
+[AddRegEmpty]
+[CopyFilesEmpty]
+
+;---------------------------------------------------------------;
+
+[Strings]
+CREAF="Creative"
+SPSVCINST_ASSOCSERVICE=0x00000002
+*CtlGamePort.DeviceDesc="Creative Game Port"
+StrDisk="Creative Installer CD-ROM"

@@ -1,0 +1,27 @@
+
+XFRL_PCDRV_LB_WIN8_3_00_2004
+
+Ğàçìåğ ôàéëà : 49,92 MB
+
+Äàòà âûïóñêà : 1 íîÿ 12
+
+Èìÿ ôàéëà : XFRL_PCDRV_LB_WIN8_3_00_2004.exe
+
+This download is a driver providing Microsoft® Windows® support for Creative Sound Blaster® X-Fi™ Titanium HD. For more details, read the rest of this web release note.
+
+Fixes:
+Resolves the following issues:
+Aux-In is incorrectly displayed as Mic-In when using the Creative ASIO driver. 
+Microphone input is missing. when using the Creative ASIO driver.
+System takes a long time or is unable to shutdown properly while Dolby Digital® Live or DTS® Connect is enabled. 
+
+Requirements:
+Microsoft Windows 8 64-bit or 32-bit, Windows 7 64-bit or 32-bit, Windows Vista 64-bit with Service Pack 2 (SP2), Windows Vista 32-bit with SP2
+Sound Blaster X-Fi Titanium HD
+
+Notes:
+To install this driver 
+Download the XFRL_PCDRV_LB_WIN8_3_00_2004.exe file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+

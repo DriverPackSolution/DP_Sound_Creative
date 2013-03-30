@@ -1,0 +1,687 @@
+; Creative KSAUD AVStream INF file
+;
+; Language : English
+; Copyright 2005-2010, Creative Technology Ltd.
+
+[Version]
+Signature="$Windows NT$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318} 
+CatalogFile.ntx86=SB1095x3.cat
+CatalogFile.ntamd64=SB1095x6.cat
+Provider=%MfgName%
+DriverVer=02/15/2011, 1.2.60.0
+
+[SourceDisksNames]
+101 = %DriverDisk1%,,
+
+[SourceDisksFiles.x86]
+ksaud.sys     = 101,i386
+ksaudfl.sys   = 101,i386
+KSXPPI32.dll    = 101,i386
+KSRun.dll     = 101,i386
+DeviceDefaultsXP.reg = 101
+MixerDefaultXP.reg = 101
+ksaud.ini     = 101
+KsDvInst.dll  = 101,i386
+JDetect.exe   = 101,i386
+
+[SourceDisksFiles.amd64]
+ksaud.sys     = 101,amd64
+ksaudfl.sys   = 101,amd64
+KSXPPI64.dll  = 101,amd64
+KSXPPI32.dll  = 101,i386
+KSRun.dll     = 101,amd64
+DeviceDefaultsXP.reg = 101
+MixerDefaultXP.reg = 101
+ksaud.ini     = 101
+KsDvInst.dll  = 101,amd64
+JDetect.exe   = 101,amd64
+
+[Manufacturer]
+%MfgName%=CREATIVE, ntamd64
+
+;; Mechanism for excluding drivers from the "Add New Hardware" list.
+[ControlFlags]
+;; *EXCLUDE is a made up ID to prevent rank 1 drivers from showing in list.
+ExcludeFromSelect = *
+
+[CREATIVE]
+;Creative
+%USB\VID_041E&PID_30DF&MI_00.DeviceDesc%=SB1095_Device, USB\VID_041E&PID_30DF&MI_00
+
+[CREATIVE.ntamd64]
+;Creative
+%USB\VID_041E&PID_30DF&MI_00.DeviceDesc%=SB1095_Device, USB\VID_041E&PID_30DF&MI_00
+
+[SB1095.Interface.Wave]
+AddReg=SB1095.Interface.Wave.AddReg
+
+[SB1095.Interface.Wave.AddReg]
+HKR,,FriendlyName,,%SB1095.Wave.szPname%
+HKR,,CurveType,1,01,00,00,00
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SB1095.Interface.RecordWUH]
+AddReg=SB1095.Interface.RecordWUH.AddReg
+
+[SB1095.Interface.RecordWUH.AddReg]
+HKR,,FriendlyName,,%SB1095.RecordWUH.szPname%
+HKR,,CurveType,1,01,00,00,00
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SB1095.Interface.RenderTopo]
+AddReg=SB1095.Interface.RenderTopo.AddReg
+
+[SB1095.Interface.RenderTopo.AddReg]
+HKR,,FriendlyName,,%SB1095.RenderTopo.szPname%
+HKR,,CurveType,1,01,00,00,00
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SB1095HW.AddReg]
+HKR,,FriendlyName,,%SB1095.DeviceDesc%
+
+[SB1095.AddReg]
+HKR,Drivers\wave\wdmaud.drv, Description,,%SB1095.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv,Description,,%SB1095.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%SB1095.DeviceDesc%
+HKR,Drivers\aux\wdmaud.drv,  Description,,%SB1095.DeviceDesc%
+
+HKR,"Product",Name,,%SB1095.Product%
+HKR,"DevName",%WaveOutDevName%,,%SB1095.Wave.szPname%
+HKR,"DevName",%WaveInDevName%,,%SB1095.Wave.szPname%
+HKR,"DevName",%MixerDevName%,,%SB1095.Topology.szPname%
+;; Copy friendly names to a location the driver knows
+HKLM,%DevInfoSB1095%,%WaveOutDevName%,,%SB1095.Wave.szPname%
+HKLM,%DevInfoSB1095%,%WaveInDevName%,,%SB1095.Wave.szPname%
+HKLM,%DevInfoSB1095%,%MixerDevName%,,%SB1095.Topology.szPname%
+
+;; Generic *****************************************************************************
+
+[KSAUD.AddReg]
+HKR,,SetupPreferredAudioDevices,3,01,00,00,00
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,ksaud.sys
+HKR,,NTMPDriver,,"ksaud.sys,sbemul.sys"
+
+HKR,,CLSID,,%Proxy.CLSID%
+
+HKR,Drivers,SubClasses,,"wave,midi,mixer,aux"
+
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\aux\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Config,Refresh,1,1,0,0,0
+
+[KSAUDHW.DelReg]
+HKR,KSAud_Device
+HKR,KSAud_Topology
+HKR,KSAud_Mixer
+HKR,EAX3
+HKR,PitchShift
+HKR,Silencer
+
+[KS_NAMES.AddReg]
+HKLM,"Software\Creative Tech\KSAud",ProductInf,,%InfFileName%
+
+;; All strings that appear in the mixer should appear here
+;; Remember to add the LongName to ShortName entry in %MixerName%
+;; so that our mixer can display the correct Icon
+HKLM,%MediaCategories%\%KSAUDGUID.Unknown%,Name,,%KSPin.Unknown%
+HKLM,%MediaCategories%\%KSAUDGUID.Unknown%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.WaveRender%,Name,,%KSPin.WaveRender%
+HKLM,%MediaCategories%\%KSAUDGUID.WaveRender%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.WaveCapture%,Name,,%KSPin.WaveCapture%
+HKLM,%MediaCategories%\%KSAUDGUID.WaveCapture%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.Speaker%,Name,,%KSPin.Speaker%
+HKLM,%MediaCategories%\%KSAUDGUID.Speaker%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineIn%,Name,,%KSPin.LineIn%
+HKLM,%MediaCategories%\%KSAUDGUID.LineIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.MicIn%,Name,,%KSPin.MicIn%
+HKLM,%MediaCategories%\%KSAUDGUID.MicIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicIn%,Name,,%KSPin.LineMicIn%
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicVideoIn%,Name,,%KSPin.LineMicVideoIn%
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicVideoIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.HostMixIn%,Name,,%KSPin.HostMixIn%
+HKLM,%MediaCategories%\%KSAUDGUID.HostMixIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.HWMixIn%,Name,,%KSPin.HWMixIn%
+HKLM,%MediaCategories%\%KSAUDGUID.HWMixIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.Headphone%,Name,,%KSPin.Headphone%
+HKLM,%MediaCategories%\%KSAUDGUID.Headphone%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFIn%,Name,,%KSPin.SPDIFIn%
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.ExternalIn%,Name,,%KSPin.ExternalIn%
+HKLM,%MediaCategories%\%KSAUDGUID.ExternalIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFOut%,Name,,%KSPin.SPDIFOut%
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFOut%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.AC3Render%,Name,,%KSPin.AC3Render%
+HKLM,%MediaCategories%\%KSAUDGUID.AC3Render%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.MicBoost%,Name,,%KSNode.MicBoost%
+HKLM,%MediaCategories%\%KSAUDGUID.MicBoost%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.Wave%,Name,,%KSPin.Wave%
+HKLM,%MediaCategories%\%KSAUDGUID.Wave%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.MIDI%,Name,,%KSPin.MIDI%
+HKLM,%MediaCategories%\%KSAUDGUID.MIDI%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.CD%,Name,,%KSPin.CD%
+HKLM,%MediaCategories%\%KSAUDGUID.CD%,Display,1,00,00,00,00
+
+;;No need for localisation
+HKLM,%MediaCategories%\%KSAUDGUID.MicInVol%,Name,,%KSNode.MicInVol%
+HKLM,%MediaCategories%\%KSAUDGUID.MicInVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.MicInMute%,Name,,%KSNode.MicInMute%
+HKLM,%MediaCategories%\%KSAUDGUID.MicInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineInVol%,Name,,%KSNode.LineInVol%
+HKLM,%MediaCategories%\%KSAUDGUID.LineInVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineInMute%,Name,,%KSNode.LineInMute%
+HKLM,%MediaCategories%\%KSAUDGUID.LineInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFInMute%,Name,,%KSNode.SPDIFInMute%
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.SpeakerVol%,Name,,%KSNode.SpeakerVol%
+HKLM,%MediaCategories%\%KSAUDGUID.SpeakerVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.SpeakerMute%,Name,,%KSNode.SpeakerMute%
+HKLM,%MediaCategories%\%KSAUDGUID.SpeakerMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineInRecVol%,Name,,%KSNode.LineInRecVol%
+HKLM,%MediaCategories%\%KSAUDGUID.LineInRecVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.MicInRecVol%,Name,,%KSNode.MicInRecVol%
+HKLM,%MediaCategories%\%KSAUDGUID.MicInRecVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.HostMixRecVol%,Name,,%KSNode.HostMixRecVol%
+HKLM,%MediaCategories%\%KSAUDGUID.HostMixRecVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.WaveVol%,Name,,%KSNode.WaveVol%
+HKLM,%MediaCategories%\%KSAUDGUID.WaveVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.WaveMute%,Name,,%KSNode.WaveMute%
+HKLM,%MediaCategories%\%KSAUDGUID.WaveMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicInVol%,Name,,%KSNode.LineMicInVol%
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicInVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicInMute%,Name,,%KSNode.LineMicInMute%
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicInRecVol%,Name,,%KSNode.LineMicInRecVol%
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicInRecVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.ExternalInVol%,Name,,%KSNode.ExternalInVol%
+HKLM,%MediaCategories%\%KSAUDGUID.ExternalInVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.ExternalInMute%,Name,,%KSNode.ExternalInMute%
+HKLM,%MediaCategories%\%KSAUDGUID.ExternalInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.ExternalInRecVol%,Name,,%KSNode.ExternalInRecVol%
+HKLM,%MediaCategories%\%KSAUDGUID.ExternalInRecVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFInVol%,Name,,%KSNode.SPDIFInVol%
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFInVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFInRecVol%,Name,,%KSNode.SPDIFInRecVol%
+HKLM,%MediaCategories%\%KSAUDGUID.SPDIFInRecVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.HWMixRecVol%,Name,,%KSNode.HWMixRecVol%
+HKLM,%MediaCategories%\%KSAUDGUID.HWMixRecVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.DOO%,Name,,%KSNode.DOO%
+HKLM,%MediaCategories%\%KSAUDGUID.DOO%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.VideoInMute%,Name,,%KSNode.VideoInMute%
+HKLM,%MediaCategories%\%KSAUDGUID.VideoInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.MIDIVol%,Name,,%KSNode.MIDIVol%
+HKLM,%MediaCategories%\%KSAUDGUID.MIDIVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.MIDIMute%,Name,,%KSNode.MIDIMute%
+HKLM,%MediaCategories%\%KSAUDGUID.MIDIMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.CDVol%,Name,,%KSNode.CDVol%
+HKLM,%MediaCategories%\%KSAUDGUID.CDVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.CDMute%,Name,,%KSNode.CDMute%
+HKLM,%MediaCategories%\%KSAUDGUID.CDMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicVInVol%,Name,,%KSNode.LineMicVInVol%
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicVInVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicVInMute%,Name,,%KSNode.LineMicVInMute%
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicVInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicVInRecVol%,Name,,%KSNode.LineMicVInRecVol%
+HKLM,%MediaCategories%\%KSAUDGUID.LineMicVInRecVol%,Display,1,00,00,00,00
+
+;; Make a copy of mixer names so that we can restore at startup
+HKLM,%MyMixerName%,%KSPinShort.Unknown%,,%KSPin.Unknown%
+HKLM,%MyMixerName%,%KSPinShort.WaveRender%,,%KSPin.WaveRender%
+HKLM,%MyMixerName%,%KSPinShort.Speaker%,,%KSPin.Speaker%
+HKLM,%MyMixerName%,%KSPinShort.LineIn%,,%KSPin.LineIn%
+HKLM,%MyMixerName%,%KSPinShort.MicIn%,,%KSPin.MicIn%
+HKLM,%MyMixerName%,%KSPinShort.LineMicIn%,,%KSPin.LineMicIn%
+HKLM,%MyMixerName%,%KSPinShort.LineMicVideoIn%,,%KSPin.LineMicVideoIn%
+HKLM,%MyMixerName%,%KSPinShort.HostMixIn%,,%KSPin.HostMixIn%
+HKLM,%MyMixerName%,%KSPinShort.HWMixIn%,,%KSPin.HWMixIn%
+HKLM,%MyMixerName%,%KSPinShort.Headphone%,,%KSPin.Headphone%
+HKLM,%MyMixerName%,%KSPinShort.SPDIFIn%,,%KSPin.SPDIFIn%
+HKLM,%MyMixerName%,%KSPinShort.ExternalIn%,,%KSPin.ExternalIn%
+HKLM,%MyMixerName%,%KSPinShort.SPDIFOut%,,%KSPin.SPDIFOut%
+HKLM,%MyMixerName%,%KSPinShort.AC3Render%,,%KSPin.AC3Render%
+HKLM,%MyMixerName%,%KSNodeShort.MicBoost%,,%KSNode.MicBoost%
+HKLM,%MyMixerName%,%KSNodeShort.DOO%,,%KSNode.DOO%
+HKLM,%MyMixerName%,%KSNodeShort.VideoInMute%,,%KSNode.VideoInMute%
+HKLM,%MyMixerName%,%KSPinShort.Wave%,,%KSPin.Wave%
+HKLM,%MyMixerName%,%KSPinShort.MIDI%,,%KSPin.MIDI%
+HKLM,%MyMixerName%,%KSPinShort.CD%,,%KSPin.CD%
+
+;; Mixer name for KSVSPI
+HKLM,%KSVSPIInfo%,%KSPin.Unknown%,,%KSPinShort.Unknown%
+HKLM,%KSVSPIInfo%,%KSPin.WaveRender%,,%KSPinShort.WaveRender%
+HKLM,%KSVSPIInfo%,%KSPin.Speaker%,,%KSPinShort.Speaker%
+HKLM,%KSVSPIInfo%,%KSPin.LineIn%,,%KSPinShort.LineIn%
+HKLM,%KSVSPIInfo%,%KSPin.MicIn%,,%KSPinShort.MicIn%
+HKLM,%KSVSPIInfo%,%KSPin.LineMicIn%,,%KSPinShort.LineMicIn%
+HKLM,%KSVSPIInfo%,%KSPin.LineMicVideoIn%,,%KSPinShort.LineMicVideoIn%
+HKLM,%KSVSPIInfo%,%KSPin.HostMixIn%,,%KSPinShort.HostMixIn%
+HKLM,%KSVSPIInfo%,%KSPin.HWMixIn%,,%KSPinShort.HWMixIn%
+HKLM,%KSVSPIInfo%,%KSPin.Headphone%,,%KSPinShort.Headphone%
+HKLM,%KSVSPIInfo%,%KSPin.SPDIFIn%,,%KSPinShort.SPDIFIn%
+HKLM,%KSVSPIInfo%,%KSPin.ExternalIn%,,%KSPinShort.ExternalIn%
+HKLM,%KSVSPIInfo%,%KSPin.SPDIFOut%,,%KSPinShort.SPDIFOut%
+HKLM,%KSVSPIInfo%,%KSPin.AC3Render%,,%KSPinShort.AC3Render%
+
+HKLM,%KSVSPIInfo%,%KSNode.MicBoost%,,%KSNodeShort.MicBoost%
+HKLM,%KSVSPIInfo%,%KSNode.MicInVol%,,%KSNodeShort.MicInVol%
+HKLM,%KSVSPIInfo%,%KSNode.MicInMute%,,%KSNodeShort.MicInMute%
+HKLM,%KSVSPIInfo%,%KSNode.LineInVol%,,%KSNodeShort.LineInVol%
+HKLM,%KSVSPIInfo%,%KSNode.LineInMute%,,%KSNodeShort.LineInMute%
+HKLM,%KSVSPIInfo%,%KSNode.SPDIFInMute%,,%KSNodeShort.SPDIFInMute%
+HKLM,%KSVSPIInfo%,%KSNode.SpeakerVol%,,%KSNodeShort.SpeakerVol%
+HKLM,%KSVSPIInfo%,%KSNode.SpeakerMute%,,%KSNodeShort.SpeakerMute%
+HKLM,%KSVSPIInfo%,%KSNode.LineInRecVol%,,%KSNodeShort.LineInRecVol%
+HKLM,%KSVSPIInfo%,%KSNode.MicInRecVol%,,%KSNodeShort.MicInRecVol%
+HKLM,%KSVSPIInfo%,%KSNode.HostMixRecVol%,,%KSNodeShort.HostMixRecVol%
+HKLM,%KSVSPIInfo%,%KSNode.WaveVol%,,%KSNodeShort.WaveVol%
+HKLM,%KSVSPIInfo%,%KSNode.WaveMute%,,%KSNodeShort.WaveMute%
+HKLM,%KSVSPIInfo%,%KSNode.LineMicInMute%,,%KSNodeShort.LineMicInMute%
+HKLM,%KSVSPIInfo%,%KSNode.LineMicInVol%,,%KSNodeShort.LineMicInVol%
+HKLM,%KSVSPIInfo%,%KSNode.LineMicInRecVol%,,%KSNodeShort.LineMicInRecVol%
+HKLM,%KSVSPIInfo%,%KSNode.ExternalInMute%,,%KSNodeShort.ExternalInMute%
+HKLM,%KSVSPIInfo%,%KSNode.ExternalInVol%,,%KSNodeShort.ExternalInVol%
+HKLM,%KSVSPIInfo%,%KSNode.ExternalInRecVol%,,%KSNodeShort.ExternalInRecVol%
+HKLM,%KSVSPIInfo%,%KSNode.SPDIFInVol%,,%KSNodeShort.SPDIFInVol%
+HKLM,%KSVSPIInfo%,%KSNode.SPDIFInRecVol%,,%KSNodeShort.SPDIFInRecVol%
+HKLM,%KSVSPIInfo%,%KSNode.HWMixRecVol%,,%KSNodeShort.HWMixRecVol%
+HKLM,%KSVSPIInfo%,%KSNode.DOO%,,%KSNodeShort.DOO%
+HKLM,%KSVSPIInfo%,%KSNode.VideoInMute%,,%KSNodeShort.VideoInMute%
+HKLM,%KSVSPIInfo%,%KSNode.MIDIVol%,,%KSNodeShort.MIDIVol%
+HKLM,%KSVSPIInfo%,%KSNode.MIDIMute%,,%KSNodeShort.MIDIMute%
+HKLM,%KSVSPIInfo%,%KSNode.CDVol%,,%KSNodeShort.CDVol%
+HKLM,%KSVSPIInfo%,%KSNode.CDMute%,,%KSNodeShort.CDMute%
+HKLM,%KSVSPIInfo%,%KSNode.LineMicVInMute%,,%KSNodeShort.LineMicVInMute%
+HKLM,%KSVSPIInfo%,%KSNode.LineMicVInVol%,,%KSNodeShort.LineMicVInVol%
+HKLM,%KSVSPIInfo%,%KSNode.LineMicVInRecVol%,,%KSNodeShort.LineMicVInRecVol%
+
+[Filter.AddReg]
+HKR,,NTMPDriver,,"ksaud.sys,ksaudfl.sys"
+HKR,Sensaura\Configuration,RenderFactory,0,%KSNAME_GLOBAL%
+HKR,Sensaura\Configuration,TopologyFactory,0,%KSNAME_GLOBAL%
+HKR,Sensaura\Configuration,IgnoreDSSpeakerConfiguration, 1, 00, 00, 00, 00
+HKR,Sensaura\Configuration,ForwardSpeakerConfiguration, 1, 01, 00, 00, 00
+HKR,Sensaura\Configuration,DynamicMix, 1, 00, 00, 00, 00
+HKR,Sensaura\Configuration,CrystalizerCap,0x00010001,100
+
+[Filter.Single.AddReg]
+HKR,,NTMPDriver,,"ksaud.sys,ksaudfl.sys"
+HKR,Sensaura\Configuration,RenderFactory,0,%KSNAME_GLOBAL_SINGLE%
+HKR,Sensaura\Configuration,TopologyFactory,0,%KSNAME_GLOBAL_SINGLE%
+HKR,Sensaura\Configuration,IgnoreDSSpeakerConfiguration, 1, 00, 00, 00, 00
+HKR,Sensaura\Configuration,ForwardSpeakerConfiguration, 1, 01, 00, 00, 00
+HKR,Sensaura\Configuration,DynamicMix, 1, 00, 00, 00, 00
+HKR,Sensaura\Configuration,CrystalizerCap,0x00010001,100
+
+[Filter.Single.5Dot1Spk.AddReg]
+;; Add this registry for filter driver to get default speaker config (5.1 rear)
+HKR,Sensaura\State\%KSNAME_GLOBAL_SINGLE%,SpeakerConfiguration,0x00010001,63
+
+[FilterHW.AddReg]
+HKR,,"UpperFilters",0x00010000,"ksaudfl"
+
+[Security.AddReg]
+; FILE_DEVICE_SOUND
+HKR,,DeviceType,0x10001,0x0000001D
+; SDDL_DEVOBJ_SYS_ALL_ADM_RWX_WORLD_RWX_RES_RWX
+HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GRGWGX;;;BA)(A;;GRGWGX;;;WD)(A;;GRGWGX;;;RC)"
+
+;[IgnoreHwString.AddReg]
+;HKR,,IgnoreHwString,0x10001,1
+
+[KSRun.AddReg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,"Creative KSRun Persistence Module",,"RunDll32 KSRun.dll,RunDLLEntry"
+
+[DestinationDirs]
+KSAUD.CopyList         = 10,system32\drivers ; %SystemRoot%\system32\drivers
+Filter.CopyList        = 10,system32\drivers ; %SystemRoot%\system32\drivers
+SPI.CopyList.x86       = 11                  ; %SystemRoot%\system32
+SPI.CopyList.amd64     = 11                  ; %SystemRoot%\system32
+SPI32.CopyList.amd64   = 16425               ; %SystemRoot%\SysWow64
+DefaultDestDir         = 10,system32\drivers ; %SystemRoot%\system32\drivers
+KSRun.CopyList         = 11                  ; %SystemRoot%\system32
+CoInst.CopyList        = 11                  ; %SystemRoot%\system32
+
+[KSAUD.CopyList]
+ksaud.sys
+
+[Filter.CopyList]
+ksaudfl.sys
+
+[CoInst.CopyList]
+KsDvInst.dll
+
+[SPI.CopyList.x86]
+KSXPPI32.dll
+
+[SPI.CopyList.amd64]
+KSXPPI64.dll
+
+[SPI32.CopyList.amd64]
+KSXPPI32.dll
+
+[KSRun.CopyList]
+KSRun.dll
+DeviceDefaultsXP.reg
+MixerDefaultXP.reg
+ksaud.ini
+JDetect.exe
+
+[SB1095_Device.ntx86.CoInstallers]
+CopyFiles=CoInst.CopyList
+AddReg=COINST.AddReg
+
+[SB1095_Device.ntx86]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=KSAUD.CopyList,Filter.CopyList,SPI.CopyList.x86,KSRun.CopyList
+AddReg=KSAUD.AddReg,SB1095.AddReg,KS_NAMES.AddReg,Filter.AddReg,KSRun.AddReg
+
+[SB1095_Device.ntx86.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_GLOBAL%,        SB1095.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_GLOBAL%,       SB1095.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_GLOBAL%,      SB1095.Interface.Wave
+
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_RECORDWUH%,        SB1095.Interface.RecordWUH
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_RECORDWUH%,      SB1095.Interface.RecordWUH
+
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_RENDERTOPO%,        SB1095.Interface.RenderTopo
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_RENDERTOPO%,      SB1095.Interface.RenderTopo
+
+[SB1095_Device.ntx86.Services]
+AddService = ksaud, 0x00000002, KSAUD_Service_Inst
+AddService = ksaudfl, 0x00000000, Filter_Service_Inst
+
+[SB1095_Device.ntx86.HW]
+AddReg=Security.AddReg,SB1095HW.AddReg,FilterHW.AddReg
+DelReg=KSAUDHW.DelReg
+
+;; SB1095 specific amd64 install*****************************************************************************
+
+[SB1095_Device.ntamd64.CoInstallers]
+CopyFiles=CoInst.CopyList
+AddReg=COINST.AddReg
+
+[SB1095_Device.ntamd64]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=KSAUD.CopyList,Filter.CopyList,SPI.CopyList.amd64,SPI32.CopyList.amd64,KSRun.CopyList
+AddReg=KSAUD.AddReg,SB1095.AddReg,KS_NAMES.AddReg,Filter.AddReg,KSRun.AddReg
+
+[SB1095_Device.ntamd64.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_GLOBAL%,        SB1095.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_GLOBAL%,       SB1095.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_GLOBAL%,      SB1095.Interface.Wave
+
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_RECORDWUH%,        SB1095.Interface.RecordWUH
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_RECORDWUH%,      SB1095.Interface.RecordWUH
+
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_RENDERTOPO%,        SB1095.Interface.RenderTopo
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_RENDERTOPO%,      SB1095.Interface.RenderTopo
+
+
+[SB1095_Device.ntamd64.Services]
+AddService = ksaud, 0x00000002, KSAUD_Service_Inst
+AddService = ksaudfl, 0x00000000, Filter_Service_Inst
+
+[SB1095_Device.ntamd64.HW]
+AddReg=Security.AddReg,SB1095HW.AddReg,FilterHW.AddReg
+DelReg=KSAUDHW.DelReg
+
+;; Coinstaller AddReg ***************************************************************************
+
+[COINST.AddReg]
+HKR,,CoInstallers32,0x00010000,"KsDvInst.dll,CtDevCoInstProc"
+;HKLM,System\CurrentControlSet\Control\CoDeviceInstallers,{4d36e96c-e325-11ce-bfc1-08002be10318},0x00010008,"KsCoInst.dll,CtCoInstProc"
+HKR,,OriginalSourcePath,,%01%
+HKLM,%CoInstallerInfo%,%DvInstallerName%,,%DvININame%
+
+;; KSAUD generic NT install*****************************************************************************
+
+[KSAUD_Service_Inst]
+DisplayName    = %KSAUD.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ksaud.sys
+
+[Filter_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ksaudfl.sys
+
+;; *****************************************************************************
+;; Strings Section
+;; *****************************************************************************
+[Strings]
+
+;; SB1095 Specific Strings *****************************************************************************
+
+SB1095.DeviceDesc        ="Sound Blaster X-Fi Surround 5.1 Pro"
+SB1095.Product           ="Sound Blaster X-Fi Surround 5.1 Pro"
+SB1095.Wave.szPname      ="SB X-Fi Surr 5.1 Pro"
+SB1095.Topology.szPname  ="SB X-Fi Surr 5.1 Pro"
+SB1095.RecordWUH.szPname   ="X-Fi Surr 5.1 Pro What U Hear"
+SB1095.RenderTopo.szPname  ="X-Fi Surr 5.1 Pro Render Mixer"
+
+;; Name for audio, midi etc, must be 31 characters or less.
+
+USB\VID_041E&PID_30DF&MI_00.DeviceDesc = "Sound Blaster X-Fi Surround 5.1 Pro"
+
+;; Device Names (non-localizable)
+DevInfoSB1095           ="SOFTWARE\Creative Tech\Device\VID_041E&PID_30DF"
+
+;; Generic Strings *****************************************************************************
+InfFileName             ="SB1095.inf"
+MfgName                 ="Creative Technology Ltd."
+
+
+;; Dynamic loaded Kernal Module Keys
+StrCTKey                ="SYSTEM\CurrentControlSet\Control\Creative Tech"
+
+DriverDisk1             ="Creative USB Audio Installation CD"
+
+MediaCategories         ="SYSTEM\CurrentControlSet\Control\MediaCategories"
+
+Proxy.CLSID             ="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO        ="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER       ="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE      ="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_TOPOLOGY     ="{DDA54A40-1E4C-11D1-A050-405705C10000}"
+
+KSAUD.SvcDesc           ="Creative USB Audio Driver"
+
+MyMixerName             ="SOFTWARE\Creative Tech\KSAud\MixerName"
+WaveOutDevName          ="WaveOutName"
+WaveInDevName           ="WaveInName"
+MixerDevName            ="MixerName"
+MIDIWTSynthDevName	="MIDISynthName"
+
+;; Filter Names
+KSNAME_WAVE 	     = "KSAUDWave"
+KSNAME_TOPO 	     = "KSAUDTopo"
+KSNAME_CAPTURE 	     = "KSAUDCapture"
+KSNAME_AC3 	     = "KSAUDAC3"
+KSNAME_GLOBAL_SINGLE = "WAVE"
+KSNAME_GLOBAL 	     ="{101DE7F6-62E6-4f36-BCCD-5A6F71AD5FC4}"
+KSNAME_RECORDWUH     	="{71101E52-07D2-4bba-9EF4-6015551A767F}"
+KSNAME_RENDERTOPO       ="{70B6B898-2910-467d-BF4A-954CC97B02BE}"
+
+;; Pins (non-localizeable)
+KSAUDGUID.Unknown        ="{231C8BFA-4811-4e59-ABAA-253AB257F7C2}"
+KSAUDGUID.WaveRender     ="{3D925FBA-256C-4e77-A4C6-7802DB1D96A7}"
+KSAUDGUID.WaveCapture    ="{E9F8F95A-CFAB-42a8-B18B-AC09CA73F1D1}"
+KSAUDGUID.Speaker        ="{6ACB64EC-89A7-458a-A5A0-86871BA37B73}"
+KSAUDGUID.LineIn         ="{F967D31F-CAFF-4302-8ECC-FA0970B2ACBD}"
+KSAUDGUID.MicIn          ="{41588F2A-B848-4a6b-9DCF-A26632AE5EE3}"
+KSAUDGUID.LineMicIn      ="{E14B0414-9B9C-4b97-BCDC-DF737F523BA7}"
+KSAUDGUID.LineMicVideoIn ="{A096431A-E7BA-4296-AE97-39BBE781EE3C}"
+KSAUDGUID.HostMixIn      ="{DCA391F2-291E-4d79-BDB0-6C4E991C6C6E}"
+KSAUDGUID.HWMixIn        ="{A186641E-3A64-47c6-BBB4-04BFF34A8AA2}"
+KSAUDGUID.Headphone      ="{8E2B716F-0080-4c2c-934D-DB4AA3C8ECE3}"
+KSAUDGUID.SPDIFIn        ="{1325C783-6BC9-4f09-AC4E-A9F2A571F057}"
+KSAUDGUID.ExternalIn     ="{EE5E9422-F850-4a75-90A0-2D5EF4A9A018}"
+KSAUDGUID.SPDIFOut       ="{44B18F32-D1D6-4006-89C6-2EB700E71269}"
+KSAUDGUID.AC3Render      ="{0297BCC0-318A-41ba-AE72-A66F8D30C14B}"
+KSAUDGUID.MicBoost       ="{A9EC2069-4CB6-4458-AC6C-2A4DEBEE3010}"
+KSAUDGUID.MicInVol       ="{870CA7ED-0E80-49d8-9A99-9A4B0875845A}"
+KSAUDGUID.MicInMute      ="{2FF50D43-C9FC-48ea-A790-9F1F3F03CF50}"
+KSAUDGUID.LineInVol      ="{7FEF6825-21A2-449e-ACF1-12133E5E25D9}"
+KSAUDGUID.LineInMute     ="{457A129E-9E95-40f2-89EF-8564D8353425}"
+KSAUDGUID.SPDIFInMute    ="{F1B150A9-8607-49bc-B805-27B96F4B6325}"
+KSAUDGUID.SpeakerVol     ="{257520A6-032C-4778-A69C-8E64C6C28C65}"
+KSAUDGUID.SpeakerMute    ="{65F42146-0361-444d-A423-07EF333311B8}"
+KSAUDGUID.LineInRecVol   ="{3FF6E076-FB5D-481a-983F-87968EDF6D71}"
+KSAUDGUID.MicInRecVol    ="{73AC17B2-FDFB-4a33-954C-865C7D69DBE4}"
+KSAUDGUID.HostMixRecVol  ="{68889C6F-05EB-4a17-97F2-EE060046B256}"
+KSAUDGUID.WaveVol        ="{8294A05A-B72B-4a67-A1BF-B95F76BEE9D8}"
+KSAUDGUID.WaveMute       ="{6D3F578B-3ACC-46e9-BB87-CAF9F44E9475}"
+KSAUDGUID.LineMicInMute  ="{7A343DAC-D259-43e6-B35E-4E24E76AC186}"
+KSAUDGUID.LineMicInVol   ="{ADBF4281-E811-4df1-A5A3-AEB2590D3FD6}"
+KSAUDGUID.LineMicInRecVol="{5A88C788-D98C-4280-AE69-D40246A05AA3}"
+KSAUDGUID.ExternalInMute ="{CAA59314-E8C7-4363-98FF-73FD3D4702A4}"
+KSAUDGUID.ExternalInVol  ="{6AF3F3B0-7D76-4565-A884-4AAA7B98358B}"
+KSAUDGUID.ExternalInRecVol="{3A96E6DF-22B3-4bab-B197-7A67CB8E602C}"
+KSAUDGUID.SPDIFInVol     ="{A583EA97-1097-4e63-872B-3A85A9119A06}"
+KSAUDGUID.SPDIFInRecVol  ="{A09A6F47-6346-44be-8527-E417F9FDB45E}"
+KSAUDGUID.HWMixRecVol    ="{BD7BBBF4-D6E6-4edc-B3D4-4ADAE2CE0454}"
+KSAUDGUID.DOO            ="{8421C8A5-ECE1-4d8b-A67C-8A7B0202CCF5}"
+KSAUDGUID.VideoInMute    ="{3E658C24-83B1-4977-B1B9-74BBC3E2A416}"
+KSAUDGUID.Wave           ="{DFF21FE4-F70F-11D0-B917-00A0C9223196}"
+KSAUDGUID.MIDI           ="{423274A0-8B81-11d1-A050-0000F8004788}"
+KSAUDGUID.CD             ="{DFF220E3-F70F-11d0-B917-00A0C9223196}"
+KSAUDGUID.MIDIVol        ="{7E460092-B65D-41ef-A810-8E1C670D45AB}"
+KSAUDGUID.MIDIMute       ="{6B30A0B8-2A40-451c-95E5-4EB542321B8D}"
+KSAUDGUID.CDVol          ="{E6B21FC5-74B8-41a7-BEEA-162D45F9BC41}"
+KSAUDGUID.CDMute         ="{7A4804DB-4CB4-477e-83BC-FB2210A34B39}"
+KSAUDGUID.LineMicVInMute  ="{D4827E8F-D315-4311-93DE-EF9678214E5D}"
+KSAUDGUID.LineMicVInVol   ="{39F95625-C9CC-4236-8A54-12626761EA23}"
+KSAUDGUID.LineMicVInRecVol="{673A4CD6-377C-4363-9C92-B23D7139DE01}"
+
+;; Pins Short Names for Mixer Icon lookup (non-localizeable)
+KSPinShort.Unknown        ="Unknown"
+KSPinShort.WaveRender     ="Play"
+KSPinShort.WaveCapture    ="Rec"
+KSPinShort.Speaker        ="Spk"
+KSPinShort.LineIn         ="Line"
+KSPinShort.MicIn          ="Mic"
+KSPinShort.LineMicIn      ="LineMic"
+KSPinShort.LineMicVideoIn ="LineMicV"
+KSPinShort.HostMixIn      ="HMix"
+KSPinShort.HWMixIn        ="UHear"
+KSPinShort.Headphone      ="HP"
+KSPinShort.SPDIFIn        ="SPDIFIn"
+KSPinShort.ExternalIn     ="ExtIn"
+KSPinShort.SPDIFOut       ="SPDIFOut"
+KSPinShort.AC3Render      ="AC3"
+KSPinShort.Wave           ="Wave"
+KSPinShort.MIDI           ="MIDI"
+KSPinShort.CD             ="CD"
+
+;; Nodes Short Names for Mixer Icon lookup (non-localizeable)
+KSNodeShort.MicBoost      ="MicBoost"
+KSNodeShort.MicInVol      ="MicInVol"
+KSNodeShort.MicInMute     ="MicInMute"
+KSNodeShort.LineInVol     ="LineInVol"
+KSNodeShort.LineInMute    ="LineInMute"
+KSNodeShort.SPDIFInMute   ="SPDIFInMute"
+KSNodeShort.SpeakerVol    ="SpeakerVol"
+KSNodeShort.SpeakerMute   ="SpeakerMute"
+KSNodeShort.LineInRecVol  ="LineInRecVol"
+KSNodeShort.MicInRecVol   ="MicInRecVol"
+KSNodeShort.HostMixRecVol ="HostMixRecVol"
+KSNodeShort.WaveVol       ="WaveVol"
+KSNodeShort.WaveMute      ="WaveMute"
+KSNodeShort.LineMicInMute ="LineMicInMute"
+KSNodeShort.LineMicInVol  ="LineMicInVol"
+KSNodeShort.LineMicInRecVol="LineMicInRecVol"
+KSNodeShort.ExternalInMute="ExternalInMute"
+KSNodeShort.ExternalInVol ="ExternalInVol"
+KSNodeShort.ExternalInRecVol="ExternalInRecVol"
+KSNodeShort.SPDIFInVol    ="SPDIFInVol"
+KSNodeShort.SPDIFInRecVol ="SPDIFInRecVol"
+KSNodeShort.HWMixRecVol ="UHearRecVol"
+KSNodeShort.DOO ="DOO"
+KSNodeShort.VideoInMute ="VideoInMute"
+KSNodeShort.MIDIVol     ="MIDIVol"
+KSNodeShort.MIDIMute    ="MIDIMute"
+KSNodeShort.CDVol       ="CDVol"
+KSNodeShort.CDMute      ="CDMute"
+KSNodeShort.LineMicVInMute ="LineMicVInMute"
+KSNodeShort.LineMicVInVol  ="LineMicVInVol"
+KSNodeShort.LineMicVInRecVol="LineMicVInRecVol"
+
+;; Pins (localizeable)
+KSPin.Unknown        ="Unknown"
+KSPin.WaveRender     ="Wave/MIDI/CD"
+KSPin.WaveCapture    ="Record"
+KSPin.Speaker        ="Speaker"
+KSPin.LineIn         ="Line-In"
+KSPin.MicIn          ="Microphone"
+KSPin.LineMicIn      ="Line-In/Mic-In"
+KSPin.LineMicVideoIn ="Line/Mic/Video In"
+KSPin.HostMixIn      ="Wave/MIDI/CD"
+KSPin.HWMixIn        ="What U Hear"
+KSPin.Headphone      ="Headphone"
+KSPin.SPDIFIn        ="SPDIF-In"
+KSPin.ExternalIn     ="External Input"
+KSPin.SPDIFOut       ="SPDIF-Out"
+KSPin.AC3Render      ="AC3"
+KSPin.Wave           ="Wave"
+KSPin.MIDI           ="MIDI"
+KSPin.CD             ="CD Audio"
+
+;; Nodes (localizeable)
+KSNode.MicBoost      ="Microphone Boost"
+KSNode.MicInVol      ="Microphone Volume"
+KSNode.MicInMute     ="Microphone Mute"
+KSNode.LineInVol     ="Line-In Volume"
+KSNode.LineInMute    ="Line-In Mute"
+KSNode.SPDIFInMute   ="SPDIF-In Mute"
+KSNode.SpeakerVol    ="Speaker Volume"
+KSNode.SpeakerMute   ="Speaker Mute"
+KSNode.LineInRecVol  ="Line-In Recording Volume"
+KSNode.MicInRecVol   ="Microphone Recording Volume"
+KSNode.HostMixRecVol ="Wave/MIDI/CD Recording Volume"
+KSNode.WaveVol       ="Wave/MIDI/CD Volume"
+KSNode.WaveMute      ="Wave/MIDI/CD Mute"
+KSNode.LineMicInMute ="Line-In/Mic-In Mute"
+KSNode.LineMicInVol  ="Line-In/Mic-In Volume"
+KSNode.LineMicInRecVol="Line-In/Mic-In Recording Volume"
+KSNode.ExternalInMute="External Input Mute"
+KSNode.ExternalInVol ="External Input Volume"
+KSNode.ExternalInRecVol="External Input Recording Volume"
+KSNode.SPDIFInVol    ="SPDIF-In Volume"
+KSNode.SPDIFInRecVol ="SPDIF-In Recording Volume"
+KSNode.HWMixRecVol  ="What U Hear Recording Volume"
+KSNode.DOO          ="Digital Out Only"
+KSNode.VideoInMute  ="Video In Mute"
+
+;; Nodes (non-localizeable)
+KSNode.MIDIVol      ="MIDI Volume"
+KSNode.MIDIMute     ="MIDI Mute"
+KSNode.CDVol        ="CD Volume"
+KSNode.CDMute       ="CD Mute"
+KSNode.LineMicVInMute ="Line/Mic/Video-In Mute"
+KSNode.LineMicVInVol  ="Line/Mic/Video-In Volume"
+KSNode.LineMicVInRecVol="Line/Mic/Video-In Recording Volume"
+
+KSNODETYPE_ANY             = "{00000000-0000-0000-0000-000000000000}"
+KSNODETYPE_SPEAKER         = "{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_HEADPHONES      = "{DFF21CE2-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_LINE_CONNECTOR  = "{DFF21FE3-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_SPDIF_INTERFACE = "{DFF21FE5-F70F-11D0-B917-00A0C9223196}"
+
+;; String for KSVSPI
+KSVSPIInfo                 ="SOFTWARE\Creative Tech\KSVSPI\MixerName"
+
+;; String for CoInstaller
+CoInstallerInfo            ="SYSTEM\CurrentControlSet\Control\Creative Tech\Coinstaller"
+CoInstallerName            ="kscoinst"
+DvInstallerName            ="ksdvinst"
+DvININame                  ="ksaud.ini"

@@ -1,0 +1,26 @@
+
+Sound Blaster Live! - LiveDrvUni-Pack
+
+Размер файла : 23,32 MB
+
+Дата выпуска : 10 мар 03
+
+Имя файла : LiveDrvUni-Pack(ENG).exe
+
+Sound Blaster Live! - LiveDrvUni-Pack (English)
+
+SBLW-XPWEB-W4-US 
+
+ This package upgrades the Sound Blaster Live! driver and enhances the overall product performance on Windows 2000 and Windows XP. The package also upgrades core applications including Audio HQ and Surround Mixer for optimal Sound Blaster Live! performance. 
+
+ If you are unsure of which update to download please click here to go to the READ THIS FIRST section 
+
+This update:- 
+ Resolves compatibility issues with Sound Blaster Live! products on Windows 2000 and Windows XP 
+Requirements: 
+ For Windows 2000 and Windows XP users ONLY. 
+ Creative SB Live! Series Audio card installed. 
+
+Note: 
+ This package can be installed independently and does not require other applications in the LiveDrvUni-Pack to be downloaded. 
+ Older Sound Blaster Live! Experience demo applications may not work properly when updated with the LiveDrvUni-Pack.

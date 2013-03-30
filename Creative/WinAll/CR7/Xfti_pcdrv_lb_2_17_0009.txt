@@ -1,0 +1,48 @@
+
+XFTI_PCDRV_LB_2_17_0009
+
+Filesize : 51.11 MB
+
+Release date : 3 Jan 13
+
+File Name : XFTI_PCDRV_LB_2_17_0009.exe 
+
+This download is a driver providing Microsoft® Windows® 8 support for Creative Sound Blaster® X-Fi™ Titanium series of audio devices. For more details, read the rest of this web release note.
+
+This download contains the driver and following application(s):
+Creative Audio Control Panel 
+
+This download supports the following audio devices only:
+Sound Blaster X-Fi Titanium Fatal1ty® Champion Series
+Sound Blaster X-Fi Titanium Fatal1ty Professional Series
+Sound Blaster X-Fi Titanium Professional Audio
+Sound Blaster X-Fi Titanium 
+
+Added Features or Enhancements:
+Improves the loading time of Audio Control Panel.
+Enables selection of other microphones under the Microphone Effects tab of Audio Control Panel.
+
+Fixes:
+Resolves the following issues:
+Microphone volume level is not saved in each Creative Console Launcher mode.
+ Requires the latest Creative Console Launcher application (v2.61.49).
+No sound is passed through S/PDIF output when playing back DVD movies using Windows Media® Player 12.
+Buttons on the X-Fi I/O drive do not work in Windows XP. 
+Occasional unresponsiveness in Audio Control Panel when configuring the Flexijack.
+Speaker Configuration in Audio Control Panel is not synchronized when Headphones option is selected in Game Mode or Audio Creation Mode.
+System becomes unresponsive when shutting down Windows while DTS® Connect is enabled.
+
+Known Issues:
+
+
+Audio stutters during the opening video for certain game titles while Dolby Digital® Live is enabled. This issue occurs on certain hardware and OS configurations only. More details and a workaround are available here. 
+
+Requirements:
+Microsoft Windows 8 64-bit or 32-bit, Windows 7 64-bit or 32-bit, Windows Vista 64-bit with Service Pack 1 (SP1), Windows Vista 32-bit with SP1, Windows XP Professional x64 Edition, Windows XP Service Pack 3 (SP3), Windows XP Media Center Edition (MCE) 2005 or Windows XP MCE 2004
+Sound Blaster X-Fi Titanium series audio devices listed above
+
+Notes:
+To install this driver 
+Download the XFTI_PCDRV_LB_2_17_0009.exe file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.

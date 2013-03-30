@@ -1,0 +1,42 @@
+
+USB_PCDRV_LB_1_01_0099 (XFXA_PCDRV_LB_1_01_0099)
+
+Ðàçìåð ôàéëà : 54,9 MB
+
+Äàòà âûïóñêà : 14 ÿíâ 10
+
+Èìÿ ôàéëà : USB_PCDRV_LB_1_01_0099.exe (XFXA_PCDRV_LB_1_01_0099.exe)
+
+This suite of driver and application has been updated and combined for your convenience. It installs Creative Audio Console to control your audio device's settings. For more details, read the rest of this web release note.
+
+Added Features:
+Provides support for all applicable remote control models.
+
+This download supports the following audio devices only:
+Sound Blaster X-Fi™ Go!
+Sound Blaster X-Fi Notebook
+Sound Blaster X-Fi Surround 5.1 
+USB Sound Blaster X-Fi Xtreme Audio Karaoke
+Sound Blaster Audigy® 2 ZS Video Editor
+Sound Blaster Live!® 24-bit External
+Sound Blaster Digital Music SX
+Sound Blaster Digital Music PX 
+Sound Blaster Digital Music
+Sound Blaster Surround 5.1
+Sound Blaster Connect 
+Sound Blaster MP3+
+USB Sound Blaster Audigy 2 NX
+USB Sound Blaster Digital Music LX 
+
+Requirements: 
+Microsoft® Windows® 7 32-bit or 64-bit, Windows Vista® 32-bit or 64-bit, Windows XP Professional x64 Edition or Windows XP Service Pack 2
+Sound Blaster® X-Fi™ Surround 5.1
+
+Notes: 
+This pack is only for the audio device listed above.
+DO NOT install this pack for other Sound Blaster audio devices.
+To install this pack 
+Download the file into your local hard disk.
+Close all other Windows applications.
+Double-click the downloaded file.
+Follow the instructions on the screen.

@@ -1,0 +1,962 @@
+;-------------------------------------------------------------------------
+;
+; Creative Technology Ltd.
+;     Copyright (c) Creative Technology Ltd, 1994-2011.
+;
+; Description
+;     This inf file contains the following device for Creative's audio card.
+;
+;  Audio Device 
+;       - PCI\VEN_1102&DEV_0005&CC_040100
+;       - PCI\VEN_1102&DEV_0008&CC_040100
+;       - PCI\VEN_1102&DEV_0004&CC_040100
+;       - PCI\VEN_1102&DEV_0002&CC_040100
+;
+;  Modified Date: 19 August 2011
+;  Version: 2.14.0001.16
+;
+;-------------------------------------------------------------------------
+[Version]
+Signature="$WINDOWS NT$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%CREAF%
+DriverVer=08/19/2011, 6.0.01.1285
+;CatalogFile=wdma_emu.cat
+CatalogFile.NTX86=wdm_emu.cat
+CatalogFile.NTAMD64=wdmemu64.cat
+
+[Manufacturer]
+%CLMfgName%=Auzentech, NTX86, NTAMD64
+
+;; Mechanism for excluding drivers from the "Add New Hardware" list.
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Auzentech]
+; XFi 
+%XFi.DeviceDesc%=XFi_Device,PCI\VEN_1102&DEV_0005&SUBSYS_0034415A
+
+[Auzentech.NTX86]
+; XFi 
+%XFi.DeviceDesc%=XFi_Device,PCI\VEN_1102&DEV_0005&SUBSYS_0034415A
+
+[Auzentech.NTAMD64]
+; XFi
+%XFi.DeviceDesc%=XFi_Device,PCI\VEN_1102&DEV_0005&SUBSYS_0034415A
+
+[Live2K.Interface.WvPciB.NT]
+AddReg=Live2K.Interface.WPNTB.AddReg
+[Live2K.Interface.WPNTB.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.Wave.szPname%
+
+[Live2K.Interface.WvCycB.NT]
+AddReg=Live2K.Interface.WCNTB.AddReg
+[Live2K.Interface.WCNTB.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.Wave.szPname%
+HKR,,DisableFlags,0x00010001,0x00000001
+
+[XFi.Interface.Topology]
+AddReg=XFi.Interface.Topo.AddReg
+;; warning!! must be "Topo" because "Topology" is too long
+[XFi.Interface.Topo.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%XFi.Topology.szPname%
+
+[Live2K.Interface.SpdifWave]
+AddReg=Live2K.Interface.SpdifWave.AddReg
+[Live2K.Interface.SpdifWave.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.SpdifWave.szPname%
+
+[Live2K.Interface.SpdifTopo]
+AddReg=Live2K.Interface.SpdifTopo.AddReg
+[Live2K.Interface.SpdifTopo.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.SpdifTopo.szPname%
+
+[Live2K.Interface.Synth]
+AddReg=Live2K.Interface.Syn.AddReg
+[Live2K.Interface.Syn.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.Synth.szPname%
+
+[Live2K.Interface.SynthA]
+AddReg=Live2K.Interface.SynA.AddReg
+[Live2K.Interface.SynA.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.SynthA.szPname%
+
+[Live2K.Interface.SynthB]
+AddReg=Live2K.Interface.SynB.AddReg
+[Live2K.Interface.SynB.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.SynthB.szPname%
+
+[Live2K.Interface.SwSynth]
+AddReg=Live2K.Interface.SwS.AddReg
+[Live2K.Interface.SWS.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.SwSynth.szPname%
+
+[Live2K.Interface.UART1]
+AddReg=Live2K.Interface.UART1.AddReg
+[Live2K.Interface.UART1.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.UART1.szPname%
+
+[Live2K.Interface.UART2]
+AddReg=Live2K.Interface.UART2.AddReg
+[Live2K.Interface.UART2.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.UART2.szPname%
+
+[Live2K.Interface.MidiAutoFx]
+AddReg=Live2K.Interface.MidA.AddReg
+[Live2K.Interface.MidA.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.MidiAutoFx.szPname%
+
+[Live2K.Interface.DmUart1]
+AddReg=Live2K.Interface.DMU1.AddReg
+[Live2K.Interface.DMU1.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.DmUart1.szPname%
+
+[Live2K.Interface.DmUart2]
+AddReg=Live2K.Interface.DMU2.AddReg
+[Live2K.Interface.DMU2.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.DmUart2.szPname%
+
+[Live2K.Interface.DmAutoFx]
+AddReg=Live2K.Interface.DMA.AddReg
+[Live2K.Interface.DMA.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.DmAutoFx.szPname%
+
+[Live2K.Interface.DmSynth]
+AddReg=Live2K.Interface.DMS.AddReg
+[Live2K.Interface.DMS.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Live2K.DmSynth.szPname%
+
+[XFi.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,ctaud2k.sys
+HKR,,NTMPDriver,,"ctaud2k.sys,sbemul.sys"
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv, Description,,%XFi.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%XFi.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%XFi.DeviceDesc%
+HKR,,SetupPreferredAudioDevices,3,01,00,00,00
+HKCU,"Software\Microsoft\Multimedia\Sound Mapper","SetupPreferredAudioDevicesCount",0x4,00,00,00,00
+HKR,Settings,Dma64BitAddresses,1,01
+HKLM,%StrCTKey%\DATABASE\PRODUCT\LANG,,,"CTDLANG.DAT"
+HKLM,%StrCTKey%\DATABASE\PRODUCT\NLLANG,,,"CTDNLSTR.DAT"
+HKLM,%StrCTKey%\DATABASE\PRODUCT\SILICON,"PCI&VEN_1102&DEV_0005",,"DATA\CTS20X.DAT"
+HKLM,%StrCTKey%\DATABASE\PRODUCT\DGBOARD,"PCI&VEN_1102&DEV_0005",,"DATA\CTD20X.DAT"
+HKLM,%StrCTKey%\HardwareID\PCI&VEN_1102&DEV_0005,DeviceType,,"AUDIO"
+;for coinstaller
+HKLM,%StrCTKey%\coinstaller,norunexe,0x00010001,1
+HKLM,%StrCTKey%\Defaults\PCI&VEN_1102&DEV_0005&SUBSYS_0034415A,"BF2DDLPatch",0x00010001,1
+
+
+;Command Router configuration file overwrite entry
+;[XFI_CR.AddReg]
+;HKR,"EP\\0",%CTPKEY_CommandRouter_SettingsOverride%,,%11%\XFi_CRCF.ini
+
+[Setup.AddReg]
+;;BMix
+HKLM,%StrEMU10KxHomeKey%\BMix,Refresh,0x00010001,1
+HKLM,%Str20XHomeKey%\BMix,Refresh,0x00010001,1
+;Register with CTAUD
+HKLM,%StrCTKey%\BinaryClassID\%HA20X_BINARY_CLSID%,DeviceName,,"\Device\HA20X2K"
+HKLM,%StrCTKey%\BinaryClassID\%HA20X_BINARY_CLSID%,ServiceName,,"ha20x2k"
+HKLM,%StrCTKey%\BinaryClassID\%HA20X_BINARY_CLSID%,FileDeviceType,0x00010001,16524 ;;;Must be Decimal
+HKLM,%StrCTKey%\BinaryClassID\%HA20X_BINARY_CLSID%,ServiceType,0x00010001,31 ;;;Must be Decimal
+HKLM,%StrCTKey%\BinaryClassID\%PIA_BINARY_CLSID%,DeviceName,,"\Device\EMUPIA"
+HKLM,%StrCTKey%\BinaryClassID\%PIA_BINARY_CLSID%,ServiceName,,"emupia"
+HKLM,%StrCTKey%\BinaryClassID\%PIA_BINARY_CLSID%,FileDeviceType,0x00010001,16190 ;;;Must be Decimal
+HKLM,%StrCTKey%\BinaryClassID\%PIA_BINARY_CLSID%,ServiceType,0x00010001,28 ;;;Must be Decimal
+HKLM,%StrCTKey%\BinaryClassID\%AC3_BINARY_CLSID%,DeviceName,,"\Device\CTAC32K"
+HKLM,%StrCTKey%\BinaryClassID\%AC3_BINARY_CLSID%,ServiceName,,"ctac32k"
+HKLM,%StrCTKey%\BinaryClassID\%AC3_BINARY_CLSID%,FileDeviceType,0x00010001,0x0000408D
+HKLM,%StrCTKey%\BinaryClassID\%AC3_BINARY_CLSID%,ServiceType,0x00010001,0x0000001C
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,DeviceName,,"\Device\CTSFM2K"
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,ServiceName,,"ctsfm2k"
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,FileDeviceType,0x00010001,0x00000033
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,ServiceType,0x00010001,0x0000001C
+HKLM,%StrCTKey%\BinaryClassID\%DVD_BINARY_CLSID%,DeviceName,,"\Device\CTDVDA2K"
+HKLM,%StrCTKey%\BinaryClassID\%DVD_BINARY_CLSID%,ServiceName,,"ctdvda2k"
+HKLM,%StrCTKey%\BinaryClassID\%DVD_BINARY_CLSID%,FileDeviceType,0x00010001,0x0000408D
+HKLM,%StrCTKey%\BinaryClassID\%DVD_BINARY_CLSID%,ServiceType,0x00010001,0x0000001C
+
+[AudioBrandXFi.AddReg]
+HKR,Branding,icon,,"%11%\SBXFi.ico"
+HKR,Branding,bitmap,,"%11%\XFi.bmp"
+;;HKR,Branding,url,,"http://www.soundblaster.com"
+
+[COINST.AddReg]
+HKR,,CoInstallers32,0x00010000,"CtDvInst.dll,CtDevCoInstProc"
+HKLM,System\CurrentControlSet\Control\CoDeviceInstallers,{4d36e96c-e325-11ce-bfc1-08002be10318},0x00010008,"CtCoInst.dll,CtCoInstProc"
+HKR,,OriginalSourcePath,,%01%
+
+[DestinationDirs]
+SysFiles.CopyList.ntx86   = 10,system32\drivers ; %SystemRoot%\system32\drivers
+SysFiles.CopyList.ntamd64 = 10,system32\drivers ; %SystemRoot%\system32\drivers
+DVD.CopyList              = 10,system32\drivers ; %SystemRoot%\system32\drivers
+Others.CopyList           = 11                  ; %SystemRoot%\System32
+Commons.CopyList.ntx86    = 11                  ; %SystemRoot%\System32
+Commons.CopyList.ntamd64  = 11                  ; %SystemRoot%\System32
+SFMAN.CopyList.ntx86      = 11                  ; %SystemRoot%\System32
+SFMAN.CopyList.ntamd64    = 10,SysWOW64         ; %SystemRoot%\SysWOW64
+DataBase.CopyList         = 11,data             ; %SystemRoot%\System32\data
+AudioBrandXFi.CopyList    = 11                  ; %SystemRoot%\System32
+CoInst.CopyList           = 11                  ; %SystemRoot%\System32
+CommonsWOW64.CopyList     = 10,SysWOW64         ; %SystemRoot%\SysWOW64
+DataBaseWOW64.CopyList    = 10,SysWOW64\data    ; %SystemRoot%\SysWOW64\data
+Temp.CopyList             = 10,Temp             ; %SystemRoot%\Temp
+
+; This corresponds each individual file to the disk ordinal
+; label above
+[SourceDisksNames]
+55=%StrDisk%,"",
+
+; This corresponds each individual file to the disk ordinal
+; labled above
+[SourceDisksFiles]
+ctzapxx.ini=55
+auzen.ini=55
+CT1MGM.ROM=55,Common
+CT2MGM.SF2=55,Common
+CT4MGM.SF2=55,Common
+CT8MGM.SF2=55,Common
+default4.sfm=55,Common
+default8.sfm=55,Common
+default.sfm=55,Common
+ctac32k.sys=55,Win2K_XP\i386
+ctaud2k.sys=55,Win2K_XP\i386
+ctdvda2k.sys=55,Win2K_XP\i386
+ctoss2k.sys=55,Win2K_XP\i386
+ctprxy2k.sys=55,Win2K_XP\i386
+ctsfm2k.sys=55,Win2K_XP\i386
+emupia2k.sys=55,Win2K_XP\i386
+ha20x2k.sys=55,Win2K_XP\i386
+pfmodnt.sys=55,Win2K_XP\i386
+COMMONFX.DLL=55,Common\i386
+CTAUDFX.DLL=55,Common\i386
+CTSBLFX.DLL=55,Common\i386
+CTEAPSFX.DLL=55,Common\i386
+CTEDSPFX.DLL=55,Common\i386
+CTERFXFX.DLL=55,Common\i386
+CTEDSPIO.DLL=55,Common\i386
+CTEDSPSY.DLL=55,Common\i386
+CTEXFIFX.DLL=55,Common\i386
+CT20XUT.DLL=55,Common\i386
+CTHWIUT.DLL=55,Common\i386
+regplib.exe=55,Common\i386
+a3d.dll=55,Common\i386
+ac3api.dll=55,Common\i386
+ctosuser.dll=55,Common\i386
+ctemupia.dll=55,Common\i386
+piaproxy.dll=55,Common\i386
+ctdproxy.dll=55,Common\i386
+sfman32.dll=55,Common\i386
+sfms32.dll=55,Common\i386
+ctasio.dll=55,Common\i386
+ctedasio.dll=55,Common\i386
+ct_oal.dll=55,Common\i386
+ctpxinst.exe=55,Common\i386
+cttele.dll=55,Common\i386
+ctthxcal.dll=55,Common\i386
+CTxfiBtn.dll=55,Common\i386
+CTxfiSpk.dll=55,Common\i386
+Ct20xspi.dll=55,Common\i386
+CTxfispi.exe=55,Common\i386
+Ctxfihlp.exe=55,Common\i386
+CTpcmcia.dll=55,Common\i386
+CTBurst.dll=55,Common\i386
+ctscal.dll=55,Common\i386
+ctspkhlp.dll=55,Common\i386
+;;ctdc0000.dll=55,Common\i386
+;;ctdc0001.dll=55,Common\i386
+;;ctdcifce.dll=55,Common\i386
+;;CtHelper.exe=55,Common\i386
+ctcoinst.dll=55,Win2K_XP\i386
+ctdvinst.dll=55,Win2K_XP\i386
+ctdlang.dat=55,Win2K_XP
+ctdnlstr.dat=55,Win2K_XP
+ctstatic.dat=55,Win2K_XP
+ctdaught.dat=55,Win2K_XP
+ctbasicw.dat=55,Win2K_XP
+ctbas2w.dat=55,Win2K_XP
+ctsbasw.dat=55,Win2K_XP
+;ctsbas2w.dat=55,Win2K_XP
+SBLive.ico=55,Win2K_XP
+Live.bmp=55,Win2K_XP
+SBAudigy.ico=55,Win2K_XP
+Audigy.bmp=55,Win2K_XP
+E-DSP.ICO=55,Win2K_XP
+E-DSP.BMP=55,Win2K_XP
+SBXFi.ico=55,Win2K_XP
+XFi.bmp=55,Win2K_XP
+ctd20x.dat=55,Win2K_XP\Data
+cts20x.dat=55,Win2K_XP\Data
+AU0001W.DAT=55,Win2K_XP\Data
+CTXFIGM.RFX=55,Win2K_XP\Data
+CTXFIEM.RFX=55,Win2K_XP\Data
+CTXFICM.RFX=55,Win2K_XP\Data
+CTXFICBM.RFX=55,Win2K_XP\Data
+;CTXFIGMu.RFX=55,Win2K_XP\Data
+;CTXFIEMu.RFX=55,Win2K_XP\Data
+;CTXFICMu.RFX=55,Win2K_XP\Data
+;CTXFIGMu.ini=55,Win2K_XP\Data
+;CTXFIEMu.ini=55,Win2K_XP\Data
+;CTXFICMu.ini=55,Win2K_XP\Data
+
+[SourceDisksFiles.amd64]
+ctzapxx.ini=55
+auzen.ini=55
+CT1MGM.ROM=55,Common
+CT2MGM.SF2=55,Common
+CT4MGM.SF2=55,Common
+CT8MGM.SF2=55,Common
+default4.sfm=55,Common
+default8.sfm=55,Common
+default.sfm=55,Common
+ctac32k.sys=55,Win2K_XP\amd64
+ctaud2k.sys=55,Win2K_XP\amd64
+ctdvda2k.sys=55,Win2K_XP\amd64
+ctoss2k.sys=55,Win2K_XP\amd64
+ctprxy2k.sys=55,Win2K_XP\amd64
+ctsfm2k.sys=55,Win2K_XP\amd64
+emupia2k.sys=55,Win2K_XP\amd64
+ha20x2k.sys=55,Win2K_XP\amd64
+pfmodnt.sys=55,Win2K_XP\amd64
+COMMONFX.DLL=55,Common\amd64
+CTAUDFX.DLL=55,Common\amd64
+CTSBLFX.DLL=55,Common\amd64
+CTEAPSFX.DLL=55,Common\amd64
+CTEDSPFX.DLL=55,Common\amd64
+CTERFXFX.DLL=55,Common\amd64
+CTEDSPIO.DLL=55,Common\amd64
+CTEDSPSY.DLL=55,Common\amd64
+CTEXFIFX.DLL=55,Common\amd64
+CT20XUT.DLL=55,Common\amd64
+CTHWIUT.DLL=55,Common\amd64
+regplib.exe=55,Common\amd64
+ctedasio.dll=55,Common\amd64
+a3d.dll=55,Common\i386
+ac3api.dll=55,Common\i386
+ctosuser.dll=55,Common\i386
+ctemupia.dll=55,Common\i386
+piaproxy.dll=55,Common\i386\thunk
+ctdproxy.dll=55,Common\i386\thunk
+sfman32.dll=55,Common\i386
+sfms32.dll=55,Common\i386\thunk
+ctasio.dll=55,Common\i386\thunk
+ct_oal.dll=55,Common\i386
+ctpxinst.exe=55,Common\i386
+cttele.dll=55,Common\i386
+ctthxcal.dll=55,Common\i386
+CTxfiBtn.dll=55,Common\i386
+CTxfiSpk.dll=55,Common\i386
+Ct20xspi.dll=55,Common\i386
+CTxfispi.exe=55,Common\i386
+Ctxfihlp.exe=55,Common\i386
+CTpcmcia.dll=55,Common\i386
+CTBurst.dll=55,Common\i386
+ctscal.dll=55,Common\i386
+ctspkhlp.dll=55,Common\i386
+;;ctdc0000.dll=55,Common\i386
+;;ctdc0001.dll=55,Common\i386
+;;ctdcifce.dll=55,Common\i386
+;;CtHelper.exe=55,Common\i386
+
+ctcoinst.dll=55,Win2K_XP\amd64
+ctdvinst.dll=55,Win2K_XP\amd64
+ctdlang.dat=55,Win2K_XP
+ctdnlstr.dat=55,Win2K_XP
+ctstatic.dat=55,Win2K_XP
+ctdaught.dat=55,Win2K_XP
+ctbasicw.dat=55,Win2K_XP
+ctbas2w.dat=55,Win2K_XP
+ctsbasw.dat=55,Win2K_XP
+;ctsbas2w.dat=55,Win2K_XP
+SBLive.ico=55,Win2K_XP
+Live.bmp=55,Win2K_XP
+SBAudigy.ico=55,Win2K_XP
+Audigy.bmp=55,Win2K_XP
+E-DSP.ICO=55,Win2K_XP
+E-DSP.BMP=55,Win2K_XP
+SBXFi.ico=55,Win2K_XP
+XFi.bmp=55,Win2K_XP
+ctd20x.dat=55,Win2K_XP\Data
+cts20x.dat=55,Win2K_XP\Data
+AU0001W.DAT=55,Win2K_XP\Data
+CTXFIGM.RFX=55,Win2K_XP\Data
+CTXFIEM.RFX=55,Win2K_XP\Data
+CTXFICM.RFX=55,Win2K_XP\Data
+CTXFICBM.RFX=55,Win2K_XP\Data
+;CTXFIGMu.RFX=55,Win2K_XP\Data
+;CTXFIEMu.RFX=55,Win2K_XP\Data
+;CTXFICMu.RFX=55,Win2K_XP\Data
+;CTXFIGMu.ini=55,Win2K_XP\Data
+;CTXFIEMu.ini=55,Win2K_XP\Data
+;CTXFICMu.ini=55,Win2K_XP\Data
+
+
+[SysFiles.CopyList.ntx86]
+ctac32k.sys
+ctaud2k.sys
+ctoss2k.sys
+ctprxy2k.sys
+ctsfm2k.sys
+emupia2k.sys
+ha20x2k.sys
+pfmodnt.sys
+
+[SysFiles.CopyList.ntamd64]
+ctac32k.sys
+ctaud2k.sys
+ctoss2k.sys
+ctprxy2k.sys
+ctsfm2k.sys
+emupia2k.sys
+ha20x2k.sys
+pfmodnt.sys
+
+
+[DVD.CopyList]
+ctdvda2k.sys
+
+[Others.CopyList]
+ctdlang.dat
+ctdnlstr.dat
+ctstatic.dat
+ctdaught.dat
+ctzapxx.ini
+auzen.ini
+CT1MGM.ROM
+CT2MGM.SF2
+CT4MGM.SF2
+CT8MGM.SF2
+default4.sfm
+default8.sfm
+default.sfm
+
+[Commons.CopyList.ntx86]
+COMMONFX.DLL
+CTAUDFX.DLL
+CTSBLFX.DLL
+CTEAPSFX.DLL
+CTEDSPFX.DLL
+CTERFXFX.DLL
+CTEDSPIO.DLL
+CTEDSPSY.DLL
+CTEXFIFX.DLL
+CT20XUT.DLL
+CTHWIUT.DLL
+regplib.exe
+a3d.dll
+ac3api.dll
+ctosuser.dll
+ctemupia.dll
+piaproxy.dll
+ctdproxy.dll
+ctasio.dll
+ctedasio.dll
+ct_oal.dll
+ctpxinst.exe
+
+ctthxcal.dll
+CTxfiBtn.dll
+CTxfiSpk.dll
+Ct20xspi.dll
+CTxfispi.exe
+Ctxfihlp.exe
+CTpcmcia.dll
+CTBurst.dll
+ctscal.dll
+ctspkhlp.dll
+;;ctdc0000.dll
+;;ctdc0001.dll
+;;ctdcifce.dll
+;;CtHelper.exe
+
+[Commons.CopyList.ntamd64]
+COMMONFX.DLL
+CTAUDFX.DLL
+CTSBLFX.DLL
+CTEAPSFX.DLL
+CTEDSPFX.DLL
+CTERFXFX.DLL
+CTEDSPIO.DLL
+CTEDSPSY.DLL
+CTEXFIFX.DLL
+CT20XUT.DLL
+CTHWIUT.DLL
+regplib.exe
+
+ctedasio.dll
+
+
+[CommonsWOW64.CopyList]
+ctdlang.dat
+ctdnlstr.dat
+ctstatic.dat
+ctdaught.dat
+ctzapxx.ini
+auzen.ini
+CT1MGM.ROM
+CT2MGM.SF2
+CT4MGM.SF2
+CT8MGM.SF2
+default4.sfm
+default8.sfm
+default.sfm
+
+a3d.dll
+ac3api.dll
+ctosuser.dll
+ctemupia.dll
+piaproxy.dll
+ctdproxy.dll
+ctasio.dll
+ctedasio.dll
+ct_oal.dll
+ctpxinst.exe
+ctthxcal.dll
+CTxfiBtn.dll
+CTxfiSpk.dll
+Ct20xspi.dll
+CTxfispi.exe
+Ctxfihlp.exe
+CTpcmcia.dll
+CTBurst.dll
+ctscal.dll
+ctspkhlp.dll
+;;ctdc0000.dll
+;;ctdc0001.dll
+;;ctdcifce.dll
+;;CtHelper.exe
+
+[DataBaseWOW64.CopyList]
+CTXFIGM.RFX
+CTXFIEM.RFX
+CTXFICM.RFX
+CTXFICBM.RFX
+;CTXFIGMu.RFX
+;CTXFIEMu.RFX
+;CTXFICMu.RFX
+;CTXFIGMu.ini
+;CTXFIEMu.ini
+;CTXFICMu.ini
+
+[Temp.CopyList]
+ctpxinst.exe
+cttele.dll
+
+;;
+;; Register custom SYSFX and property page
+;;
+[SFMAN.CopyList.ntx86]
+sfman32.dll
+sfms32.dll
+
+[SFMAN.CopyList.ntamd64]
+sfman32.dll
+sfms32.dll
+
+[DataBase.CopyList]
+ctd20x.dat
+AU0001W.DAT
+cts20x.dat
+CTXFIGM.RFX
+CTXFIEM.RFX
+CTXFICM.RFX
+CTXFICBM.RFX
+;CTXFIGMu.RFX
+;CTXFIEMu.RFX
+;CTXFICMu.RFX
+;CTXFIGMu.ini
+;CTXFIEMu.ini
+;CTXFICMu.ini
+
+[AudioBrandXFi.CopyList]
+SBXFi.ico
+XFi.bmp
+
+[CoInst.CopyList]
+ctcoinst.dll
+ctdvinst.dll
+
+
+;;**************** NT Install ****************
+[XFi_Device.NTX86.CoInstallers]
+CopyFiles=CoInst.CopyList
+AddReg=COINST.AddReg
+
+[XFi_Device.NTAMD64.CoInstallers]
+CopyFiles=CoInst.CopyList
+AddReg=COINST.AddReg
+
+[XFi_Device.NTX86]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=SysFiles.CopyList.ntx86, Others.CopyList, Temp.CopyList, Commons.CopyList.ntx86, SFMAN.CopyList.ntx86, DataBase.CopyList, AudioBrandXFi.CopyList, CoInst.CopyList, DVD.CopyList
+AddReg=XFi.AddReg, AudioBrandXFi.AddReg, Setup.AddReg, COINST.AddReg
+
+[XFi_Device.NTAMD64]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration, mssysfx.CopyFilesAndRegister
+CopyFiles=SysFiles.CopyList.ntamd64, Others.CopyList, Temp.CopyList, Commons.CopyList.ntamd64, SFMAN.CopyList.ntamd64, DataBase.CopyList, AudioBrandXFi.CopyList, CoInst.CopyList, CommonsWOW64.CopyList, DataBaseWOW64.CopyList
+AddReg=XFi.AddReg, AudioBrandXFi.AddReg, Setup.AddReg, COINST.AddReg
+
+
+[XFi_Device.NTX86.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WavePci%,       Live2K.Interface.WvPciB.NT
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WavePci%,      Live2K.Interface.WvPciB.NT
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WavePci%,     Live2K.Interface.WvPciB.NT
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WaveCyc%,       Live2K.Interface.WvCycB.NT
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WaveCyc%,      Live2K.Interface.WvCycB.NT
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WaveCyc%,     Live2K.Interface.WvCycB.NT
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,      XFi.Interface.Topology
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,   XFi.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SpdifWave%,     Live2K.Interface.SpdifWave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SpdifWave%,    Live2K.Interface.SpdifWave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SpdifTopo%,     Live2K.Interface.SpdifTopo
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_SpdifTopo%,  Live2K.Interface.SpdifTopo
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Synth%,         Live2K.Interface.Synth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Synth%,        Live2K.Interface.Synth
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_Synth%,   Live2K.Interface.Synth
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SynthA%,        Live2K.Interface.SynthA
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SynthA%,       Live2K.Interface.SynthA
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_SynthA%,  Live2K.Interface.SynthA
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SynthB%,        Live2K.Interface.SynthB
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SynthB%,       Live2K.Interface.SynthB
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_SynthB%,  Live2K.Interface.SynthB
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SwSynth%,       Live2K.Interface.SwSynth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SwSynth%,      Live2K.Interface.SwSynth
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_SwSynth%, Live2K.Interface.SwSynth
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART1%,         Live2K.Interface.UART1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART1%,        Live2K.Interface.UART1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART1%,       Live2K.Interface.UART1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART2%,         Live2K.Interface.UART2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART2%,        Live2K.Interface.UART2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART2%,       Live2K.Interface.UART2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MidiAutoFx%,    Live2K.Interface.MidiAutoFx
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MidiAutoFx%,   Live2K.Interface.MidiAutoFx
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MidiAutoFx%,  Live2K.Interface.MidiAutoFx
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DmUart1%,       Live2K.Interface.DmUart1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DmUart1%,      Live2K.Interface.DmUart1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_DmUart1%,     Live2K.Interface.DmUart1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DmUart2%,       Live2K.Interface.DmUart2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DmUart2%,      Live2K.Interface.DmUart2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_DmUart2%,     Live2K.Interface.DmUart2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DmAutoFx%,      Live2K.Interface.DmAutoFx
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DmAutoFx%,     Live2K.Interface.DmAutoFx
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_DmAutoFx%,    Live2K.Interface.DmAutoFx
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DmSynth%,       Live2K.Interface.DmSynth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DmSynth%,      Live2K.Interface.DmSynth
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_DmSynth%, Live2K.Interface.DmSynth
+
+[XFi_Device.NTAMD64.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WavePci%,       Live2K.Interface.WvPciB.NT
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WavePci%,      Live2K.Interface.WvPciB.NT
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WavePci%,     Live2K.Interface.WvPciB.NT
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WaveCyc%,       Live2K.Interface.WvCycB.NT
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WaveCyc%,      Live2K.Interface.WvCycB.NT
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WaveCyc%,     Live2K.Interface.WvCycB.NT
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,      XFi.Interface.Topology
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,   XFi.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SpdifWave%,     Live2K.Interface.SpdifWave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SpdifWave%,    Live2K.Interface.SpdifWave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SpdifTopo%,     Live2K.Interface.SpdifTopo
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_SpdifTopo%,  Live2K.Interface.SpdifTopo
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Synth%,         Live2K.Interface.Synth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Synth%,        Live2K.Interface.Synth
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_Synth%,   Live2K.Interface.Synth
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SynthA%,        Live2K.Interface.SynthA
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SynthA%,       Live2K.Interface.SynthA
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_SynthA%,  Live2K.Interface.SynthA
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SynthB%,        Live2K.Interface.SynthB
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SynthB%,       Live2K.Interface.SynthB
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_SynthB%,  Live2K.Interface.SynthB
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SwSynth%,       Live2K.Interface.SwSynth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SwSynth%,      Live2K.Interface.SwSynth
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_SwSynth%, Live2K.Interface.SwSynth
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART1%,         Live2K.Interface.UART1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART1%,        Live2K.Interface.UART1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART1%,       Live2K.Interface.UART1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART2%,         Live2K.Interface.UART2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART2%,        Live2K.Interface.UART2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART2%,       Live2K.Interface.UART2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MidiAutoFx%,    Live2K.Interface.MidiAutoFx
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MidiAutoFx%,   Live2K.Interface.MidiAutoFx
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MidiAutoFx%,  Live2K.Interface.MidiAutoFx
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DmUart1%,       Live2K.Interface.DmUart1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DmUart1%,      Live2K.Interface.DmUart1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_DmUart1%,     Live2K.Interface.DmUart1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DmUart2%,       Live2K.Interface.DmUart2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DmUart2%,      Live2K.Interface.DmUart2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_DmUart2%,     Live2K.Interface.DmUart2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DmAutoFx%,      Live2K.Interface.DmAutoFx
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DmAutoFx%,     Live2K.Interface.DmAutoFx
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_DmAutoFx%,    Live2K.Interface.DmAutoFx
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DmSynth%,       Live2K.Interface.DmSynth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DmSynth%,      Live2K.Interface.DmSynth
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_DmSynth%, Live2K.Interface.DmSynth
+
+
+[XFi_Device.NTX86.Services]
+AddService = ossrv,, ossrv_Service_Inst
+AddService = emupia,, emupia_Service_Inst
+AddService = ctac32k,, ctac32k_Service_Inst
+AddService = ctprxy2k,, ctprxy2k_Service_Inst
+AddService = ctsfm2k,, ctsfm2k_Service_Inst
+AddService = ha20x2k,, ha20x2k_Service_Inst
+AddService = ctdvda2k,, ctdvda2k_Service_Inst
+AddService = COMMONFX.DLL,, commonfx_Service_Inst
+AddService = CTAUDFX.DLL,, ctaudfx_Service_Inst
+AddService = CTSBLFX.DLL,, ctsblfx_Service_Inst
+AddService = CTEAPSFX.DLL,, cteapsfx_Service_Inst
+AddService = CTEDSPFX.DLL,, ctedspfx_Service_Inst
+AddService = CTERFXFX.DLL,, cterfxfx_Service_Inst
+AddService = CTEDSPIO.DLL,, ctedspio_Service_Inst
+AddService = CTEDSPSY.DLL,, ctedspsy_Service_Inst
+AddService = CTEXFIFX.DLL,, ctexfifx_Service_Inst
+AddService = CT20XUT.DLL,, ct20xut_Service_Inst
+AddService = CTHWIUT.DLL,, cthwiut_Service_Inst
+AddService = ctaud2k,  0x00000002, ctaud2k_Service_Inst
+
+[XFi_Device.NTAMD64.Services]
+AddService = ossrv,, ossrv_Service_Inst
+AddService = emupia,, emupia_Service_Inst
+AddService = ctac32k,, ctac32k_Service_Inst
+AddService = ctprxy2k,, ctprxy2k_Service_Inst
+AddService = ctsfm2k,, ctsfm2k_Service_Inst
+AddService = ha20x2k,, ha20x2k_Service_Inst
+AddService = COMMONFX.DLL,, commonfx_Service_Inst
+AddService = CTAUDFX.DLL,, ctaudfx_Service_Inst
+AddService = CTSBLFX.DLL,, ctsblfx_Service_Inst
+AddService = CTEAPSFX.DLL,, cteapsfx_Service_Inst
+AddService = CTEDSPFX.DLL,, ctedspfx_Service_Inst
+AddService = CTERFXFX.DLL,, cterfxfx_Service_Inst
+AddService = CTEDSPIO.DLL,, ctedspio_Service_Inst
+AddService = CTEDSPSY.DLL,, ctedspsy_Service_Inst
+AddService = CTEXFIFX.DLL,, ctexfifx_Service_Inst
+AddService = CT20XUT.DLL,, ct20xut_Service_Inst
+AddService = CTHWIUT.DLL,, cthwiut_Service_Inst
+AddService = ctaud2k,  0x00000002, ctaud2k_Service_Inst
+
+[ossrv_Service_Inst]
+DisplayName    = %OSSRV.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ctoss2k.sys
+
+[ha20x2k_Service_Inst]
+DisplayName    = %HA20X.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ha20x2k.sys
+
+[emupia_Service_Inst]
+DisplayName    = %EMUPIA.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\emupia2k.sys
+
+[ctaud2k_Service_Inst]
+DisplayName    = %CTAUD2K.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ctaud2k.sys
+
+[ctac32k_Service_Inst]
+DisplayName    = %CTAC32K.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ctac32k.sys
+
+[ctprxy2k_Service_Inst]
+DisplayName    = %CTPRXY2K.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ctprxy2k.sys
+
+[ctsfm2k_Service_Inst]
+DisplayName    = %CTSFM2K.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ctsfm2k.sys
+
+[ctdvda2k_Service_Inst]
+DisplayName    = %CTDVDA2K.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ctdvda2k.sys
+
+[commonfx_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\COMMONFX.DLL
+
+[ctaudfx_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTAUDFX.DLL
+
+[ctsblfx_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTSBLFX.DLL
+
+[cteapsfx_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTEAPSFX.DLL
+
+[ctedspfx_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTEDSPFX.DLL
+
+[cterfxfx_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTERFXFX.DLL
+
+[ctedspio_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTEDSPIO.DLL
+
+[ctedspsy_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTEDSPSY.DLL
+
+[ctexfifx_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTEXFIFX.DLL
+
+[ct20xut_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CT20XUT.DLL
+
+[cthwiut_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\CTHWIUT.DLL
+
+[Strings]
+CREAF="Auzentech"
+StrDisk="Auzentech Installer CD-ROM"
+CLMfgName="Auzentech, Ltd."
+XFi.DeviceDesc="Auzentech X-Fi Prelude 7.1 (WDM)"
+Live2K.Wave.szPname="Creative Audio"
+Live2K.Topology.szPname="Creative Mixer"
+XFi.Topology.szPname="Creative Mixer"
+Live2K.SpdifWave.szPname="Creative SpdifOut Audio"
+Live2K.SpdifTopo.szPname="Creative SpdifOut"
+Live2K.Synth.szPname="Creative Synth"
+Live2K.SynthA.szPname="Creative Synth A"
+Live2K.SynthB.szPname="Creative Synth B"
+Live2K.SwSynth.szPname="Creative Sw Synth"
+Live2K.UART1.szPname="Creative MIDI Port"
+Live2K.UART2.szPname="Creative MIDI Port II"
+Live2K.MidiAutoFx.szPname="Creative MIDI AutoFx"
+Live2K.DmUart1.szPname="Creative DirectMusic MIDI Port"
+Live2K.DmUart2.szPname="Creative DirectMusic MIDI Port II"
+Live2K.DmAutoFx.szPname="Creative DirectMusic AutoFx"
+Live2K.DmSynth.szPname="Creative DirectMusic Synthesizer"
+
+OSSRV.SvcDesc = "Creative OS Services Driver"
+HA10KX.SvcDesc = "Creative Hardware Abstract Layer Driver"
+EMUPIA.SvcDesc = "E-mu Plug-in Architecture Driver"
+CTAUD2K.SvcDesc = "Creative Audio Driver (WDM)"
+CTAC32K.SvcDesc = "Creative AC3 Software Decoder"
+CTPRXY2K.SvcDesc = "Creative Proxy Driver"
+CTSFM2K.SvcDesc = "Creative SoundFont Management Device Driver"
+HA20X.SvcDesc = "Creative 20X HAL Driver"
+CTDVDA2K.SvcDesc = "Creative DVD-Audio Device Driver"
+
+CTMMFILT.SvcDesc = "Audio Filter Driver"
+CT0531FL.SvcDesc = "Audio Filter Driver CT0531FL"
+
+CTFXBASE.SvcDesc = "Base"
+
+DMusicPort="SOFTWARE\Microsoft\DirectMusic\Defaults"
+
+Proxy.CLSID             ="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO        ="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER       ="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE      ="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_SYNTHESIZER  ="{DFF220F3-F70F-11D0-B917-00A0C9223196}"
+KSCATEGORY_TOPOLOGY     ="{DDA54A40-1E4C-11D1-A050-405705C10000}"
+
+KSNAME_WavePci="WavePci"
+KSNAME_WaveCyc="WaveCyc"
+KSNAME_Topology="Topology"
+KSNAME_SpdifWave="SpdifOutWave"
+KSNAME_SpdifTopo="SpdifOutTopo"
+KSNAME_Synth="Synth"
+KSNAME_SynthA="SynthA"
+KSNAME_SynthB="SynthB"
+KSNAME_SwSynth="SwSynth"
+KSNAME_UART1="Uart1"
+KSNAME_UART2="Uart2"
+KSNAME_MidiAutoFx="MidiAutoFx"
+KSNAME_DmUart1 ="DmUart1"
+KSNAME_DmUart2 ="DmUart2"
+KSNAME_DmAutoFx="DmAutoFx"
+KSNAME_DmSynth ="DmSynth"
+
+;---------------------------------------------
+;GUID strings for HA Binary and HA ClassObject
+;---------------------------------------------
+HA10KX_BINARY_CLSID = "{170DAEAC-B2D3-4c0c-9740-C77F685A3831}"
+HAP16V_BINARY_CLSID = "{BCD288C5-13CE-4c16-993C-75BF69C4346B}"
+HAP17V_BINARY_CLSID = "{26C63E40-00B0-11d8-9C86-00D0B78E3BD7}"
+HA20X_BINARY_CLSID = "{55F4979A-A76B-423a-9234-423BDBA8CAB5}"   
+PIA_BINARY_CLSID="{526560E0-F38C-46c4-A081-017C5AAA1F31}"
+AC3_BINARY_CLSID="{3240CC78-6360-4146-88C4-99DCC2861D6C}"
+SFM_BINARY_CLSID="{945DD118-E139-41c4-A916-FA65053774C2}"
+DVD_BINARY_CLSID="{16EC5214-4E32-42b4-BB14-DD5D4AE2CAA5}"
+
+StrEMU10KxHomeKey="SYSTEM\CurrentControlSet\Control\Creative Tech\Emu10kx"
+Str20XHomeKey="SYSTEM\CurrentControlSet\Control\Creative Tech\20X"
+StrCTKey="SYSTEM\CurrentControlSet\Control\Creative Tech"
+StrEMUPIAPublicKey="SYSTEM\CurrentControlSet\Control\Creative Tech\EmuPIA\Public\CLSID"
+StrCTStringStringKey="SYSTEM\CurrentControlSet\Control\Creative Tech\Ctstring\strings"
+StrCTStringUnitKey="SYSTEM\CurrentControlSet\Control\Creative Tech\CTString\Units"
+CTPKEY_CommandRouter_SettingsOverride = "{BB282A80-2A05-4c17-AA45-9910F8F7D30D},0"

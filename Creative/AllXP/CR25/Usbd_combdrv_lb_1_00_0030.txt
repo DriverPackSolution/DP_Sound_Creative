@@ -1,0 +1,21 @@
+
+USBD_COMBDRV_LB_1_00_0030
+
+Filesize : 11.63 MB
+
+Release date : 27 Jun 05
+
+File Name : USBD_COMBDRV_LB_1_00_0030.exe
+
+This standalone update provides improvements for your Creative USB Sound Blaster® series audio device on Microsoft® Windows® XP Service Pack 1 (SP1) and Service Pack 2 (SP2), and Microsoft Windows 2000 Service Pack 4 (SP4) operating systems.
+
+Requirements:
+Windows XP SP1, Windows XP SP2 or Windows 2000 SP4
+
+
+Sound Blaster Live!® 24-bit External, Sound Blaster MP3+, Sound Blaster Digital Music, or Sound Blaster Digital Music LX audio device connected
+
+Notes:
+Close all applications before installing this update.
+While installing this update, do not disconnect your USB Sound Blaster.
+After installing this update, do not reinstall any drivers from the Installation CD.

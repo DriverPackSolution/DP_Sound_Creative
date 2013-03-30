@@ -1,0 +1,39 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Creative Tech\Device\VID_041E&PID_30D2\Defaults]
+"WirelessMusicControl_IsEnabled"=dword:00000000
+"PixieDust_IsEnabled"=dword:00000001
+"PixieDust_Percentage"=dword:42820000
+"Upmix_IsEnabled"=dword:00000001
+"CMSSType3_StereoEnvelopment"=dword:00000000
+"ShowJackDetectMessage"=dword:00000001
+"RegistryValueName_APR_IsEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Creative Tech\Device\VID_041E&PID_30D4\Defaults]
+"WirelessMusicControl_IsEnabled"=dword:00000000
+"PixieDust_IsEnabled"=dword:00000001
+"PixieDust_Percentage"=dword:42820000
+"Upmix_IsEnabled"=dword:00000001
+"CMSSType3_StereoEnvelopment"=dword:00000000
+"RegistryValueName_APR_IsEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Creative Tech\Device\VID_041E&PID_30D5\Defaults]
+"WirelessMusicControl_IsEnabled"=dword:00000001
+"ShowJackDetectMessage"=dword:00000001
+"MaxJackDetectMode"=dword:00000003
+"JackRetask_JackTaskIndex_0"=dword:00000000
+"JackRetask_JackTaskIndex_1"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Creative Tech\Device\VID_041E&PID_30D6\Defaults]
+"WirelessMusicControl_IsEnabled"=dword:00000001
+"Upmix_IsEnabled"=dword:00000001
+"CMSSType3_StereoEnvelopment"=dword:00000000
+"ShowJackDetectMessage"=dword:00000001
+"MaxJackDetectMode"=dword:00000003
+"RegistryValueName_APR_IsEnabled"=dword:00000000
+"JackRetask_JackTaskIndex_0"=dword:00000000
+"JackRetask_JackTaskIndex_1"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Creative Tech\Device\VID_041E&PID_30E0\Defaults]
+"RegistryValueName_APR_IsEnabled"=dword:00000000
+

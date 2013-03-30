@@ -1,0 +1,30 @@
+
+Sb4t_pc_cd_l7_1_01.txt
+
+Sound Blaster Wireless Transmitter
+
+Ğàçìåğ ôàéëà : 108,23 MB
+
+Äàòà âûïóñêà : 23 èşë 10
+
+Èìÿ ôàéëà : SB4T_PC_CD_L7_1_01.exe 
+
+This download contains an improved version of the drivers and applications found on the Sound Blaster® Wireless Transmitter installation CD and is for Windows® only. For more details, read the rest of this web release note.
+
+The following application is available in this download:
+Sound Blaster Wireless Control Panel
+
+ Added Features or Enhancements:
+Added remote control support for various popular media players.
+
+Requirements:
+Microsoft® Windows® 7 32-bit or 64-bit, Windows Vista® 32-bit or 64-bit (SP1, SP2), Windows XP 32-bit or 64-bit (SP2, SP3) or Windows XP Media Center Edition (MCE) 2004 or later
+Creative Sound Blaster Wireless Transmitter
+
+Notes:
+To install the driver, do the following: 
+Download the file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+Restart your computer when prompted. 
+Sound Blaster Wireless Transmitter is also known as Sound Blaster Wireless for iTunes® in some regions.

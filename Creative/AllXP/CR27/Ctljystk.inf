@@ -1,0 +1,52 @@
+; Creative Technology Ltd.
+;     Copyright (c) Creative Technology Ltd, 1994-2001.
+;
+; Description
+;  This inf file contains the following device for installation
+;
+;  a. PCI Gameport Device - PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+;
+; Date     : 20 July 2001
+; Revision : 2.35
+
+
+[Version]
+Signature=$CHICAGO$
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%String0%
+CatalogFile=ctljystk.cat
+DriverVer=07/03/2001
+
+[Manufacturer]
+%String0%=Creative
+
+[SourceDisksNames]
+1="Creative WDM Audio Driver Disk",,,
+
+[SourceDisksFiles]
+
+[DestinationDirs]
+DefaultDestDir=10,system32\drivers 
+
+[Creative]
+%*PCIJOY.DeviceDesc%=PCI8010J_Device,PCI\VEN_1102&DEV_7002&SUBSYS_00201102
+
+;---------------------------------------------------------------;
+
+[PCI8010J_Device]
+Include=joystick.inf
+Needs=MSJSTICK
+
+;;**************** NT Install ****************
+;---------------------------------------------------------------;
+
+[PCI8010J_Device.NT]
+;; Will not install under Win2K. Use OS version.
+;---------------------------------------------------------;
+
+[Strings]
+String0="Creative"
+*PCIJOY.DeviceDesc="Game Port for Creative SB Live!"
+gameport.DrvDesc = "WDM Gameport driver"
+

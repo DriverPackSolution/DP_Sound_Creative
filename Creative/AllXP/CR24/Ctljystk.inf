@@ -1,0 +1,74 @@
+; Creative Technology Ltd.
+;     Copyright (c) Creative Technology Ltd, 1994-2002.
+;
+; Description
+;  This inf file contains the following device for installation
+;
+;  a. PCI Gameport Device - PCI\VEN_1102&DEV_7004&SUBSYS_10031102
+;  b. PCI Gameport Device - PCI\VEN_1102&DEV_7004&SUBSYS_10051102
+;
+; Date     : 08 Apr 2002
+; Revision : 1.07
+
+
+[Version]
+Signature=$CHICAGO$
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%String0%
+CatalogFile=ctljystk.cat
+DriverVer=04/08/2002
+
+[Manufacturer]
+%String0%=Creative
+
+[ControlFlags]
+;ExcludeFromSelect = PCI\VEN_1102&DEV_7004&SUBSYS_10031102
+;ExcludeFromSelect = PCI\VEN_1102&DEV_7004&SUBSYS_10051102
+
+[Creative]
+%*PCIJOY.DeviceDesc%=PCI8010J_Device,PCI\VEN_1102&DEV_7004&SUBSYS_10031102
+%*SBPCIJOY.DeviceDesc%=PCI8010J_Device,PCI\VEN_1102&DEV_7004&SUBSYS_10051102
+
+[SourceDisksNames]
+1=%StrDisk%,,,
+
+[SourceDisksFiles]
+
+[DestinationDirs]
+DefaultDestDir=10,system32\drivers
+
+;---------------------------------------------------------------;
+
+[PCI8010J_Device]
+AlsoInstall=MSJSTICK(joystick.inf)
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+;;**************** NT Install ****************
+;---------------------------------------------------------------;
+
+[PCI8010J_Device.NT]
+Include=gameport.inf
+Needs=CreativeLabs_Port.NT
+AddReg=AddRegEmpty
+CopyFiles=CopyFilesEmpty
+
+[PCI8010J_Device.NT.Services]
+Include=gameport.inf
+Needs=CreativeLabs_Port.NT.Services
+
+;---------------------------------------------------------------;
+
+[AddRegEmpty]
+[CopyFilesEmpty]
+
+;---------------------------------------------------------;
+
+[Strings]
+String0="Creative"
+StrDisk="Creative WDM Audio Driver Disk"
+*PCIJOY.DeviceDesc="Game Port for SB Live! Series"
+*SBPCIJOY.DeviceDesc="Game Port for SB PCI"
+SPSVCINST_ASSOCSERVICE=0x00000002
+

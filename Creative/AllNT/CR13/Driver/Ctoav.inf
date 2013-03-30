@@ -1,0 +1,328 @@
+;------------------------------------------------------------------------------
+; Copyright (c) 2009 Creative Technology Ltd. All rights reserved.
+;------------------------------------------------------------------------------
+
+[Version]
+Signature="$Windows NT$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%CREAF%
+CatalogFile.NTX86=ctOAv32.cat
+CatalogFile.NTAMD64=ctOAv64.cat
+DriverVer=08/29/2012,1.0.11.0
+
+[Manufacturer]
+%MfgName%=CREATIVE, NTX86.5, NTAMD64.5, NTX86.6, NTAMD64.6
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[CREATIVE]
+
+[CREATIVE.NTX86.5]
+
+[CREATIVE.NTAMD64.5]
+
+[CREATIVE.NTX86.6]
+%SB1140.Desc% = SB1140.NTX86, USB\VID_041E&PID_30D3&MI_00
+%SB1260.Desc% = SB1260.NTX86, USB\VID_041E&PID_30D8&MI_00
+
+[CREATIVE.NTAMD64.6]
+%SB1140.Desc% = SB1140.NTAMD64, USB\VID_041E&PID_30D3&MI_00
+%SB1260.Desc% = SB1260.NTAMD64, USB\VID_041E&PID_30D8&MI_00
+
+[SB1140.NTX86.CoInstallers]
+CopyFiles=CoInst.CopyList
+AddReg=CoInst.AddReg
+
+[SB1140.NTAMD64.CoInstallers]
+CopyFiles=CoInst.CopyList
+AddReg=CoInst.AddReg
+
+[SB1260.NTX86.CoInstallers]
+CopyFiles=CoInst.CopyList
+AddReg=CoInst.AddReg
+
+[SB1260.NTAMD64.CoInstallers]
+CopyFiles=CoInst.CopyList
+AddReg=CoInst.AddReg
+
+[SB1140.NTX86]
+Include=ks.inf,wdmaudio.inf,wdma_usb.inf
+Needs=KS.Registration,WDMAUDIO.Registration,USBAudioOEM.CopyFiles,USBAudioOEM.AddReg
+CopyFiles=Creative.SysFx.NTx86.CopyList,Filter.CopyList,Common.CopyList,Config.CopyList,Installerini.CopyList,Creative.SelfSysFx.NTx86.CopyList
+AddProperty=OEMCustomBranding.AddProperty
+RegisterDlls=Creative.SysFx.NTx86.RegisterDlls
+
+[SB1140.NTAMD64]
+Include=ks.inf,wdmaudio.inf,wdma_usb.inf
+Needs=KS.Registration,WDMAUDIO.Registration,USBAudioOEM.CopyFiles,USBAudioOEM.AddReg
+CopyFiles=Creative.SysFx.NTamd64.CopyList,Filter.CopyList,Common.CopyList,Config.CopyList,Installerini.CopyList,Creative.SelfSysFx.NTamd64.CopyList,APO32In64.CopyList
+AddProperty=OEMCustomBranding.AddProperty
+RegisterDlls=Creative.SysFx.NTamd64.RegisterDlls
+
+[SB1260.NTX86]
+Include=ks.inf,wdmaudio.inf,wdma_usb.inf
+Needs=KS.Registration,WDMAUDIO.Registration,USBAudioOEM.CopyFiles,USBAudioOEM.AddReg
+CopyFiles=Creative.SysFx.NTx86.CopyList,Filter.CopyList,Common.CopyList,Config.CopyList,Installerini.CopyList,Creative.SelfSysFx.NTx86.CopyList
+AddProperty=OEMCustomBranding.AddProperty
+RegisterDlls=Creative.SysFx.NTx86.RegisterDlls
+
+[SB1260.NTAMD64]
+Include=ks.inf,wdmaudio.inf,wdma_usb.inf
+Needs=KS.Registration,WDMAUDIO.Registration,USBAudioOEM.CopyFiles,USBAudioOEM.AddReg
+CopyFiles=Creative.SysFx.NTamd64.CopyList,Filter.CopyList,Common.CopyList,Config.CopyList,Installerini.CopyList,Creative.SelfSysFx.NTamd64.CopyList,APO32In64.CopyList
+AddProperty=OEMCustomBranding.AddProperty
+RegisterDlls=Creative.SysFx.NTamd64.RegisterDlls
+
+[OEMCustomBranding.AddProperty]
+DeviceVendorWebSite,,,,"http://www.creative.com"
+
+[SB1140.NTX86.HW]
+AddReg=FilterHW.AddReg,SB1140FriendlyName.AddReg
+
+[SB1140.NTAMD64.HW]
+AddReg=FilterHW.AddReg,SB1140FriendlyName.AddReg
+
+[SB1260.NTX86.HW]
+AddReg=FilterHW.AddReg,SB1260FriendlyName.AddReg
+
+[SB1260.NTAMD64.HW]
+AddReg=FilterHW.AddReg,SB1260FriendlyName.AddReg
+
+[SB1140.NTX86.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MS%,SB1140.Global
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MS%,SB1140.Global
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MS%,SB1140.Global
+
+[SB1140.NTAMD64.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MS%,SB1140.Global
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MS%,SB1140.Global
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MS%,SB1140.Global
+
+[SB1260.NTX86.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MS%,SB1260.Global
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MS%,SB1260.Global
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MS%,SB1260.Global
+
+[SB1260.NTAMD64.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MS%,SB1260.Global
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MS%,SB1260.Global
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MS%,SB1260.Global
+
+[SB1140.Global]
+AddReg=SB1140.AddInterface.Addreg, Creative.SysFx.AddReg, ApoimConfiguration.AddReg
+[SB1140.AddInterface.Addreg]
+HKR,,FriendlyName,,%SB1140.Desc%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SB1260.Global]
+AddReg=SB1260.AddInterface.Addreg, Creative.SysFx.AddReg, ApoimConfigurationSB1260.AddReg
+[SB1260.AddInterface.Addreg]
+HKR,,FriendlyName,,%SB1260.Desc%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SB1140.NTx86.Services]
+AddService = OAfilt, 0x00000000, Filter_Service_Install
+Include=wdma_usb.inf
+Needs=USBAudio.Services
+
+[SB1140.NTamd64.Services]
+AddService = OAfilt, 0x00000000, Filter_Service_Install
+Include=wdma_usb.inf
+Needs=USBAudio.Services
+
+[SB1260.NTx86.Services]
+AddService = OAfilt, 0x00000000, Filter_Service_Install
+Include=wdma_usb.inf
+Needs=USBAudio.Services
+
+[SB1260.NTamd64.Services]
+AddService = OAfilt, 0x00000000, Filter_Service_Install
+Include=wdma_usb.inf
+Needs=USBAudio.Services
+
+[Filter_Service_Install]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\OAfilt.sys
+
+[FilterHW.AddReg]
+HKR,,"UpperFilters",0x00010000,"OAfilt"
+
+[SB1140FriendlyName.AddReg]
+HKR,,FriendlyName,,%SB1140.Desc%
+
+[SB1260FriendlyName.AddReg]
+HKR,,FriendlyName,,%SB1260.Desc%
+
+[CoInst.AddReg]
+HKR,,CoInstallers32,0x00010000,"OAInst.dll,CtDevCoInstProc"
+HKR,,OriginalSourcePath,,%01%
+HKLM,%CoInstallerInfo%,%DvInstallerName%,,%DvININame%
+
+[Creative.SysFx.AddReg]
+HKR,"FX\\0",%PKEY_SYSFX_Association%,,%KSNODETYPE_SPEAKER%
+HKR,"FX\\0",%PKEY_DisplayName%,,%CT_SYSFX_FriendlyName%
+HKR,"FX\\0",%PKEY_SYSFX_PreMixClsid%,,%CT_SYSFX_PREMIX_CLSID%
+HKR,"FX\\0",%PKEY_SYSFX_PostMixClsid%,,%CT_SYSFX_POSTMIX_CLSID%
+HKR,"FX\\0",%PKEY_SYSFX_UiClsid%,,%CT_SYSFX_UI_CLSID%
+
+[ApoimConfiguration.AddReg]
+HKR,"EP\\0",%PKEY_AudioEndpoint_Association%,,%KSNODETYPE_SPEAKER%
+;APOIM configuration
+HKR,"EP\\0",%CTPKEY_CommandRouter_SettingsOverride%,,"%10%\OAcfg.ini"
+HKR,"EP\\0",%CTPKEY_Endpoint_SettingsOverride%,,"%10%\OAcfg.ini"
+HKR,"EP\\0",%CTPKEY_EFFECTNODEINFO_RENDER%,,%CT_EFFECTNODEINFO_RENDER_CLSID%
+
+[ApoimConfigurationSB1260.AddReg]
+HKR,"EP\\0",%PKEY_AudioEndpoint_Association%,,%KSNODETYPE_SPEAKER%
+;APOIM configuration
+HKR,"EP\\0",%CTPKEY_CommandRouter_SettingsOverride%,,"%10%\SB1260.ini"
+HKR,"EP\\0",%CTPKEY_Endpoint_SettingsOverride%,,"%10%\SB1260.ini"
+HKR,"EP\\0",%CTPKEY_EFFECTNODEINFO_RENDER%,,%CT_EFFECTNODEINFO_RENDER_CLSID%
+HKR,"EP\\1",%PKEY_AudioEndpoint_Association%,,%KSNODETYPE_LINE%
+;APOIM configuration
+HKR,"EP\\1",%CTPKEY_CommandRouter_SettingsOverride%,,"%10%\SB1260L.ini"
+HKR,"EP\\1",%CTPKEY_Endpoint_SettingsOverride%,,"%10%\SB1260L.ini"
+
+[Creative.SysFx.NTx86.RegisterDlls]
+11,,OAAPO32.dll,1
+11,,OAppld32.dll,1
+
+[Creative.SysFx.NTamd64.RegisterDlls]
+11,,OAAPO64.dll,1
+11,,OAppld64.dll,1
+
+[Filter.CopyList]
+OAfilt.sys
+
+[Common.CopyList]
+ResDefE.exe
+
+[Config.CopyList]
+OAcfg.ini
+SB1260.ini
+SB1260L.ini
+
+[Installerini.CopyList]
+ctOA.ini
+
+[CoInst.CopyList]
+OAInst.dll
+
+[Creative.SysFx.NTx86.CopyList]
+OAAPO32.dll
+OAppld32.dll
+
+[Creative.SysFx.NTamd64.CopyList]
+OAAPO64.dll
+OAppld64.dll
+
+[Creative.SelfSysFx.NTx86.CopyList]
+AddCat.exe
+OAAPO32.ssc
+
+[Creative.SelfSysFx.NTamd64.CopyList]
+AddCat.exe
+OAAPO64.ssc
+
+[APO32In64.CopyList]
+OAAPO32.dll
+
+[DestinationDirs]
+CoInst.CopyList = 11					;%SystemRoot%\system32
+Creative.SysFx.NTx86.CopyList = 11			;%SystemRoot%\system32
+Creative.SysFx.NTamd64.CopyList = 11			;%SystemRoot%\system32
+Creative.SelfSysFx.NTx86.CopyList = 10			;%SystemRoot%
+Creative.SelfSysFx.NTamd64.CopyList = 10		;%SystemRoot%
+Filter.CopyList = 10,system32\drivers			;%SystemRoot%\system32\drivers
+Common.CopyList	= 10					;%SystemRoot%
+Config.CopyList = 10					;%SystemRoot%
+Installerini.CopyList = 11				;%SystemRoot%\system32
+APO32In64.CopyList = 10,SysWOW64			;%SystemRoot%\SysWOW64
+
+[SourceDisksNames]
+222=%DriverDisk%,,,
+
+[SourceDisksFiles.x86]
+OAInst.dll=222,WinVista\i386
+OAAPO32.dll=222,WinVista\i386
+OAppld32.dll=222,WinVista\i386
+OAfilt.sys=222,WinVista\i386
+OAcfg.ini=222,WinVista\Config
+SB1260.ini=222,WinVista\Config
+SB1260L.ini=222,WinVista\Config
+ResDefE.exe=222,WinVista\Common
+ctOA.ini=222
+AddCat.exe=222,WinVista\Common
+OAAPO32.ssc=222,WinVista\i386
+
+[SourceDisksFiles.amd64]
+OAInst.dll=222,WinVista\amd64
+OAAPO64.dll=222,WinVista\amd64
+OAppld64.dll=222,WinVista\amd64
+OAfilt.sys=222,WinVista\amd64
+OAcfg.ini=222,WinVista\Config
+SB1260.ini=222,WinVista\Config
+SB1260L.ini=222,WinVista\Config
+ResDefE.exe=222,WinVista\Common
+ctOA.ini=222
+OAAPO32.dll=222,WinVista\i386
+AddCat.exe=222,WinVista\Common
+OAAPO64.ssc=222,WinVista\amd64
+
+[Strings]
+CREAF = "CREATIVE"
+MfgName = "Creative Technology Ltd."
+DriverDisk = "Creative Installer"
+
+SB1140.Desc = "SB Play!"
+SB1260.Desc = "SB Easy Record/SB Connect Hi-Fi"
+KSNAME_MS = "GLOBAL"
+
+KSCATEGORY_AUDIO = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_TOPOLOGY="{DDA54A40-1E4C-11D1-A050-405705C10000}"
+KSCATEGORY_REALTIME="{EB115FFC-10C8-4964-831D-6DCB02E6F23F}"
+Proxy.CLSID ="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+
+;;
+;; PropertyKey GUIDS
+;;
+PKEY_SYSFX_Association          = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0"
+PKEY_SYSFX_PreMixClsid          = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},1"
+PKEY_SYSFX_PostMixClsid         = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},2"
+PKEY_SYSFX_UiClsid              = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},3"
+PKEY_DisplayName                = "{B725F130-47EF-101A-A5F1-02608C9EEBAC},10"
+
+;Node type for association
+KSNODETYPE_ANY = "{00000000-0000-0000-0000-000000000000}"
+KSNODETYPE_SPEAKER  = "{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_LINE = "{DFF21FE3-F70F-11D0-B917-00A0C9223196}"
+
+CT_SYSFX_FriendlyName = "Creative System Effects"
+CT_SYSFX_UI_CLSID      = "{d6c54c6f-535d-4c3e-bf3d-46d2c5bf36cd}"
+CT_SYSFX_PREMIX_CLSID  = "{e3591557-2a32-448e-80c5-4498fa4725e4}"
+CT_SYSFX_POSTMIX_CLSID = "{0e8c5482-2249-4254-a150-4f68aa22ad36}"
+CT_EFFECTNODEINFO_RENDER_CLSID = "{0949a0aa-4b24-446a-9053-355ffcafcf4a}"
+
+;APOIM configuration
+PKEY_AudioEndpoint_Association		= "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+CTPKEY_EFFECTNODEINFO_RENDER      	= "{F1056047-B091-4D85-A5C0-B13D4D8BAC57},0"
+CTPKEY_CommandRouter_SettingsOverride	= "{BB282A80-2A05-4c17-AA45-9910F8F7D30D},0"
+CTPKEY_Endpoint_SettingsOverride        = "{872572B3-2F9B-4fd1-83C7-4E3039AEFBF1},0"
+
+CT_Device_Key = "SOFTWARE\Creative Tech\Device"
+CT_Def_SpeakerEndpoint = "{DFF21CE1-F70F-11D0-B91700A0C9223196}"
+CT_Def_MicEndpoint = "{DFF21BE1-F70F-11D0-B91700A0C9223196}"
+CT_Def_Volume = "{3A5ACC00-C557-11D0-8A2B00A0C9255AC1}"
+CT_Def_Playback_Endpoint = "{1}"
+CT_Def_Record_Endpoint = "{0}"
+
+;; String for CoInstaller
+CoInstallerInfo            ="SYSTEM\CurrentControlSet\Control\Creative Tech\Coinstaller"
+DvInstallerName            ="OAInst"
+DvININame                  ="ctOA.ini"

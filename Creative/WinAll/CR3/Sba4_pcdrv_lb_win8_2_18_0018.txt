@@ -1,0 +1,41 @@
+ 
+SBA4_PCDRV_LB_WIN8_2_18_0018
+
+Ðàçìåð ôàéëà : 49,25 MB
+
+Äàòà âûïóñêà : 31 îêò 12
+
+Èìÿ ôàéëà : SBA4_PCDRV_LB_WIN8_2_18_0018.exe
+
+This download is a driver providing Microsoft® Windows® support for Creative Sound Blaster® Audigy® 4. For more details, read the rest of this web release note.
+
+Fixes:
+
+Resolves the following issues:
+Audio device driver files are not removed completely when uninstalling from Windows Device Manager.
+Sound Blaster Audigy audio device does not appear in the Encoder tab of Audio Control Panel.
+Unable to run 64-bit version of ASIO software.
+Device error caused by enabling audio enhancements.
+Incorrect speaker configuration shown in Audio Control Panel.
+System unable to shut down when Dolby® Digital Live is enabled in Windows 7.
+Passthrough of Dolby/DTS® audio does not work with Windows Media Player 12 in Windows 7.
+Speaker settings in Audio Control Panel are not in sync with Microsoft Speaker Setup in Windows 7 64-bit.
+System becomes unstable when uninstalling the audio device driver in Windows 7 64-bit.
+
+Known Issues:
+Driver decoding of Dolby/DTS audio does not work with Windows Media Player 12 in Windows 7. As a workaround, use a 3rd party software media player to playback DVDs.
+Applications from the original Sound Blaster Audigy CD will not work with this download on Windows 7 and Windows Vista. Click here to download the latest applications that are available for your product. 
+Users are advised to use Audio Console included in this download to change speaker configurations.
+Gameport is not supported in Windows 7, Windows Vista and Windows XP Professional x64 Edition.
+6.1 speaker mode is not supported by Windows 7 and Windows Vista.
+
+Requirements:
+Microsoft Windows 8 64-bit or 32-bit, Windows 7 64-bit or 32-bit, Windows Vista 64-bit with Service Pack 1 (SP1), Windows Vista 32-bit with SP1, Windows XP Professional x64 Edition, Windows XP Service Pack 2 (SP2), Windows XP Media Center Edition (MCE) 2005 or Windows XP MCE 2004
+Sound Blaster Audigy 4
+
+Notes: 
+To install this driver: 
+Download the SBA4_PCDRV_LB_WIN8_2_18_0018.exe file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+

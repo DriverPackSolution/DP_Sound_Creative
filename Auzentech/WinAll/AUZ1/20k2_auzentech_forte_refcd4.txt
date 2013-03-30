@@ -1,0 +1,40 @@
+
+20K2_Auzentech_Forte_RefCD4
+
+X-Fi Forte Windows 8 Driver (Win 8, 32-bit / 64-bit)
+	
+Register to receive a Warranty Extension (restrictions apply). 
+
+Subscribe  for email updates, News, and specials as soon as they are available.
+
+Driver release Information:
+
+The X-Fi Forte driver supports the following operating systems:
+Microsoft Windows® 8 
+ 32-bit and 64-bit 
+
+For a full list, see Minimum System Requirements under the Features Tab of the X-Fi Forte product page. 
+
+Release information: 
+Version: Win8 B1 
+File Name: A20K2_Auzentech_Forte_RefCD4.zip
+Download Size: 148 Mb Zipped file 
+Release Date: 01/2013 
+
+download
+
+Changes in this Driver
+First driver for Windows 8.
+
+
+Instructions
+If you have previously installed the driver, 
+ first uninstall the driver and DDL/DTS pack and reboot your PC
+Download and unzip the new driver. 
+Browse to the new driver folder > Audio folder > Setup folder. 
+Double-click "setup.exe."
+Reboot your PC after completing the installation. 
+
+* Notes: 
+First driver for Windows 8
+

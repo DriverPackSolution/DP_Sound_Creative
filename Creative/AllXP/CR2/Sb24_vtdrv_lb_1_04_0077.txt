@@ -1,0 +1,37 @@
+
+SB24_VTDRV_LB_1_04_0077
+
+Ðàçìåð ôàéëà : 63,39 MB
+
+Äàòà âûïóñêà : 9 èþë 07
+
+Èìÿ ôàéëà : SB24_VTDRV_LB_1_04_0077.exe
+
+This suite of drivers and applications has been updated and combined for your convenience. It installs the following applications to control your audio device's settings. For more details, read the rest of this web release note.
+
+This download supports the following audio devices only:
+Sound Blaster Live! 24-bit
+Sound Blaster Audigy Value/SE/LS 
+Sound Blaster 5.1 VX
+
+Applications included in this release:
+Creative Audio Console (for Windows Vista™ only) 
+Creative Device Control 
+Creative EAX Console 
+Creative Speaker Settings 
+
+Added Features or Enhancements:
+Enables 44.1 kHz sampling format for SPDIF In and Out. 
+
+Requirements: 
+Microsoft® Windows Vista 64-bit, Windows Vista 32-bit, Windows® XP Professional x64 Edition, Windows XP Service Pack 2, Windows XP Media Center Edition 2005 or Windows XP Media Center Edition 2004  
+Sound Blaster® Audigy® Value/SE/LS, or Sound Blaster Live!® 24-bit audio devices  
+
+Notes: 
+This pack is only for the Creative Sound Blaster audio devices listed above.
+DO NOT install this pack for Sound Blaster Live! 24-bit External. 
+To install this pack 
+Download the file onto your local hard disk. 
+Close all other Windows applications. 
+Double-click the downloaded file. 
+Follow the instructions on the screen.

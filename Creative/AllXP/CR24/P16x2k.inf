@@ -1,0 +1,274 @@
+; Creative SB Live! Series INF file
+;
+; Feature  : Enhanced (WDM)
+; Language : English
+;
+; Date     : 22 Sep 2003
+; Revision : 1.01.031
+;
+; Copyright 1995-2002, Creative Technology Ltd.
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%MfgName%
+CatalogFile=p16x2k.cat
+DriverVer=09/22/2003,5.12.01.0203
+
+[Manufacturer]
+%MfgName%=CREATIVE
+
+;; Mechanism for excluding drivers from the "Add New Hardware" list.
+[ControlFlags]
+ExcludeFromSelect = pci\ven_1102&dev_0006
+
+;; *EXCLUDE is a made up ID to prevent rank 1 drivers from showing in list.
+ExcludeFromSelect = *
+
+[CREATIVE]
+;Creative
+%P16X.DeviceDesc%=P16X_Device,PCI\VEN_1102&DEV_0006&SUBSYS_10031102 ; SB0203 SB Live! 5.1 (Dell)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;     S B     L i v e !     S e r i e s     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[WDM_P16X.Interface.Synth]
+AddReg=WDM_P16X.Interface.Synth.AddReg
+[WDM_P16X.Interface.Synth.AddReg]
+HKR,,FriendlyName,,%WDM_P16X.CTSynth.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[WDM_P16X.Interface.Wave]
+AddReg=WDM_P16X.Interface.Wave.AddReg
+[WDM_P16X.Interface.Wave.AddReg]
+HKR,,FriendlyName,,%WDM_P16X.Wave.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[WDM_P16X.Interface.Topology]
+AddReg=WDM_P16X.Interface.Topo.AddReg
+;; warning!! must be "Topo" because "Topology" is too long
+[WDM_P16X.Interface.Topo.AddReg]
+HKR,,FriendlyName,,%WDM_P16X.Topology.szPname%
+
+[WDM_P16X.Interface.UART]
+AddReg=WDM_P16X.Interface.UART.AddReg
+[WDM_P16X.Interface.UART.AddReg]
+HKR,,FriendlyName,,%WDM_P16X.UART.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[P16X.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,P16X.sys
+HKR,,NTMPDriver,,"P16X.sys,sbemul.sys"
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv, Description,,%P16X.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%P16X.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%P16X.DeviceDesc%
+
+HKR,"Product","Resource",,"\DosDevices\%11%\P16XRes.Dll"
+HKR,"Config","Refresh",1,1,0,0,0
+
+[P16X_Dll.AddReg]
+HKLM,%RegP16X%,"MixerName",,%WDM_P16X.Topology.szPname%
+HKLM,%RegP16X%,"WaveInName",,%WDM_P16X.Wave.szPname%
+HKLM,%RegP16X%,"WaveOutName",,%WDM_P16X.Wave.szPname%
+HKLM,%RegP16X%,"MIDIInName",,%WDM_P16X.UART.szPname%
+HKLM,%RegP16X%,"MixerDef",,%MixerDef%
+HKLM,%RegCreaf%,"DEFAULTMIDI",,%WDM_P16X.CTSynth.szPname%
+HKLM,%RegP16X%,"MIDISynthName",,%WDM_P16X.CTSynth.szPname%
+
+;;**************** NT Install ****************
+[P16X_Device.NT]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=P16X.CopyList,Resource.CopyList,Branding.CopyList,CTSynth.NT.CopyList,SFMAN.CopyList
+AddReg=P16X.AddReg,P16X_NAMES.AddReg,Branding.AddReg,P16X_Dll.AddReg,SF.Shared.AddReg,SFMS32.AddReg
+
+[P16X_Device.NT.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_SFSYNTH%,       WDM_P16X.Interface.Synth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_SFSYNTH%,      WDM_P16X.Interface.Synth
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_SFSYNTH%, WDM_P16X.Interface.Synth
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,       WDM_P16X.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,      WDM_P16X.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,     WDM_P16X.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,   WDM_P16X.Interface.Topology
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,WDM_P16X.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART%,       WDM_P16X.Interface.UART
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART%,      WDM_P16X.Interface.UART
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART%,     WDM_P16X.Interface.UART
+
+[P16X_Device.NT.Services]
+AddService = P16X, 0x00000002, P16X_Service_Inst
+AddService = ossrv,, ossrv_Service_Inst
+AddService = ctsfm2k,,sfman_Service_Inst
+
+[P16X_Service_Inst]
+DisplayName    = %P16X.DeviceDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\P16X.sys
+
+[ossrv_Service_Inst]
+DisplayName    = %OSSRV.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\ctoss2k.sys
+
+[sfman_Service_Inst]
+DisplayName    = %SFMAN.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\ctsfm2k.sys
+
+[Branding.CopyList]
+Live.ico
+Live.bmp
+
+[Branding.AddReg]
+HKR,Branding,icon,,"%10%\Live.ico"
+HKR,Branding,bitmap,,"%10%\Live.bmp"
+HKR,Branding,url,,"http://www.soundblaster.com"
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;   Common Section   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+[DestinationDirs]
+P16X.CopyList     = 10,system32\drivers ; %SystemRoot%\system32\drivers
+DefaultDestDir    = 10,system32\drivers
+Resource.CopyList = 11
+Branding.CopyList = 10
+SFMAN.CopyList = 11
+CTSynth.NT.CopyList = 10, system32\drivers ;
+
+[P16X.CopyList]
+P16X.sys
+
+[Resource.CopyList]
+P16Xres.dll
+P16X.dll
+A3d.dll
+
+[CTSynth.NT.CopyList]
+ctoss2k.sys
+ctsfm2k.sys
+
+[SFMAN.CopyList]
+sfman32.dll
+sfms32.dll
+ct2mgm.sf2
+
+[P16X_NAMES.AddReg]
+HKLM,%MediaCategories%\%P16XGUID.PhoneVolume%,Name,,%P16XNode.PhoneVolume%
+HKLM,%MediaCategories%\%P16XGUID.PhoneVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%P16XGUID.PhoneMute%,Name,,%P16XNode.PhoneMute%
+HKLM,%MediaCategories%\%P16XGUID.PhoneMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%P16XGUID.RecordControls%,Name,,%P16XNode.RecordControls%
+HKLM,%MediaCategories%\%P16XGUID.RecordControls%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%P16XGUID.Reverb%,Name,,%P16XNode.Reverb%
+HKLM,%MediaCategories%\%P16XGUID.Reverb%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%P16XGUID.Chorus%,Name,,%P16XNode.Chorus%
+HKLM,%MediaCategories%\%P16XGUID.Chorus%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%P16XGUID.Digital%,Name,,%P16XNode.Digital%
+HKLM,%MediaCategories%\%P16XGUID.Digital%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%P16XGUID.Fader%,Name,,%P16XNode.Fader%
+HKLM,%MediaCategories%\%P16XGUID.Fader%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%P16XGUID.LFE%,Name,,%P16XNode.LFE%
+HKLM,%MediaCategories%\%P16XGUID.LFE%,Display,1,00,00,00,00
+
+[SFMS32.AddReg]
+HKCR,SFMSMgr,,,"SoundFont Manager"
+HKCR,SFMSMgr\CLSID,,,"{57513120-F9D7-11D3-9F8E-00A0C92C17A1}"
+HKCR,CLSID\{57513120-F9D7-11D3-9F8E-00A0C92C17A1},,,"SoundFont Manager"
+HKCR,CLSID\{57513120-F9D7-11D3-9F8E-00A0C92C17A1}\InprocServer32,,,"SFMS32.DLL"
+HKCR,CLSID\{57513120-F9D7-11D3-9F8E-00A0C92C17A1}\InprocServer32,"ThreadingModel", ,"Apartment"
+HKR,DevName,MIDISynthName,,%WDM_P16X.CTSynth.szPname%
+
+[SF.Shared.AddReg]
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,DeviceName,,"\Device\CTSFM2K"
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,ServiceName,,"ctsfm2k"
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,FileDeviceType,0x00010001,51
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,ServiceType,0x00010001,28
+
+[SourceDisksNames]
+101 = %DriverDisk1%,,
+102 = %DriverDisk2%,,
+103 = %DriverDisk3%,,
+
+[SourceDisksFiles]
+P16X.sys     = 101
+ctoss2k.sys   = 101
+ctsfm2k.sys   = 101
+sfman32.dll   = 101
+sfms32.dll    = 101
+ct2mgm.sf2    = 101
+
+;===Disk 2===
+P16Xres.dll  = 102
+P16X.dll     = 102
+A3d.dll      = 102
+Live.ico     = 102
+Live.bmp     = 102
+
+
+[Strings]
+MfgName                  ="Creative Technology Ltd."
+
+P16X.DeviceDesc          ="Creative SB Live! Series (WDM)"
+WDM_P16X.Wave.szPname    ="Creative SB Live! Series"
+WDM_P16X.Topology.szPname="Creative SB Live! Series"
+WDM_P16X.UART.szPname    ="Creative SB Live! External MIDI"
+WDM_P16X.CTSynth.szPname  ="Creative SoundFont Synth"
+
+DriverDisk1              ="Creative SB Live! Series (WDM) Audio Driver Disk 1 or CD"
+DriverDisk2              ="Creative SB Live! Series (WDM) Audio Driver Disk 2"
+DriverDisk3              ="Creative SB Live! Series (WDM) Audio Driver Disk 3"
+
+MediaCategories          ="SYSTEM\CurrentControlSet\Control\MediaCategories"
+RegCreaf                 ="Software\Creative Tech"
+RegP16X                  ="Software\Creative Tech\P16X"
+OSSRV.SvcDesc           = "Creative OS Services Driver"
+SFMAN.SvcDesc           = "Creative SoundFont Management Device Driver"
+RegMixerName             ="Software\Creative Tech\MixerName"
+MixerDef                 ="MixDef.Ini"
+StrCTKey="SYSTEM\CurrentControlSet\Control\Creative Tech"
+SFM_BINARY_CLSID="{945DD118-E139-41c4-A916-FA65053774C2}"
+
+Proxy.CLSID              ="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO         ="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER        ="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE       ="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_TOPOLOGY      ="{DDA54A40-1E4C-11D1-A050-405705C10000}"
+KSCATEGORY_SYNTHESIZER   ="{DFF220F3-F70F-11D0-B917-00A0C9223196}"
+KSNAME_Wave              ="Wave"
+KSNAME_UART              ="UART"
+KSNAME_Topology          ="Topology"
+KSNAME_SFSYNTH          ="CTSynth"
+
+;; Nodes (non-localizeable)
+P16XGUID.PhoneVolume     ="{381CE89E-F873-40c9-A33B-D00ABB39A709}"
+P16XGUID.PhoneMute       ="{F5083FF2-4F53-4879-8A4D-E55D7ADAD7E1}"
+P16XGUID.RecordControls  ="{A1A92EBE-8345-4174-9150-81BD83C1CAD0}"
+P16XGUID.Reverb          ="{D4F24431-D560-11d3-A839-00902744A2E3}"
+P16XGUID.Chorus          ="{D4F24432-D560-11d3-A839-00902744A2E3}"
+P16XGUID.Digital         ="{B889DF81-C632-4d81-AFD0-E2BC80B2C08A}"
+P16XGUID.Fader           ="{D4F24434-D560-11d3-A839-00902744A2E3}"
+P16XGUID.LFE		 ="{CFA7B8EE-E21A-4f59-9013-D779A3B407C3}"
+
+;; Nodes (localizeable)
+P16XNode.PhoneVolume     ="TAD-In Volume"
+P16XNode.PhoneMute       ="TAD-In Mute"
+P16XNode.RecordControls  ="Recording Control"
+P16XNode.Reverb          ="Reverb"
+P16XNode.Chorus          ="Chorus"
+P16XNode.Digital         ="Digital Output Only"
+P16XNode.Fader           ="Front Rear Balance"
+P16XNode.LFE		 ="LFE Bass"

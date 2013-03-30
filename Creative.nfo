@@ -1,0 +1,64 @@
+13.03.4
+-------
++ Добавлены драйверы Onkyo Wavio SE-300PCIE 2.16.0004.42
+
+
+13.03.3
+-------
++ Добавлены драйверы Sound Blaster Live! Value 3516.0
+* Обновлены драйверы Sound Blaster Live! 24-bit, SB Audigy, SB Audigy LS, SB 5.1 5.12.01.519
+
+
+13.03.2
+-------
+* Обновлены драйверы Sound Blaster Z/Zx/ZxR 6.0.102.0015
+
+
+13.02.4
+-------
++ Добавлены драйверы Sound Blaster PCI Family серий 1274 5.12.01.5017
+
+
+13.02.2
+-------
+* Обновлены драйверы Sound Blaster Recon3D, Recon3D Omega Wireless 1.03.14.02
+
+
+13.01.4
+-------
++ Добавлены драйверы Gigabyte 6.0.01.1327
+* Обновлены драйверы Sound Blaster Recon3D PCIe 6.0.101.0047
+
+
+13.01.3
+-------
++ Добавлены драйверы Auzentech X-Fi Forte, HomeTheater HD 6.0.01.1403
++ Добавлены драйверы Auzentech X-Fi Bravura 6.10.0.305
++ Добавлены драйверы Auzentech X-Fi Prelude 6.0.01.1285
+
+
+13.01.2
+-------
+* Обновлены драйверы Sound Blaster X-Fi Elite Pro, Fatal1ty, Platinum, XtremeGamer, XtremeMusic, Platinum Fatal1ty Champion Series, XtremeGamer Fatal1ty® Professional Series 6.0.01.1376
++ Добавлены драйверы Sound Blaster Live! 5.1 (Dell) 5.12.01.0203
++ Добавлены драйверы Sound Blaster Live! 24-bit External, MP3+, Digital Music, Digital Music LX 1.00.004, 1.04.035
+
+
+13.01.1
+-------
+* Обновлены драйверы Sound Blaster X-Fi Titanium 2.17.0009.1
+* Обновлены драйверы Sound Blaster Recon3D PCIe 6.0.101.0046
+* Обновлены драйверы Sound Blaster Live! 4.1, 5.1/PCI 512 2.18.0017.9
+
+
+13.00.1
+-------
++ Добавлены драйверы Sound Blaster Z/Zx 6.0.101.2028
+
+
+13.00.0
+-------
+* Каталогизация драйверов по вендорам и удаление дубликатов
+
+
+За создание драйвер-пака спасибо Lisabon

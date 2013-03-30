@@ -1,0 +1,22 @@
+
+SB24_PCDRV_LB_WIN8_1_04_0090
+
+Ğàçìåğ ôàéëà : 44,53 MB
+
+Äàòà âûïóñêà : 25 îêò 12
+
+Èìÿ ôàéëà : SB24_PCDRV_LB_WIN8_1_04_0090.exe
+
+This download is a driver providing Microsoft® Windows® support for Creative Sound Blaster® Audigy® SE. For more details, read the rest of this web release note.  
+
+Requirements:
+Microsoft Windows 8 64-bit or 32-bit, Windows 7 64-bit or 32-bit, Windows Vista 64-bit with Service Pack 1 (SP1) or Windows Vista 32-bit with SP1 
+Sound Blaster Audigy SE 
+
+Notes:    
+To install this driver 
+Download the file onto your local hard disk.
+Close all other Windows applications.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+

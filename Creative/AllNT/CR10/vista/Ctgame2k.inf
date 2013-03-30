@@ -1,0 +1,80 @@
+;-------------------------------------------------------------------------
+; Creative Technology Ltd.
+;     Copyright (c) Creative Technology Ltd, 1994-2003.
+;
+; Description
+;     This inf file contains the following device for Creative's gameport.
+;
+;  Gameport Device - PCI\VEN_1102&DEV_7002&CC_098000
+;
+; Modified Date: 1 March 2004
+; Version: 2.0.1.3
+;-------------------------------------------------------------------------
+[Version]
+Signature="$Windows NT$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%CREAF%
+LayoutFile=layout.inf
+DriverVer=04/01/2006, 5.12.02.0000
+CatalogFile=ctgame2k.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[Manufacturer]
+%CreativeLabs%=CreativeLabs, NTAMD64, NTIA64
+
+[CreativeLabs]
+%CreativeLabsPort.DeviceDesc%=CreativeLabs_Port, PCI\VEN_1102&DEV_7002&CC_098000
+
+[CreativeLabs.NTAMD64]
+%CreativeLabsPort.DeviceDesc%=CreativeLabs_Port, PCI\VEN_1102&DEV_7002&CC_098000
+
+[CreativeLabs_Port.NT]
+DriverVer = 01/29/2003, 1.0
+CopyFiles=GamePort_Device.CopyFiles.NT
+
+[CreativeLabs_Port.NT.Services]
+AddService = ctgame,%SPSVCINST_ASSOCSERVICE%,GamePort_Service_Inst
+
+[SourceDisksNames]
+55=%StrDisk%,"",
+
+[SourceDisksFiles]
+ctgame.sys=55,Win2K_XP\i386
+
+[SourceDisksFiles.AMD64]
+ctgame.sys=55,Win2K_XP\amd64
+
+[GamePort_Device.CopyFiles.NT]
+ctgame.sys
+
+[GamePort_Service_Inst]
+DisplayName    = %gameport.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 0                  ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\ctgame.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+CREAF="Creative"
+MediaClassName = "Sound, video and game controllers"
+
+gameport.SvcDesc = "Game Port"
+
+;
+;  Game card manufacturers
+;
+CreativeLabs                 = "Creative Technology Ltd."
+
+
+;
+;  Device descriptions for known game ports
+;
+
+CreativeLabsPort.DeviceDesc     = "Creative Game Port"
+StrDisk="Creative Installer CD-ROM"
+

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+  <info>
+    <avatar>cf3d08d391f84aefb4cf64c253d5fbdb.jpg</avatar>
+    <profile_name>Driving Simulation</profile_name>
+    <profile_id>5</profile_id>
+    <version>1.0</version>
+  </info>
+  <settings>
+    <thx_surround enable="true" level="0.2" />
+    <thx_crystalizer enable="false" level="0.4" />
+    <thx_bass />
+    <thx_svm enable="false" level="0.8" mode="0" />
+    <thx_dlgplus enable="true" level="0.35" />
+    <voicefx enable="false" preset="1" />
+    <vip_svm enable="true" level="0.74" />
+    <noise_reduction enable="true" />
+    <aec enable="false" />
+    <voice_fcs enable="false" level="30" />
+    <swf_mgt enable="false" cross_freq="80" gain="false" />
+    <graphic_eq enable="true" preset="0" preamp="0" band0="4" band1="4" band2="2" band3="-1" band4="2" band5="2" band6="1" band7="2" band8="4" band9="2" />
+  </settings>
+</profile>

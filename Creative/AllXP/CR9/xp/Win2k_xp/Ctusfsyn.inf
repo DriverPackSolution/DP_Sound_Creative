@@ -1,0 +1,197 @@
+; Creative Software SoundFont Synthesizer INF File
+;
+; Language : English
+;
+; Copyright 1995-2006, Creative Technology Ltd.
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%MfgName%
+CatalogFile.NTX86=sfsyn.cat
+CatalogFile.NTAMD64=sfsyn64.cat
+DriverVer=08/24/2006,5.12.1.415
+
+[Manufacturer]
+%MfgName%=Creative, NTAMD64
+
+[DefaultInstall.NT]
+AddReg = WDM_SFSYNTH.DeviceRegistration
+
+[Creative]
+%WDM_SFSYNTH.DeviceDesc%   = WDM_SFSYNTH,   SW\{FEF6DAE8-FDA7-43fc-8825-1101DEDE9255}
+
+[Creative.NTAMD64]
+%WDM_SFSYNTH.DeviceDesc%   = WDM_SFSYNTH,   SW\{FEF6DAE8-FDA7-43fc-8825-1101DEDE9255}
+
+[SourceDisksNames]
+222=%DiskDescription%,,
+
+[SourceDisksFiles]
+ctusfsyn.sys=222,W2KXPDRV
+ctoss2k.sys =222,W2KXPDRV
+ctsfm2k.sys =222,W2KXPDRV
+sfman32.dll =222,W2KXPDRV
+sfms32.dll  =222,W2KXPDRV
+ct4mgm.sf2  =222,W2KXPDRV
+default4.sfm =222,W2KXPDRV
+
+[SourceDisksFiles.amd64]
+ctusfsyn.sys=222,WXP64DRV
+ctoss2k.sys =222,WXP64DRV
+ctsfm2k.sys =222,WXP64DRV
+sfman32.dll =222,WXP64DRV
+sfms32.dll  =222,WXP64DRV
+ct4mgm.sf2  =222,WXP64DRV
+default4.sfm =222,WXP64DRV
+
+[DestinationDirs]
+WDM_SFSYNTH.CopyFiles = 10,system32\drivers ; %SystemRoot%\system32\drivers
+WDM_SFSYNTH.CopyFiles.ntamd64 = 10,system32\drivers ; %SystemRoot%\system32\drivers		
+SFSynth.NT.CopyList    = 10,system32\drivers ; %SystemRoot%\system32\drivers
+SFMAN.CopyList	       = 11		     ; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+SFMANWOW.CopyList      = 10,SysWOW64
+SFBank.CopyList	       = 11		     ; (Win9X)%Windows%\system,(WinNT)%SystemRoot%\system32
+
+;;**************** NT Install ****************
+[WDM_SFSYNTH.NT]
+;;Include=ks.inf, wdmaudio.inf
+;;Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles = WDM_SFSYNTH.CopyFiles,SFSynth.NT.CopyList,SFMAN.CopyList,SFBANK.COPYLIST
+AddReg=WDM_SFSYNTH.DeviceRegistration,WDM_SFSYNTH.AddReg,SF.Shared.AddReg,SFMS32.AddReg
+
+[WDM_SFSYNTH.NTAMD64]
+;;Include=ks.inf, wdmaudio.inf
+;;Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles = WDM_SFSYNTH.CopyFiles.ntamd64,SFSynth.NT.CopyList,SFMAN.CopyList,SFMANWOW.CopyList,SFBANK.COPYLIST
+AddReg=WDM_SFSYNTH.DeviceRegistration,WDM_SFSYNTH.AddReg.NTAMD64,SF.Shared.AddReg,SFMS32.AddReg
+
+[WDM_SFSYNTH.NT.Services]
+AddService = CTUSFSYN, 0x00000002, SFSynth_Service_Inst
+AddService = ossrv,, ossrv_Service_Inst
+AddService = ctsfm2k,, sfman_Service_Inst
+
+[WDM_SFSYNTH.NTAMD64.Services]
+AddService = CTUSFSYN, 0x00000002, SFSynth_Service_Inst_AMD64
+AddService = ossrv,, ossrv_Service_Inst
+AddService = ctsfm2k,, sfman_Service_Inst
+
+;;[WDM_SFSYNTH.NT.Interfaces]
+;;AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_SFSYNTH%,WDM_SFSYNTH.Interface.Install
+;;AddInterface = %KSCATEGORY_DATATRANSFORM%,%KSNAME_SFSYNTH%,WDM_SFSYNTH.Interface.Install
+;;AddInterface = %KSCATEGORY_SYNTHESIZER%,%KSNAME_SFSYNTH%,WDM_SFSYNTH.Interface.Install
+
+[WDM_SFSYNTH.CopyFiles]
+ctusfsyn.sys
+
+[WDM_SFSYNTH.CopyFiles.NTAMD64]
+ctusfsyn.sys
+
+[SFSynth.NT.CopyList]
+ctoss2k.sys
+ctsfm2k.sys
+
+[SFMAN.CopyList]
+sfman32.dll
+sfms32.dll
+
+[SFMANWOW.CopyList]
+sfman32.dll
+sfms32.dll
+
+[SFBank.CopyList]
+ct4mgm.sf2
+default4.sfm
+
+[WDM_SFSYNTH.DeviceRegistration]
+HKLM,%RunOnce%,"WDM_SFSYNTH0",,"rundll32.exe streamci.dll,StreamingDeviceSetup %WDM_SFSYNTH.DeviceId%,%KSNAME_SFSYNTH%,%KSCATEGORY_DATATRANSFORM%,%01%\ctusfsyn.inf,WDM_SFSYNTH.Interface.Install"
+HKLM,%RunOnce%,"WDM_SFSYNTH1",,"rundll32.exe streamci.dll,StreamingDeviceSetup %WDM_SFSYNTH.DeviceId%,%KSNAME_SFSYNTH%,%KSCATEGORY_SYNTHESIZER%,%01%\ctusfsyn.inf,WDM_SFSYNTH.Interface.Install"
+HKLM,%RunOnce%,"WDM_SFSYNTH2",,"rundll32.exe streamci.dll,StreamingDeviceSetup %WDM_SFSYNTH.DeviceId%,%KSNAME_SFSYNTH%,%KSCATEGORY_AUDIO%,%01%\ctusfsyn.inf,WDM_SFSYNTH.Interface.Install"
+HKLM,%MediaCategories%\%WDM_SFSYNTH.GUID%,Name,,%WDM_SFSYNTH.Pin%
+HKLM,%MediaCategories%\%WDM_SFSYNTH.GUID%,Display,1,00,00,00,00
+
+[WDM_SFSYNTH.Interface.Install]
+AddReg=WDM_SFSYNTH.Interface.AddReg
+
+[WDM_SFSYNTH.Interface.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM_SFSYNTH.FriendlyName%
+
+[WDM_SFSYNTH.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,ctusfsyn.sys
+HKLM,%StrCTKey%\SFSWEng\SoundFont,SoundFontBank,,"DEFAULT4.SFM"
+
+[WDM_SFSYNTH.AddReg.NTAMD64]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,ctusfsyn.sys
+HKLM,%StrCTKey%\SFSWEng\SoundFont,SoundFontBank,,"DEFAULT4.SFM"
+
+[SF.Shared.AddReg]
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,DeviceName,,"\Device\CTSFM2K"
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,ServiceName,,"ctsfm2k"
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,FileDeviceType,0x00010001,51
+HKLM,%StrCTKey%\BinaryClassID\%SFM_BINARY_CLSID%,ServiceType,0x00010001,28
+
+[SFMS32.AddReg]
+HKCR,SFMSMgr,,,"SoundFont Manager"
+HKCR,SFMSMgr\CLSID,,,"{57513120-F9D7-11D3-9F8E-00A0C92C17A1}"
+HKCR,CLSID\{57513120-F9D7-11D3-9F8E-00A0C92C17A1},,,"SoundFont Manager"
+HKCR,CLSID\{57513120-F9D7-11D3-9F8E-00A0C92C17A1}\InprocServer32,,,"SFMS32.DLL"
+HKCR,CLSID\{57513120-F9D7-11D3-9F8E-00A0C92C17A1}\InprocServer32,"ThreadingModel", ,"Apartment"
+HKR,DevName,MIDISynthName,,%WDM_SFSYNTH.FriendlyName%
+
+[SFSynth_Service_Inst]
+DisplayName    = %WDM_SFSYNTH.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ctusfsyn.sys
+
+[SFSynth_Service_Inst_AMD64]
+DisplayName    = %WDM_SFSYNTH.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ctusfsyn.sys
+
+[ossrv_Service_Inst]
+DisplayName    = %OSSRV.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\ctoss2k.sys
+
+[sfman_Service_Inst]
+DisplayName    = %SFMAN.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\ctsfm2k.sys
+
+[Strings]
+MfgName                  = "Creative"
+WDM_SFSYNTH.DeviceDesc   = "Creative SoundFont Synthesizer"
+WDM_SFSYNTH.SvcDesc      = "Creative SoundFont Synthesizer"
+
+WDM_SFSYNTH.Pin          = "Creative SoundFont Synthesizer"
+WDM_SFSYNTH.GUID         = "{BD693698-B783-4019-83DF-793A0D9865BE}"
+WDM_SFSYNTH.DeviceId     = "{FEF6DAE8-FDA7-43fc-8825-1101DEDE9255}"
+
+MediaCategories          = "SYSTEM\CurrentControlSet\Control\MediaCategories"
+RunOnce                  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
+Proxy.CLSID              = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSNAME_SFSYNTH           = "CTUSFSYN"
+
+KSCATEGORY_DATATRANSFORM = "{2EB07EA0-7E70-11D0-A5D6-28DB04C10000}"
+KSCATEGORY_SYNTHESIZER   = "{DFF220F3-F70F-11D0-B917-00A0C9223196}"
+KSCATEGORY_AUDIO         = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+
+DiskDescription          = "Creative Installer"
+WDM_SFSYNTH.FriendlyName = "Creative SoundFont Synthesizer"
+
+OSSRV.SvcDesc            = "Creative OS Services Driver"
+SFMAN.SvcDesc            = "Creative SoundFont Management Device Driver"
+SFM_BINARY_CLSID	 = "{945DD118-E139-41c4-A916-FA65053774C2}"
+StrCTKey		 = "SYSTEM\CurrentControlSet\Control\Creative Tech"

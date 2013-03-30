@@ -1,0 +1,26 @@
+ 
+SBL_PC64DRVBETA_LB_2_03_0005
+
+Ğàçìåğ ôàéëà : 21,23 MB
+
+Äàòà âûïóñêà : 12 àâã 05
+
+Èìÿ ôàéëà : SBL_PC64DRVBETA_LB_2_03_0005.exe
+
+This beta driver release provides Microsoft® Windows® XP Professional x64 Edition support for Sound Blaster® Live! series internal audio cards only.
+
+Requirements:
+Windows XP Professional x64 Edition
+Creative Sound Blaster Live! series internal audio card only
+
+Notes:
+This driver is only for Windows XP Professional x64 Edition.
+This is an unsupported beta driver. Only experienced users should attempt installing this driver. Do not install this driver for critical tasks.
+This beta release is not digitally signed. When the Microsoft Digital Signature dialog box appears, click the Continue Anyway button.
+Do not install this driver for Creative Sound Blaster Live! 24-bit series or USB Sound Blaster Live! 24-bit External audio devices.
+To install the driver, do the following:
+Uninstall any existing audio device drivers.
+Make sure that no other applications are running or active in your computer.
+Double-click the downloaded file and follow the instructions on the screen.
+Restart your computer to complete the installation.
+

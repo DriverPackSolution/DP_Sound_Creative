@@ -1,0 +1,31 @@
+
+SBRP_CD_LD_1_00_31
+
+Filesize : 158.26 MB
+
+Release date : 18 Jan 13
+
+File Name : SBRP_CD_LD_1_00_31.exe
+
+This download contains the software update for the Sound Blaster® Recon3D PCIe Series' installation CD. For more details, please read the rest of this web release note. 
+
+This download supports and is applicable for the following bundles:
+Sound Blaster Recon3D PCIe
+Sound Blaster Recon3D PCIe Fatal1ty Champion
+Sound Blaster Recon3D PCIe Fatal1ty Professional
+Sound Blaster Recon3D PCIe Professional Audio
+
+Added Enhancement / Features:
+Multiple fixes that improves the driver's overall stability and performance.
+
+Requirements:
+Microsoft® Windows 8 32-bit or 64-bit, Windows 7 32-bit or 64-bit
+Any sound card listed above
+
+Notes:
+To install this pack, do the following: 
+Download the file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on screen.
+Restart your computer when prompted.
+

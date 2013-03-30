@@ -1,0 +1,36 @@
+
+AZT_BRAVURA_RC1_21DEC10
+
+X-Fi Bravura 7.1 (Win 7, XP and Vista.) 
+
+Driver release Information:
+
+This driver supports the following operating systems:
+Microsoft Windows® 7 
+ 32-bit and 64-bit 
+Microsoft Windows® Vista 
+ 32-bit and 64-bit 
+Microsoft Windows® XP 
+ 32-bit and 64-bit
+
+Release information: 
+Driver Name: Auzentech X-Fi Bravura Driver RC1 
+File Name: AZT_BRAVURA_RC1_21DEC10.zip 
+Download Size: 192 Mb Zipped file 
+Release Date: 12/21/2010 
+
+download
+
+Changes in this Driver
+The RC1 driver enjoys a full suite of certifications: Windows Logo Certification, DTS Neo:PC certification, and DTS Interactive certification.
+
+Instructions
+If you have previously installed the driver. First uninstall the driver and reboot your PC. 
+Download and unzip the new driver. 
+Browse to the new driver folder > Audio folder > Setup folder. 
+Double-click "setup.exe."
+Reboot your PC after completing the installation.
+
+* Notes: 
+NA
+

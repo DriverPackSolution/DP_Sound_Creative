@@ -1,0 +1,340 @@
+; Creative SB Extigy INF file
+;
+; Language : English
+;
+; Date     : 17 APR 2002
+; Revision : 1.00.004
+;
+; Copyright 2001, Creative Technology Ltd.
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318} 
+CatalogFile=SBExt.cat
+provider=%MfgName%
+DriverVer=04/17/2002
+
+[SourceDisksNames]
+101 = %DriverDisk1%,,
+
+[SourceDisksFiles]
+sbext.sys     = 101
+eapci2m.ecw   = 101
+AudCtrl.dll   = 101
+a3d.dll       = 101
+
+[Manufacturer]
+%MfgName%=CREATIVE
+
+;; Mechanism for excluding drivers from the "Add New Hardware" list.
+[ControlFlags]
+
+;; *EXCLUDE is a made up ID to prevent rank 1 drivers from showing in list.
+ExcludeFromSelect = *
+
+[CREATIVE]
+;Creative 
+%USB\VID_041E&PID_3000&MI_00.DeviceDesc%=SBEXT_Device, USB\VID_041E&PID_3000&MI_00
+
+[SBEXT_Device]
+AlsoInstall=ks.registration(ks.inf),wdmaudio.registration(wdmaudio.inf)
+CopyFiles=SBEXT.CopyList,Waveset.CopyList,A3D.CopyList,Utility.CopyList
+AddReg=SBEXT.AddReg,SBEXT_NAMES.AddReg,Waveset.AddReg,AudCtrl.AddReg,A3D.AddReg
+
+[SBEXT_Device.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DMus%,       SBEXT.Interface.DMus
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DMus%,      SBEXT.Interface.DMus
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_DMus%, SBEXT.Interface.DMus
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,       SBEXT.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,      SBEXT.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,     SBEXT.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,   SBEXT.Interface.Topology
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,SBEXT.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART%,       SBEXT.Interface.UART
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART%,      SBEXT.Interface.UART
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART%,     SBEXT.Interface.UART
+
+[SBEXT.Interface.DMus]
+AddReg=SBEXT.Interface.DMus.AddReg
+
+[SBEXT.Interface.DMus.AddReg]
+HKR,,FriendlyName,,%SBEXT.DMus.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SBEXT.Interface.Wave]
+AddReg=SBEXT.Interface.Wave.AddReg
+
+[SBEXT.Interface.Wave.AddReg]
+HKR,,FriendlyName,,%SBEXT.Wave.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SBEXT.Interface.Topology]
+AddReg=SBEXT.Interface.Topo.AddReg
+;; warning!! must be "Topo" because "Topology" is too long
+
+[SBEXT.Interface.Topo.AddReg]
+HKR,,FriendlyName,,%SBEXT.Topology.szPname%
+
+[SBEXT.Interface.UART]
+AddReg=SBEXT.Interface.UART.AddReg
+
+[SBEXT.Interface.UART.AddReg]
+HKR,,FriendlyName,,%SBEXT.UART.szPname%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[SBEXT.AddReg]
+HKR,,SetupPreferredAudioDevices,3,01,00,00,00
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,sbext.sys
+HKR,,NTMPDriver,,"sbext.sys"
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv, Description,,%SBEXT.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%SBEXT.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%SBEXT.DeviceDesc%
+
+; Digital support
+; Analog     = 0x00000000
+; Digital    = 0x00000001
+; Autosense  = 0x00000002
+; No Digital = 0x0000ffff
+
+HKR,Config,Refresh,1,1,0,0,0
+
+[Waveset.AddReg]
+HKR,Waveset,Current,1,00,00,00,00
+HKR,Waveset\0000,Filename,,"\DosDevices\%10%\system32\drivers\eapci2m.ecw"
+HKR,Waveset\0000,Title,,"2 Megabyte General MIDI"
+
+[AudCtrl.AddReg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,"AudCtrl",,"RunDll32 AudCtrl.dll,RCMonitor"
+
+[A3D.AddReg]
+HKCR,A3D,,,"A3d Object"
+HKCR,A3D\CLSID,,,"{D8F1EEE0-F634-11CF-8700-00A0245D918B}"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B},,,"A3D Object"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B}\InprocServer32,,,"A3D.DLL"
+HKCR,CLSID\{D8F1EEE0-F634-11CF-8700-00A0245D918B}\InprocServer32,"ThreadingModel", ,"Apartment"
+
+[SBEXT_NAMES.AddReg]
+HKR,"Product",Name,,%SBEXT.Product%
+HKLM,"Software\Creative Tech\SBExtigy",ProductInf,,"%InfFileName%"
+
+;; Copy friendly names to a location the driver knows
+HKLM,%DevInfo%,%WaveOutDevName%,,%SBEXT.Wave.szPname%
+HKLM,%DevInfo%,%WaveInDevName%,,%SBEXT.Wave.szPname%
+HKLM,%DevInfo%,%MIDIOutDevName%,,%SBEXT.UART.szPname%
+HKLM,%DevInfo%,%MIDIInDevName%,,%SBEXT.UART.szPname%
+HKLM,%DevInfo%,%MixerDevName%,,%SBEXT.Topology.szPname%
+HKLM,%DevInfo%,%MIDIWTSynthDevName%,,%SBEXT.DMus.szPname%
+
+;; All strings that appear in the mixer should appear here
+;; Remember to add the LongName to ShortName entry in %MixerName%
+;; so that our mixer can display the correct Icon
+HKLM,%MediaCategories%\%SBEXTGUID.Chorus%,Name,,%KSNode.CHORUS%
+HKLM,%MixerName%,%KSNode.Chorus%,,%KSNodeShort.Chorus%
+HKLM,%MediaCategories%\%SBEXTGUID.DigitalIn%,Name,,%KSNode.DIGITALIN%
+HKLM,%MixerName%,%KSNode.DIGITALIN%,,%KSNodeShort.DIGITALIN%
+HKLM,%MediaCategories%\%SBEXTGUID.WhatUHear%,Name,,%KSNode.WhatUHear%
+HKLM,%MixerName%,%KSNode.WhatUHear%,,%KSNodeShort.WhatUHear%
+HKLM,%MediaCategories%\%SBEXTGUID.HostMix%,Name,,%KSNode.HostMix%
+HKLM,%MixerName%,%KSNode.HostMix%,,%KSNodeShort.HostMix%
+
+HKLM,%MediaCategories%\%SBEXTGUID.PlayCtrl%,Name,,%KSNode.PlayCtrl%
+HKLM,%MixerName%,%KSNode.PlayCtrl%,,%KSNodeShort.PlayCtrl%
+HKLM,%MediaCategories%\%SBEXTGUID.RecCtrl%,Name,,%KSNode.RecCtrl%
+HKLM,%MixerName%,%KSNode.RecCtrl%,,%KSNodeShort.RecCtrl%
+HKLM,%MediaCategories%\%SBEXTGUID.DestEfxFader%,Name,,%KSNode.DestEfxFader%
+HKLM,%MixerName%,%KSNode.DestEfxFader%,,%KSNodeShort.DestEfxFader%
+HKLM,%MediaCategories%\%SBEXTGUID.Bass%,Name,,%KSNode.Bass%
+HKLM,%MixerName%,%KSNode.Bass%,,%KSNodeShort.Bass%
+HKLM,%MediaCategories%\%SBEXTGUID.Treble%,Name,,%KSNode.Treble%
+HKLM,%MixerName%,%KSNode.Treble%,,%KSNodeShort.Treble%
+
+HKLM,%MediaCategories%\%SBEXTGUID.Wave%,Name,,%KSNode.Wave%
+HKLM,%MixerName%,%KSNode.Wave%,,%KSNodeShort.Wave%
+HKLM,%MediaCategories%\%SBEXTGUID.MIDI%,Name,,%KSNode.MIDI%
+HKLM,%MixerName%,%KSNode.MIDI%,,%KSNodeShort.MIDI%
+HKLM,%MediaCategories%\%SBEXTGUID.LineIn%,Name,,%KSNode.LineIn%
+HKLM,%MixerName%,%KSNode.LineIn%,,%KSNodeShort.LineIn%
+HKLM,%MediaCategories%\%SBEXTGUID.Mic%,Name,,%KSNode.Mic%
+HKLM,%MixerName%,%KSNode.Mic%,,%KSNodeShort.Mic%
+HKLM,%MediaCategories%\%SBEXTGUID.CDAudio%,Name,,%KSNode.CD%
+HKLM,%MixerName%,%KSNode.CD%,,%KSNodeShort.CDAudio%
+
+;; Make another copy of mixer names so that AudCtrl can restore at startup
+HKLM,%MyMixerName%,%KSNodeShort.Chorus%,,%KSNode.Chorus%
+HKLM,%MyMixerName%,%KSNodeShort.DIGITALIN%,,%KSNode.DIGITALIN%
+HKLM,%MyMixerName%,%KSNodeShort.WhatUHear%,,%KSNode.WhatUHear%
+HKLM,%MyMixerName%,%KSNodeShort.HostMix%,,%KSNode.HostMix%
+HKLM,%MyMixerName%,%KSNodeShort.PlayCtrl%,,%KSNode.PlayCtrl%
+HKLM,%MyMixerName%,%KSNodeShort.RecCtrl%,,%KSNode.RecCtrl%
+HKLM,%MyMixerName%,%KSNodeShort.DestEfxFader%,,%KSNode.DestEfxFader%
+HKLM,%MyMixerName%,%KSNodeShort.Bass%,,%KSNode.Bass%
+HKLM,%MyMixerName%,%KSNodeShort.Treble%,,%KSNode.Treble%
+HKLM,%MyMixerName%,%KSNodeShort.Wave%,,%KSNode.Wave%
+HKLM,%MyMixerName%,%KSNodeShort.MIDI%,,%KSNode.MIDI%
+HKLM,%MyMixerName%,%KSNodeShort.LineIn%,,%KSNode.LineIn%
+HKLM,%MyMixerName%,%KSNodeShort.Mic%,,%KSNode.Mic%
+HKLM,%MyMixerName%,%KSNodeShort.CDAudio%,,%KSNode.CD%
+
+[DestinationDirs]
+SBEXT.CopyList   = 10,system32\drivers ; %SystemRoot%\system32\drivers
+Waveset.CopyList = 10,system32\drivers ; %SystemRoot%\system32\drivers
+DefaultDestDir   = 10,system32\drivers
+A3D.CopyList     = 11
+Utility.CopyList = 11
+
+[SBEXT.CopyList]
+sbext.sys
+
+[Waveset.CopyList]
+eapci2m.ecw
+
+[A3D.CopyList]
+a3d.dll
+
+[Utility.CopyList]
+AudCtrl.dll
+
+;;**************** NT Install ****************
+
+[SBEXT_Device.NT]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=SBEXT.CopyList,Waveset.CopyList,A3D.CopyList,Utility.CopyList
+AddReg=SBEXT.AddReg,SBEXT_NAMES.AddReg,Waveset.AddReg,AudCtrl.AddReg,A3D.AddReg
+
+[SBEXT_Device.NT.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_DMus%,       SBEXT.Interface.DMus
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_DMus%,      SBEXT.Interface.DMus
+AddInterface=%KSCATEGORY_SYNTHESIZER%,%KSNAME_DMus%, SBEXT.Interface.DMus
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,       SBEXT.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,      SBEXT.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,     SBEXT.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,   SBEXT.Interface.Topology
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,SBEXT.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART%,       SBEXT.Interface.UART
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART%,      SBEXT.Interface.UART
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART%,     SBEXT.Interface.UART
+
+[SBEXT_Device.NT.Services]
+AddService = swmidi,  0x00000000, swmidi_Service_Inst
+AddService = sbext, 0x00000002, SBEXT_Service_Inst
+
+;[wdmaud_Service_Inst]
+;DisplayName    = %wdmaud.SvcDesc%
+;ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+;StartType      = 1                  ; SERVICE_SYSTEM_START
+;ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+;ServiceBinary  = %12%\wdmaud.sys
+
+[swmidi_Service_Inst]
+DisplayName    = %swmidi.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 1                  ; SERVICE_SYSTEM_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\swmidi.sys
+
+[SBEXT_Service_Inst]
+DisplayName    = %sbext.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\sbext.sys
+
+[Strings]
+InfFileName             ="sbext.inf"
+MfgName                 ="Creative Technology Ltd."
+SBEXT.DeviceDesc        ="Creative SB Extigy"
+SBEXT.Product           ="SB Extigy"
+SBEXT.Wave.szPname      ="Creative SB Extigy"
+SBEXT.Topology.szPname  ="Creative SB Extigy"
+SBEXT.UART.szPname      ="Creative SB Extigy MIDI UART"
+SBEXT.DMus.szPname      ="Creative SB Extigy MIDI Synth"
+DriverDisk1             ="Creative SB Extigy Installation Disk 1 or CD"
+
+USB\VID_041E&PID_3000&MI_00.DeviceDesc = "Creative SB Extigy"
+
+MediaCategories         ="SYSTEM\CurrentControlSet\Control\MediaCategories"
+
+Proxy.CLSID             ="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO        ="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER       ="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE      ="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_TOPOLOGY     ="{DDA54A40-1E4C-11D1-A050-405705C10000}"
+KSCATEGORY_SYNTHESIZER  ="{DFF220F3-F70F-11D0-B917-00A0C9223196}"
+KSNAME_Wave             ="Wave"
+KSNAME_UART             ="UART"
+KSNAME_Topology         ="Topology"
+KSNAME_DMus             ="FMSynth"
+
+wdmaud.SvcDesc          = "Microsoft WDM Virtual Wave Driver"
+swmidi.SvcDesc          = "Microsoft Software Synthesizer"
+sbext.SvcDesc           = "Sound Blaster Extigy Audio Driver"
+
+;; Device Names (non-localizable)
+DevInfo                 ="SOFTWARE\Creative Tech\SBExtigy"
+MixerName               ="SOFTWARE\Creative Tech\MixerName"
+MyMixerName             ="SOFTWARE\Creative Tech\SBExtigy\MixerName"
+WaveOutDevName          ="WaveOutName"
+WaveInDevName           ="WaveInName"
+MIDIOutDevName          ="MIDIOutName"
+MIDIInDevName           ="MIDIInName"
+MixerDevName            ="MixerName"
+MIDIWTSynthDevName      ="MIDISynthName"
+
+;; Nodes (non-localizeable)
+SBEXTGUID.PlayCtrl      ="{D00A9702-63D0-11d5-95E0-00A0C9817442}"
+SBEXTGUID.RecCtrl       ="{E615C64a-9DF6-11d5-A383-009027449656}"
+SBEXTGUID.DestEfxFader  ="{E615C647-9DF6-11d5-A383-009027449656}"
+SBEXTGUID.Bass          ="{E615C645-9DF6-11d5-A383-009027449656}"
+SBEXTGUID.Treble        ="{E615C646-9DF6-11d5-A383-009027449656}"
+
+SBEXTGUID.Chorus        ="{E615C649-9DF6-11d5-A383-009027449656}"
+
+SBEXTGUID.Wave          ="{E615C642-9DF6-11d5-A383-009027449656}"
+SBEXTGUID.MIDI          ="{E615C648-9DF6-11d5-A383-009027449656}"
+SBEXTGUID.LineIn        ="{D00A9707-63D0-11d5-95E0-00A0C9817442}"
+SBEXTGUID.Mic           ="{E615C644-9DF6-11d5-A383-009027449656}"
+SBEXTGUID.CDAudio       ="{E615C643-9DF6-11d5-A383-009027449656}"
+
+
+SBEXTGUID.DigitalIn     ="{D00A9709-63D0-11d5-95E0-00A0C9817442}"
+SBEXTGUID.WhatUHear     ="{E615C641-9DF6-11d5-A383-009027449656}"
+SBEXTGUID.HostMix       ="{E615C640-9DF6-11d5-A383-009027449656}"
+
+;; Nodes Short Names for Mixer Icon lookup (non-localizeable)
+KSNodeShort.PlayCtrl     ="Play"
+KSNodeShort.RecCtrl      ="Rec"
+KSNodeShort.DestEfxFader ="FrontRear"
+KSNodeShort.Bass         ="Bass"
+KSNodeShort.Treble       ="Treble"
+KSNodeShort.Chorus       ="Chorus"
+KSNodeShort.Wave         ="Wave"
+KSNodeShort.MIDI         ="MIDI"
+KSNodeShort.LineIn       ="Line"
+KSNodeShort.Mic          ="Mic"
+KSNodeShort.CDAudio      ="CD"
+KSNodeShort.DigitalIn    ="GPSPDIF"
+KSNodeShort.HostMix      ="HMix"
+KSNodeShort.WhatUHear    ="UHear"
+
+;; Nodes (localizeable)
+KSNode.PlayCtrl          ="Play Control"
+KSNode.RecCtrl           ="Record Control"
+KSNode.DestEfxFader      ="Front Rear Balance"
+KSNode.Bass              ="Bass"
+KSNode.Treble            ="Treble"
+KSNode.Chorus            ="MIDI Chorus"
+KSNode.Wave              ="Wave"
+KSNode.MIDI              ="MIDI"
+KSNode.LineIn            ="Line-In"
+KSNode.Mic               ="Microphone"
+KSNode.CD                ="CD Audio"
+KSNode.DigitalIn         ="SPDIF-In"
+KSNode.HostMix           ="Wave/MIDI/CD"
+KSNode.WhatUHear         ="What U Hear"

@@ -1,0 +1,33 @@
+
+XFXATHX_PCDRV_WIN8_LB_1_02_0061
+
+Ğàçìåğ ôàéëà : 27,11 MB
+
+Äàòà âûïóñêà : 19 îêò 12
+
+Èìÿ ôàéëà : XFXATHX_PCDRV_WIN8_LB_1_02_0061.exe
+
+This download contains the Sound Blaster® X-Fi™ Surround 5.1 Pro driver and Creative Audio Control Panel application for use in Microsoft® Windows®. For more details, read the rest of this web release note.
+
+This download contains the following driver and application:
+Sound Blaster X-Fi Surround 5.1 Pro driver
+Creative Audio Control Panel
+
+Added Features or Enhancements:
+Added new control under THX® TruStudio Pro Speaker to enable the Subwoofer Gain in 5.1 speaker configuration.
+
+Fixes:
+Resolves issue of not being able to control the THX TruStudio Pro Speaker effects at the SPDIF endpoint.
+Resolves issue of high CPU utilization after system resumes from Standby mode.
+Restores volume settings properly after reboot.
+
+Requirements:
+Microsoft Windows 8 64-bit or 32-bit, Windows 7 64-bit or 32-bit, Windows Vista 64-bit with Service Pack 2 (SP2), Windows Vista 32-bit with SP2, Windows XP Professional x64 Edition, Windows XP Service Pack 2, Windows XP Media Center Edition (MCE) 2005
+Sound Blaster X-Fi Surround 5.1 Pro
+
+Notes:
+To install this download: 
+Download the file onto your local hard disk. 
+Double-click the downloaded file. 
+Follow the instructions on the screen.
+

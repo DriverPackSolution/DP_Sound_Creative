@@ -1,0 +1,42 @@
+
+AZT_PRELUDE71_V1.15_SWPACK_23SEP11
+
+X-Fi Prelude Multi-OS Driver and Software Suite (Win 7, XP, and Vista, 32-bit / 64-bit ) 
+	
+Subscribe  for email updates, News, and specials as soon as they are available.
+
+Driver release Information:
+
+The X-Fi Prelude Driver supports the following operating systems:
+Microsoft Windows® 7 
+ 32-bit and 64-bit 
+Microsoft Windows® Vista 
+ 32-bit and 64-bit 
+Microsoft Windows® XP 
+ 32-bit and 64-bit
+
+Release information: 
+Driver name: Auzentech X-Fi Prelude Driver Ver 1.15
+File name: AZT_PRELUDE71_V1.15_SWPACK_23SEP11.zip
+Version: 1.15
+Download Size: 168 mb Zip
+Release Date: 09/30/2011 
+
+download
+
+Changes in this Driver
+Driver fix for BSOD encountered on 64-bit systems when playing OpenAL games.
+
+Instructions
+Important: Uninstall the current driver(s) 
+First uninstall the driver and DDL/DTS pack
+Reboot the PC
+Download and unzip the driver. 
+Browse to the new driver folder > Audio folder > Setup folder 
+Double-click ‘setup.exe’ to install
+Reboot your PC after completing the installation. 
+
+Notes: 
+DTS™ Connect available in Windows™ 7 and Windows™ Vista only.
+ou need to uninstall any previously installed X-Fi Prelude 7.1 drivers before installing. See step 1 of the instructions.
+

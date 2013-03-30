@@ -1,0 +1,27 @@
+
+SAXX_PCDRV_LD_1_03_0011
+
+Ğàçìåğ ôàéëà : 61,64 MB
+
+Äàòà âûïóñêà : 3 àâã 12
+
+Èìÿ ôàéëà : SAXX_PCDRV_LD_1_03_0011.exe
+
+This download contains the software(s) and application(s) for all models in the Sound BlasterAxx® series. The highlight of this package, the Sound BlasterAxx Control Panel, provides you with various configuration options to enhance the performance of your product. For more details, please read the rest of this web release note. 
+
+This download supports and is applicable for the following hardware: 
+Sound BlasterAxx SBX 8
+Sound BlasterAxx SBX 10
+Sound BlasterAxx SBX 20
+
+Requirements:
+Microsoft® Windows® 8 32-bit or 64-bit, Windows 7 32-bit or 64-bit, Windows Vista® 32-bit or 64-bit (SP2)
+SBX 8, SBX 10 or SBX 20
+
+Notes:
+To install this pack, do the following: 
+Download the file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+Restart your computer when prompted.
+

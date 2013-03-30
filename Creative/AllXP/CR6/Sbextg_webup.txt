@@ -1,0 +1,44 @@
+
+SBEXTG_WEBUP
+
+Sound Blaster Extigy Driver
+
+Размер файла : 8,83 MB
+
+Дата выпуска : 7 апр 02 
+Имя файла : SBEXTG_WEBUP.exe 
+This package is an update for the Sound Blaster Extigy for users running Windows 98SE, Windows ME, Windows 2000 and Windows XP. The package will update the following: 
+Sound Blaster Extigy Drivers (Update to V5.12.01.0038) 
+Sound Blaster Extigy Firmware (Update to V1.1.020507) 
+Creative Audio Mixer (Update to V2.01.15) reative Diagnostics (Update to V2.20.14) 
+Requirements
+An existing Sound Blaster Extigy software package must be installed before installing this update. In order to utilise the additional features in this driver revision, it will be necessary to install the firmware update (V1.1.020507) (SBFlash.exe) that is included in the file download. 
+
+Special Instructions
+Before you attempt to upgrade the firmware for your device, be sure that: 
+You have already installed the Sound Blaster Extigy software package in your computer. 
+You have connected Sound Blaster Extigy to your computer. 
+No other applications are running or active in your computer. 
+While the upgrade is installing, do not: 
+Disconnect Sound Blaster Extigy. 
+Start up any other application. 
+Fixes 
+Cakewalk SONAR 1.3.1 (Trial Version) detection of Sound Blaster Extigy as monaural device 
+Wave Volume level changing to the default level after forwarding, rewinding or muting the track in Audio 
+Mixer while playing back AC3 files. 
+EAX On/Off button in PlayCenter responds correctly to remote control 
+Fader and Center speaker volume in Audio Mixer is accessible after headphones are disconnected. 
+Updating drivers in Windows XP no longer requires a system restart. 
+Speaker configuration setting is saved after the restart. 
+Improved 3D audio processing. 
+Added Features 
+Enabled compressed AC3 pass-through for output to an external decoder. 
+Added Bass Management Configuration 
+Sample Rate Conversion engine has been improved to allow playback of 24bit/96KHz files through the 16bit/48KHz engine. 
+Added Firmware version information in the Audio Control. 
+Added DirectSound Voice Management in WinXP. 
+Firmware V 1.1.020507 
+Added AC3 pass-through 
+Added Bass Management Configuration 
+Improved CMSS playback quality. 
+Improved device recognition on system startup.

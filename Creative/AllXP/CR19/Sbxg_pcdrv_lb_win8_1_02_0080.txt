@@ -1,0 +1,26 @@
+
+SBXG_PCDRV_LB_WIN8_1_02_0080
+
+Ğàçìåğ ôàéëà : 116,12 MB
+
+Äàòà âûïóñêà : 19 îêò 12
+
+Èìÿ ôàéëà : SBXG_PCDRV_LB_WIN8_1_02_0080.exe 
+
+This download contains the original software(s) and application(s) found on the Sound Blaster X-Fi Go! Pro installation CD. For more details, read the rest of this web release note. 
+
+This download contains the following driver and application(s): 
+Sound Blaster X-Fi Go! Pro
+
+Requirements:  
+Microsoft® Windows® 8 64-bit or 32-bit, Windows 7 64-bit or 32-bit, Windows Vista® 64-bit or 32-bit, Windows XP Professional x64 Edition, Windows XP Service Pack 2
+Sound Blaster X-Fi Go! Pro
+Microsoft DirectX® 9.0 or later 
+
+Notes:  
+To install this pack, do the following: 
+Download the file onto your local hard disk.
+Double-click the downloaded file.
+Follow the instructions on the screen.
+Restart your computer when prompted.
+
